@@ -162,24 +162,6 @@ const Footer = () => {
 const Analytics = () => (
   <>
     {/* Google Analytics & Google Tag Manager: */}
-    <Script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-G0ZNNV3GTX"
-    />
-    <Script>
-      {`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-G0ZNNV3GTX');
-        dataLayer.push({
-          'Author': 'Alyssa Katz:Mia Hollie:Sam Rabiyah:Richard Kim',
-          'Primary_Group': 'Campaign 2023',
-          'Type': 'Interactive'
-        });`}
-    </Script>
-    {/* Parse.ly Analytics: */}
-    <Script id="parsely-cfg" src="//cdn.parsely.com/keys/thecity.nyc/p.js" />
   </>
 );
 
