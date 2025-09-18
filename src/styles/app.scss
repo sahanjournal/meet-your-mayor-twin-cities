@@ -1,0 +1,810 @@
+// RESET
+// Smooths out the rough edges across browsers
+@use "sass:color";
+@use "defaults/normalize";
+
+// VARIABLES
+// Reusable settings
+@use "_colors";
+@use "_fonts";
+
+// OTHER DEFAULT STYLES
+// Smooths out the rough edges across browsers
+@use "defaults/article";
+@use "defaults/dataviz";
+
+// BULMA
+// External CSS framework
+@use "../../node_modules/bulma/bulma.scss";
+
+// BULMA OVERRIDES:
+
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1025px;
+
+.columns {
+  max-width: 100vw;
+}
+
+// Override Bulma's default button group breakpoint:
+@media screen and (max-width: $tablet-breakpoint) {
+  .field.is-grouped {
+    flex-direction: column;
+  }
+}
+
+// HEADER:
+
+.nav-container {
+  max-width: 100vw;
+  padding-left: 3rem;
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    padding-left: 1.5rem;
+  }
+}
+
+.article {
+  background-color: colors.$city-white;
+}
+
+// TEXT:
+
+.headline,
+.deck,
+.copy,
+.eyebrow,
+.label,
+.copyright,
+.button-link {
+  color: colors.$city-black;
+  font-family: fonts.$sans;
+}
+
+.deck {
+  font-size: 1.5rem;
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    font-size: 1rem;
+  }
+}
+
+.copy {
+  font-size: 1rem;
+}
+
+.eyebrow {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.eyebrow,
+p,
+span,
+.label {
+  color: colors.$city-black;
+  a,
+  &.is-link {
+    cursor: pointer;
+    color: colors.$city-black;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+input.input {
+  background-color: colors.$city-white;
+  color: colors.$city-black;
+
+  &.is-small {
+    font-size: 0.85rem;
+  }
+
+  &::placeholder {
+    color: colors.$city-grey;
+  }
+}
+
+details {
+  summary {
+    list-style: none;
+    outline: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    // Only apply focus outline when element receives focus via keyboard navigation
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgb(66, 88, 255);
+      outline-offset: 2px;
+    }
+  }
+  .close-text {
+    display: none;
+  }
+
+  &[open] {
+    .close-text {
+      display: inline;
+    }
+    .open-text {
+      display: none;
+    }
+    .details-content {
+      animation: fadeIn 1s ease forwards;
+    }
+  }
+}
+
+// This workaround removes the need for mobile Safari to zoom in
+// to the input area on form fields:
+@media (max-width: $mobile-breakpoint) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+// FORMS:
+
+.newsletter-signup {
+  background-color: colors.$city-green-dark;
+}
+
+.homepage-election-updates .newsletter-signup {
+  border-radius: 5px;
+  border: 1px solid colors.$city-black;
+  background-color: transparent;
+}
+
+// BUTTONS:
+
+.button {
+  font-family: fonts.$sans;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  padding: 0.15rem 2rem;
+  border-radius: 45px;
+  transition: all 0.2s ease-in-out;
+  color: colors.$city-black;
+  border: none;
+  background-color: colors.$city-green-dark;
+  border: 1px solid colors.$city-black;
+  box-shadow: 2px 4px 0px
+    color.adjust($color: colors.$city-green-dark, $lightness: -60%);
+  transform: translate(-2px, -4px);
+
+  a {
+    color: colors.$city-black;
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    font-size: 1rem;
+  }
+
+  &.is-small {
+    font-size: 0.875rem;
+  }
+
+  &.is-white {
+    background-color: colors.$city-white;
+    color: colors.$city-black;
+    box-shadow: 2px 4px 0px colors.$city-black;
+  }
+
+  &.is-icon {
+    background-color: colors.$city-black;
+    box-shadow: 2px 4px 0px
+      color.adjust($color: colors.$city-grey, $lightness: -10%);
+  }
+
+  &:focus-visible {
+    // Make focus border more visible for accessibility purposes:
+    border-width: 2px;
+  }
+
+  &.is-extra-dark {
+    background-color: colors.$city-green-dark;
+  }
+
+  &:hover {
+    box-shadow: 1px 2px 0px
+      color.adjust($color: colors.$city-green-dark, $lightness: -60%);
+    transform: translate(-1px, -2px);
+    &.is-icon {
+      box-shadow: 1px 2px 0px
+        color.adjust($color: colors.$city-grey, $lightness: -10%);
+    }
+    &.is-white {
+      box-shadow: 1px 2px 0px colors.$city-black;
+    }
+  }
+
+  &:active,
+  &.is-selected {
+    transform: translate(-1px, -2px);
+
+    &.is-icon {
+      box-shadow: inset 2px 1px 0px
+        color.adjust($color: colors.$city-grey, $lightness: -10%);
+    }
+  }
+
+  &:active {
+    box-shadow: inset 2px 1px 0px
+      color.adjust($color: colors.$city-green, $lightness: -60%);
+    &.is-white {
+      box-shadow: inset 2px 1px 0px colors.$city-black;
+    }
+  }
+
+  &.is-selected {
+    background-color: colors.$city-green;
+    box-shadow: inset 2px 1px 0px
+      color.adjust($color: colors.$city-green-dark, $lightness: -10%);
+    &.is-white {
+      box-shadow: inset 2px 1px 0px
+        color.adjust($color: colors.$city-green-dark, $lightness: -10%);
+    }
+  }
+
+  &:disabled {
+    background-color: colors.$city-grey;
+    box-shadow: none;
+    pointer-events: none;
+
+    &.is-white {
+      background-color: transparent;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button-link {
+  font-family: fonts.$sans;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1rem;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active,
+  .is-active {
+    font-weight: 700;
+  }
+}
+
+.button.is-multiline {
+  width: 100%;
+  min-height: 2.25em;
+  white-space: unset;
+  height: auto;
+  flex-direction: column;
+}
+
+.field.is-grouped {
+  @media screen and (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+    .button {
+      width: 100%;
+    }
+  }
+}
+
+.buttons {
+  @media screen and (max-width: $mobile-breakpoint) {
+    .button {
+      width: 100%;
+      white-space: normal; // Wrap text on mobile
+    }
+  }
+}
+
+// INTRO GRAPHICS:
+
+.intro-animation {
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-height: 200px;
+
+    // For the big illustration on the landing page, apply a more subtle bobble
+    .image .image-wrapper.top .illustration {
+      animation: bobble-softly 0.6s infinite ease-in-out;
+    }
+  }
+
+  .slide {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    animation: slideInOut 18s linear infinite;
+  }
+
+  /* Left column slides (odd-numbered) */
+  .slide:nth-child(2n-1) {
+    left: 0;
+    transform: translateX(-100%);
+    animation-name: slideInOutLeft;
+  }
+
+  /* Right column slides (even-numbered) */
+  .slide:nth-child(2n) {
+    left: 50%;
+    transform: translateX(100%);
+    animation-name: slideInOutRight;
+  }
+
+  /* Delay each pair by 2s to show sequentially */
+  .slide:nth-child(1),
+  .slide:nth-child(2) {
+    animation-delay: -1s;
+  }
+  .slide:nth-child(3),
+  .slide:nth-child(4) {
+    animation-delay: 2s;
+  }
+  .slide:nth-child(5),
+  .slide:nth-child(6) {
+    animation-delay: 5s;
+  }
+  .slide:nth-child(7),
+  .slide:nth-child(8) {
+    animation-delay: 8s;
+  }
+  .slide:nth-child(9),
+  .slide:nth-child(10) {
+    animation-delay: 11s;
+  }
+  .slide:nth-child(11),
+  .slide:nth-child(12) {
+    animation-delay: 14s;
+  }
+}
+
+// QUIZ ELEMENTS
+
+$greyed-out-image-filter: grayscale(1) contrast(0.5) brightness(1.25);
+$full-color-image-filter: contrast(1);
+
+.quiz-selection-oval {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid colors.$city-black;
+  border-radius: 50%;
+  width: 40px;
+  height: 25px;
+
+  &.is-filled {
+    background-color: colors.$city-black;
+  }
+}
+
+.quiz-selection-button {
+  &:hover .quiz-selection-oval {
+    @media screen and (min-width: $tablet-breakpoint) {
+      background-color: #00000055;
+    }
+  }
+
+  // Only apply focus outline when element receives focus via keyboard navigation
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgb(66, 88, 255);
+    outline-offset: 2px;
+  }
+
+  &.is-selected {
+    font-weight: 600;
+    pointer-events: none;
+    .quiz-selection-oval {
+      background-color: colors.$city-black;
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.7;
+    .quiz-selection-oval {
+      opacity: 0.4;
+    }
+  }
+
+  .copy {
+    flex: 1;
+  }
+}
+
+.matching-candidates {
+  margin-left: 2rem;
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0;
+  max-height: 0px;
+
+  &.is-selected {
+    font-weight: 600;
+  }
+  &.is-disabled {
+    .copy {
+      opacity: 0.7;
+    }
+
+    img {
+      filter: $greyed-out-image-filter;
+    }
+  }
+
+  .expanded-candidate-responses {
+    animation: fadeIn 1s ease forwards;
+  }
+}
+
+.question-number-tag {
+  position: absolute;
+  transform: translate(-40px, 5px);
+  border-radius: 100%;
+  background-color: colors.$city-black;
+  color: colors.$city-white;
+  @media screen and (max-width: $mobile-breakpoint) {
+    position: relative;
+    transform: translate(0px, -5px);
+    margin-right: 0.5rem;
+  }
+}
+
+.question-controls {
+  @media screen and (max-width: $tablet-breakpoint) {
+    position: sticky;
+    bottom: 0;
+    padding: 0.5rem 0;
+    background-color: colors.$city-white;
+  }
+}
+
+.favorite-topics {
+  .buttons > div,
+  .button.see-my-results {
+    width: 100%;
+    max-width: 300px;
+  }
+  .question-controls {
+    margin-top: 3rem;
+    @media screen and (max-width: $tablet-breakpoint) {
+      margin: 0px -1rem;
+      padding: 1rem;
+    }
+  }
+}
+
+.button.see-my-results {
+  animation: fadeIn 1s ease forwards;
+  @media screen and (max-width: $mobile-breakpoint) {
+    width: 100%;
+  }
+  span {
+    animation: wave 0.8s ease-in-out infinite;
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+    &:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+    &:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+    &:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+    &:nth-child(8) {
+      animation-delay: 0.7s;
+    }
+    &:nth-child(9) {
+      animation-delay: 0.8s;
+    }
+    &:nth-child(10) {
+      animation-delay: 0.9s;
+    }
+    &:nth-child(11) {
+      animation-delay: 1s;
+    }
+    &:nth-child(12) {
+      animation-delay: 1.1s;
+    }
+    &:nth-child(13) {
+      animation-delay: 1.2s;
+    }
+    &:nth-child(14) {
+      animation-delay: 1.3s;
+    }
+  }
+}
+
+.results-scorecard {
+  .quiz-selection-oval {
+    margin-right: 4rem;
+    @media screen and (max-width: $mobile-breakpoint) {
+      margin-right: 1rem;
+    }
+  }
+}
+
+// CANDIDATE PAGES:
+
+.candidate-page-intro {
+  @media screen and (max-width: $mobile-breakpoint) {
+    .column {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.candidate-selector-menu {
+  &.is-on-candidate-page {
+    max-width: 400px;
+    a:not(.is-active) {
+      .top .illustration {
+        animation: none;
+      }
+
+      img {
+        filter: $greyed-out-image-filter;
+      }
+    }
+    a.is-active {
+      border: 1px dashed colors.$city-black;
+      border-radius: 5px;
+    }
+    a:hover img {
+      filter: $full-color-image-filter;
+    }
+  }
+
+  &.is-on-home-page {
+    &:not(:hover) {
+      filter: $full-color-image-filter;
+
+      .top .illustration {
+        animation: none;
+      }
+    }
+    &:hover {
+      a:not(:hover) {
+        filter: $greyed-out-image-filter;
+        .top .illustration {
+          animation: none;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    .column {
+      max-width: 25%;
+      overflow: hidden;
+      .copy {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+// ILLUSTRATIONS:
+
+$bust-only-cropping-factor: -15%;
+
+.image {
+  .image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+
+    .illustration {
+      object-position: 50% 0%;
+      object-fit: contain;
+      padding: 0 5px;
+    }
+
+    &.top {
+      z-index: 10;
+      .illustration {
+        animation: bobble 0.6s infinite ease-in-out;
+      }
+
+      &.background {
+        z-index: 1;
+      }
+    }
+  }
+
+  &.is-96x96 .image-wrapper .illustration {
+    padding: 0 8px;
+  }
+
+  &:not(.bust-only) {
+    .illustration {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.bust-only {
+    overflow: hidden;
+    .illustration {
+      object-fit: cover;
+    }
+  }
+}
+
+.is-static,
+.is-disabled {
+  .image .top img.illustration {
+    animation: none;
+  }
+}
+
+.bust-only {
+  overflow: hidden;
+  .illustration {
+    object-fit: cover;
+  }
+}
+
+// HELPERS:
+
+hr {
+  background-color: unset;
+  border: 1px dashed #11111155;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.has-color-background {
+  background-color: colors.$city-green-light;
+}
+
+.has-white-background {
+  background-color: colors.$city-white;
+}
+
+.has-light-grey-background {
+  background-color: colors.$city-light-grey;
+}
+
+// ANIMATIONS:
+
+.dot {
+  animation: fadeIn 1s steps(2, jump-none) infinite;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    max-height: 0px;
+    transform: translateY(-20px);
+  }
+  99% {
+    opacity: 0.99;
+    max-height: 250px;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    max-height: unset;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bobble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4%);
+  }
+}
+
+@keyframes bobble-softly {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1.5%);
+  }
+}
+
+@keyframes wave {
+  0%,
+  50%,
+  100% {
+    transform: translateY(-1px);
+  }
+  25% {
+    transform: translateY(1px);
+  }
+}
+
+/* Left side animation: from left to center to left */
+@keyframes slideInOutLeft {
+  0%,
+  14.66% {
+    transform: translateX(-100%);
+  }
+  2%,
+  12.66% {
+    transform: translateX(0);
+  }
+}
+
+/* Right side animation: from right to center to right */
+@keyframes slideInOutRight {
+  2%,
+  16.66% {
+    transform: translateX(100%);
+  }
+  4%,
+  14.66% {
+    transform: translateX(0);
+  }
+}
