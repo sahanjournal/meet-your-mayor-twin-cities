@@ -330,26 +330,30 @@ const Results: React.FC = () => {
                     MINIMUM_MATCHES_TO_SHOW + candidatesTiedWithLastPlace
                   )}
                 />
-                <a
-                  href="#main"
+                <div
                   className="is-hidden-tablet mt-4 mb-5"
-                  onClick={() => resetAnswers()}
+                  onClick={() => {
+                    window.scrollTo({ top: 0 });
+                    resetAnswers();
+                  }}
                 >
                   <button className="button is-link is-white is-pulled-right mt-0">
                     Take Quiz Again
                   </button>
-                </a>
+                </div>
               </div>
             </div>
-            <a
-              href="#main"
+            <div
               className="is-hidden-mobile"
-              onClick={() => resetAnswers()}
+              onClick={() => {
+                window.scrollTo({ top: 0 });
+                resetAnswers();
+              }}
             >
               <button className="button is-link is-white is-pulled-right mt-0 ml-3">
                 Take Quiz Again
               </button>
-            </a>
+            </div>
 
             <div className="deck has-text-left ml-0 mt-5">
               You matched most closely with{" "}
