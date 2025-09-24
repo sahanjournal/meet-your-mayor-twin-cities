@@ -3,39 +3,22 @@ import { OutboundLink } from "./Links";
 import { track } from "@amplitude/analytics-browser";
 
 const LINKS_JSON_URL_PREFIX =
-  "https://raw.githubusercontent.com/thecityny/mym-recent-coverage/refs/heads/main/";
+  "https://sahanjournal.com/wp-json/wp/v2/posts?categories=15";
 
-const GOTHAMIST_DONATION_URL = "https://pledge.wnyc.org/support/gothamist/";
+const DONATION_URL = "https://sahanjournal.fundjournalism.org/";
 
-const THE_CITY_DONATION_URL = "https://donorbox.org/nycdonate";
-
-const GOTHAMIST_DEFAULT_LINKS = [
+const DEFAULT_LINKS = [
   {
-    text: "'12 They’re coming for everyone': Fearful NY immigrant families weigh voluntary departures",
-    href: "https://gothamist.com/news/theyre-coming-for-everyone-fearful-ny-immigrant-families-weigh-voluntary-departures",
+    text: "Who’s running for Minneapolis mayor? Six candidates address immigration, homelessness and police reform.",
+    href: "https://sahanjournal.com/democracy-politics/minneapolis-mayoral-profile/",
   },
   {
-    text: "Housing could be on the ballot in NYC. Here’s what New Yorkers may be voting on.",
-    href: "https://gothamist.com/news/housing-could-be-on-the-ballot-in-nyc-heres-what-new-yorkers-may-be-voting-on",
+    text: "DFL revokes Omar Fateh’s endorsement in Minneapolis mayoral race",
+    href: "https://sahanjournal.com/democracy-politics/dfl-revokes-omar-fateh-endorsement-minneapolis-mayor-race/",
   },
   {
-    text: "NY AG James says she’s suing Trump administration over cuts to health and social programs",
-    href: "https://gothamist.com/news/ny-ag-james-says-shes-suing-trump-administration-over-cuts-to-health-and-social-programs",
-  },
-];
-
-const THE_CITY_DEFAULT_LINKS = [
-  {
-    text: "12 City Council Races to Watch in NYC’s June Election",
-    href: "https://www.thecity.nyc/2025/05/05/11-city-council-races-election-june/",
-  },
-  {
-    text: "Can Voters Game Out Their Ranked Choice Ballot?",
-    href: "https://www.thecity.nyc/2025/05/01/ranked-choice-voting-strategy-mayoral-primary-cuomo-working-families/",
-  },
-  {
-    text: "Following THE CITY’s Trail, Campaign Board Escalates Eric Adams Fraud Probe",
-    href: "https://www.thecity.nyc/2025/04/30/eric-adams-campaign-finance-funds/",
+    text: "Will Minneapolis’ Somali voters decide the mayoral race between Jacob Frey and Omar Fateh?",
+    href: "https://sahanjournal.com/democracy-politics/minneapolis-mayor-jacob-frey-omar-fateh-election/",
   },
 ];
 
@@ -57,15 +40,10 @@ const testValidSetOfLinks = (links: any[]) => {
 };
 
 export const RecentCoverage: React.FC = () => {
-  const [gothamistLinks, setGothamistLinks] = React.useState(
-    GOTHAMIST_DEFAULT_LINKS
-  );
-  const [theCityLinks, setTheCityLinks] = React.useState(
-    THE_CITY_DEFAULT_LINKS
-  );
+  const [links, setLinks] = React.useState(DEFAULT_LINKS);
 
   React.useEffect(() => {
-    fetch(`${LINKS_JSON_URL_PREFIX}gothamist-links.json`)
+    fetch(`${LINKS_JSON_URL_PREFIX}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch JSON");
@@ -73,35 +51,22 @@ export const RecentCoverage: React.FC = () => {
         return response.json();
       })
       .then((json) => {
-        testValidSetOfLinks(json);
-        return json;
+        const formattedLinks = json.slice(0, 3).map((item: any) => ({
+          text: item.title.rendered,
+          href: item.link,
+        }));
+        testValidSetOfLinks(formattedLinks);
+        return formattedLinks;
       })
-      .then((json) => setGothamistLinks(json))
-      .catch((error) =>
-        console.error("Error loading Gothamist Links JSON:", error)
-      );
-    fetch(`${LINKS_JSON_URL_PREFIX}the-city-links.json`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch JSON");
-        }
-        return response.json();
-      })
-      .then((json) => {
-        testValidSetOfLinks(json);
-        return json;
-      })
-      .then((json) => setTheCityLinks(json))
-      .catch((error) =>
-        console.error("Error loading THE CITY Links JSON:", error)
-      );
+      .then((formattedLinks) => setLinks(formattedLinks))
+      .catch((error) => console.error("Error loading Links JSON:", error));
   }, []);
 
   return (
     <>
-      <div className="eyebrow mb-2 mt-3">THE CITY</div>
+      <div className="eyebrow mb-2 mt-3">SAHAN JOURNAL</div>
       <ul>
-        {theCityLinks.map((link, i) => (
+        {links.map((link, i) => (
           <li key={i} className="label is-flex mb-0">
             <div className="mr-2 mt-1">●</div>{" "}
             <OutboundLink
@@ -114,38 +79,12 @@ export const RecentCoverage: React.FC = () => {
           </li>
         ))}
       </ul>
-      <OutboundLink to={THE_CITY_DONATION_URL}>
+      <OutboundLink to={DONATION_URL}>
         <div
           className="button is-white is-small mt-3"
-          aria-label="Donate to THE CITY"
+          aria-label="Donate to Sahan Journal"
           onClick={() => {
-            track("Clicked THE CITY Donate button");
-          }}
-        >
-          Donate
-        </div>
-      </OutboundLink>
-      <div className="eyebrow mt-6 mb-2 pt-3">GOTHAMIST</div>
-      <ul>
-        {gothamistLinks.map((link, i) => (
-          <li key={i} className="label is-flex mb-0">
-            <div className="mr-2 mt-1">●</div>{" "}
-            <OutboundLink
-              to={link.href}
-              className="copy has-text-left ml-0"
-              style={{ lineHeight: "1.4rem" }}
-            >
-              {link.text}
-            </OutboundLink>
-          </li>
-        ))}
-      </ul>
-      <OutboundLink to={GOTHAMIST_DONATION_URL}>
-        <div
-          className="button is-white is-small mt-3"
-          aria-label="Donate to Gothamist"
-          onClick={() => {
-            track("Clicked Gothamist Donate button");
+            track("Clicked Sahan Journal Donate button");
           }}
         >
           Donate
