@@ -1,4 +1,5 @@
-import { questionContent } from "../question-sample-content";
+import { questionMplsContent } from "../question-mpls-content";
+import { questionStpContent } from "../question-stp-content";
 import { candidateMplsContent } from "../candidate-mpls-content";
 import { candidateStpContent } from "../candidate-stp-content";
 import { City, groupBy, kebabCase, useCity } from "../utils";
@@ -101,6 +102,8 @@ export const generateListOfCandidates = (city?: City) => {
 export const formatQuestionContent = () => {
   const city = useCity();
   const candidates = formatCandidateContent(city);
+  const questionContent =
+    city === "st-paul" ? questionStpContent : questionMplsContent;
   const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
     candidates
       .filter((c) => c.responses[questionIndex].optionNumber === quizOption)

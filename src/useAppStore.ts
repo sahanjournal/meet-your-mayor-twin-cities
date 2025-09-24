@@ -1,8 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { QuizInput, ScoreCard } from "./components/QuizContent";
-import { questionContent } from "./question-sample-content";
+import { questionMplsContent } from "./question-mpls-content";
+import { questionStpContent } from "./question-stp-content";
 import { track } from "@amplitude/analytics-browser";
+import { City, useCity } from "./utils";
 
 export type Party = "democrat" | "other" | null;
 
@@ -10,12 +12,15 @@ export type Party = "democrat" | "other" | null;
  * A blank template to keep track of user's
  * responses to quiz questions.
  */
-export const blankAnswersList = Object.entries(questionContent).map(
-  (question, i) => ({
+export const createBlankAnswersList = (city: City) => {
+  const questionContent =
+    city === "st-paul" ? questionStpContent : questionMplsContent;
+
+  return Object.entries(questionContent).map((question, i) => ({
     questionNumber: i + 1,
     answer: null,
-  })
-);
+  }));
+};
 
 type AppState = {
   version: number;
@@ -45,73 +50,104 @@ type AppState = {
  * which essentially resets the quiz answers and other state to their defaults
  * for every user.
  */
-const CURRENT_APP_VERSION = 3;
+const CURRENT_APP_VERSION = {
+  minneapolis: 1,
+  "st-paul": 1,
+} as const;
 
-export const useAppStore = create<AppState>()(
-  persist<AppState>(
-    (set, get) => ({
-      version: CURRENT_APP_VERSION,
-      party: null,
-      setParty: (party, delay) => {
-        track(`Selected party`, {
-          party: party,
-        });
-        const highestVisibleQuestion = get().highestVisibleQuestion;
-        const setHighestVisibleQuestion = get().setHighestVisibleQuestion;
-        if (highestVisibleQuestion === 0 && !!party) {
-          setHighestVisibleQuestion(1);
-        }
-        setTimeout(() => {
-          set({ party });
-        }, delay || 0);
-      },
-      favoriteTopics: [],
-      setFavoriteTopics: (favoriteTopics) => {
-        set({ favoriteTopics });
-      },
-      answers: blankAnswersList,
-      setAnswers: (answers) => set({ answers }),
-      score: null,
-      setScore: (score) => {
-        set({ score });
-      },
-      highestVisibleQuestion: 0,
-      setHighestVisibleQuestion: (highestVisibleQuestion) =>
-        set({ highestVisibleQuestion }),
-      resetAnswers: () => {
-        track(`Reset answers`);
-        set({
-          answers: blankAnswersList,
-          favoriteTopics: [],
-          highestVisibleQuestion: 0,
-          party: null,
-        });
-      },
-    }),
-    {
-      name: "app-store",
-      version: CURRENT_APP_VERSION,
-      migrate: (persistedState, version): AppState => {
-        console.log("Migrating AppState from version", version);
-
-        const state = persistedState as AppState;
-
-        if (!!!version || version < CURRENT_APP_VERSION) {
-          return {
-            ...state,
+/**
+ * Factory to create a city-specific store.
+ * Ensures persistence and migration are scoped separately for each city.
+ */
+function createAppStore(cityKey: City) {
+  const cityVersion = CURRENT_APP_VERSION[cityKey];
+  const blankAnswersList = createBlankAnswersList(cityKey);
+  return create<AppState>()(
+    persist<AppState>(
+      (set, get) => ({
+        version: cityVersion,
+        party: null,
+        setParty: (party, delay) => {
+          track("Selected party", { party });
+          const highestVisibleQuestion = get().highestVisibleQuestion;
+          const setHighestVisibleQuestion = get().setHighestVisibleQuestion;
+          if (highestVisibleQuestion === 0 && !!party) {
+            setHighestVisibleQuestion(1);
+          }
+          setTimeout(() => {
+            set({ party });
+          }, delay || 0);
+        },
+        favoriteTopics: [],
+        setFavoriteTopics: (favoriteTopics) => set({ favoriteTopics }),
+        answers: blankAnswersList,
+        setAnswers: (answers) => set({ answers }),
+        score: null,
+        setScore: (score) => set({ score }),
+        highestVisibleQuestion: 0,
+        setHighestVisibleQuestion: (highestVisibleQuestion) =>
+          set({ highestVisibleQuestion }),
+        resetAnswers: () => {
+          track("Reset answers");
+          set({
             answers: blankAnswersList,
             favoriteTopics: [],
             highestVisibleQuestion: 0,
-            score: null,
             party: null,
-            version: CURRENT_APP_VERSION,
-          };
-        } else
-          return {
-            ...state,
-            version: CURRENT_APP_VERSION,
-          };
-      },
-    }
-  )
-);
+          });
+        },
+      }),
+      {
+        name: `app-store-${cityKey}`, // unique key per city
+        version: cityVersion,
+        migrate: (persistedState, version): AppState => {
+          console.log(
+            `Migrating AppState for ${cityKey} from version`,
+            version
+          );
+
+          const state = persistedState as AppState;
+
+          if (!version || version < cityVersion) {
+            return {
+              ...state,
+              answers: blankAnswersList,
+              favoriteTopics: [],
+              highestVisibleQuestion: 0,
+              score: null,
+              party: null,
+              version: cityVersion,
+            };
+          } else {
+            return { ...state, version: cityVersion };
+          }
+        },
+      }
+    )
+  );
+}
+
+const useMinneapolisStore = createAppStore("minneapolis");
+const useStPaulStore = createAppStore("st-paul");
+
+export function useAppStore<T>(selector: (state: AppState) => T) {
+  const city = useCity();
+  let store;
+
+  switch (city) {
+    case "minneapolis":
+      store = useMinneapolisStore;
+      break;
+    case "st-paul":
+      store = useStPaulStore;
+      break;
+    default:
+      console.error(
+        `[useAppStore] Unknown city: "${city}". Defaulting to Minneapolis store.`
+      );
+      store = useMinneapolisStore;
+      break;
+  }
+
+  return store(selector);
+}
