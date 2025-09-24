@@ -1,14 +1,14 @@
 import React from "react";
-import { PageLayout } from "../components/PageLayout";
-import Quiz from "../components/Quiz";
-import { CandidateSelectorMenu } from "../components/CandidateSelectorMenu";
-import { SocialShareButtons } from "../components/SocialShareButtons";
-import { SmoothScroll } from "../components/Links";
-import { RecentCoverage } from "../components/RecentCoverage";
-import { IntroAnimation } from "../components/IntroAnimation";
-import { NewsletterSignupBanner } from "../components/NewsletterSignup";
+import { PageLayout } from "./PageLayout";
+import Quiz from ".//Quiz";
+import { CandidateSelectorMenu } from ".//CandidateSelectorMenu";
+import { SocialShareButtons } from ".//SocialShareButtons";
+import { SmoothScroll } from ".//Links";
+import { RecentCoverage } from ".//RecentCoverage";
+import { IntroAnimation } from ".//IntroAnimation";
+import { NewsletterSignupBanner } from ".//NewsletterSignup";
 import { navigate } from "gatsby";
-import { getQuestionsLeftToAnswer } from "../components/Results";
+import { getQuestionsLeftToAnswer } from ".//Results";
 import { useAppStore } from "../useAppStore";
 import { City, getFullCityName } from "../utils";
 
