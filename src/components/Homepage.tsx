@@ -10,7 +10,7 @@ import { NewsletterSignupBanner } from ".//NewsletterSignup";
 import { navigate } from "gatsby";
 import { getQuestionsLeftToAnswer } from ".//Results";
 import { useAppStore } from "../useAppStore";
-import { City, getFullCityName } from "../utils";
+import { getFullCityName, useCity } from "../utils";
 
 const getDateUpdated = () => {
   const timestamp = process.env.GATSBY_UPDATE_DATE;
@@ -27,8 +27,9 @@ const getDateUpdated = () => {
   }
 };
 
-const Homepage: React.FC<{ city: City }> = ({ city }) => {
-  const cityName = getFullCityName(city);
+const Homepage = () => {
+  const city = useCity();
+  const cityName = !!city ? getFullCityName(city) : "Minneapolis";
   const party = useAppStore((state) => state.party);
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
 
