@@ -9,16 +9,16 @@ const DONATION_URL = "https://sahanjournal.fundjournalism.org/";
 
 const DEFAULT_LINKS = [
   {
-    text: "'12 They’re coming for everyone': Fearful NY immigrant families weigh voluntary departures",
-    href: "https://gothamist.com/news/theyre-coming-for-everyone-fearful-ny-immigrant-families-weigh-voluntary-departures",
+    text: "Who’s running for Minneapolis mayor? Six candidates address immigration, homelessness and police reform.",
+    href: "https://sahanjournal.com/democracy-politics/minneapolis-mayoral-profile/",
   },
   {
-    text: "Housing could be on the ballot in NYC. Here’s what New Yorkers may be voting on.",
-    href: "https://gothamist.com/news/housing-could-be-on-the-ballot-in-nyc-heres-what-new-yorkers-may-be-voting-on",
+    text: "DFL revokes Omar Fateh’s endorsement in Minneapolis mayoral race",
+    href: "https://sahanjournal.com/democracy-politics/dfl-revokes-omar-fateh-endorsement-minneapolis-mayor-race/",
   },
   {
-    text: "NY AG James says she’s suing Trump administration over cuts to health and social programs",
-    href: "https://gothamist.com/news/ny-ag-james-says-shes-suing-trump-administration-over-cuts-to-health-and-social-programs",
+    text: "Will Minneapolis’ Somali voters decide the mayoral race between Jacob Frey and Omar Fateh?",
+    href: "https://sahanjournal.com/democracy-politics/minneapolis-mayor-jacob-frey-omar-fateh-election/",
   },
 ];
 
