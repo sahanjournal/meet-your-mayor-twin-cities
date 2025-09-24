@@ -1,0 +1,142 @@
+import React from "react";
+import { PageLayout } from "./PageLayout";
+import Quiz from ".//Quiz";
+import { CandidateSelectorMenu } from ".//CandidateSelectorMenu";
+import { SocialShareButtons } from ".//SocialShareButtons";
+import { SmoothScroll } from ".//Links";
+import { RecentCoverage } from ".//RecentCoverage";
+import { IntroAnimation } from ".//IntroAnimation";
+import { NewsletterSignupBanner } from ".//NewsletterSignup";
+import { getQuestionsLeftToAnswer } from ".//Results";
+import { useAppStore } from "../useAppStore";
+import { getFullCityName, useCity } from "../utils";
+
+const getDateUpdated = () => {
+  const timestamp = process.env.GATSBY_UPDATE_DATE;
+  if (!timestamp) {
+    throw new Error("No publication date defined in .env file!");
+  } else {
+    const date = new Date(timestamp.replace(/-/g, "/"));
+    const dateFormatted = date.toLocaleDateString("en-us", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return dateFormatted;
+  }
+};
+
+const Homepage = () => {
+  const city = useCity();
+  const cityName = !!city ? getFullCityName(city) : "Minneapolis";
+  const questionsLeftToAnswer = getQuestionsLeftToAnswer();
+  const highestVisibleQuestion = useAppStore(
+    (state) => state.highestVisibleQuestion
+  );
+
+  return (
+    <PageLayout>
+      <div className="hero is-fullheight-with-navbar has-color-background">
+        <IntroAnimation isMobile />
+        <div className="hero-body pt-6">
+          <div className="columns" style={{ width: "100%" }}>
+            <div className="column is-half">
+              <h1 className="headline has-text-left mt-0">
+                Meet Your Mayor {cityName}
+              </h1>
+              <div className="attribution">
+                <p className="eyebrow has-text-left mb-2">
+                  Updated: {getDateUpdated()}
+                </p>
+                <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
+                  Who should you rank on your ballot to be the next mayor of New
+                  York City? Take the same quiz the candidates did and find your
+                  closest match.
+                </p>
+                <div className="is-flex is-flex-direction-column my-6">
+                  <SmoothScroll
+                    className="mb-4"
+                    to={
+                      questionsLeftToAnswer.length === 0
+                        ? "results"
+                        : highestVisibleQuestion > 1
+                        ? `question-${questionsLeftToAnswer[0]}`
+                        : "quiz"
+                    }
+                  >
+                    <button
+                      className="button is-extra-dark"
+                      style={{ width: "100%", maxWidth: "350px" }}
+                    >
+                      {questionsLeftToAnswer.length === 0
+                        ? "View my results"
+                        : highestVisibleQuestion > 1
+                        ? "Continue the quiz"
+                        : "Take the quiz"}
+                    </button>
+                  </SmoothScroll>
+
+                  <SmoothScroll
+                    className="button is-white"
+                    to="learn"
+                    style={{ width: "100%", maxWidth: "350px" }}
+                  >
+                    See the candidates{" "}
+                  </SmoothScroll>
+                </div>
+                <div className="homepage-election-updates">
+                  <NewsletterSignupBanner isOnLandingPage />
+                </div>
+                <div className="eyebrow has-text-left mt-4 mb-2 is-flex is-align-items-center">
+                  <div className="mr-3 is-flex-shrink-2 pl-4">
+                    Share Meet Your Mayor:
+                  </div>{" "}
+                  <SocialShareButtons />
+                </div>
+              </div>
+            </div>
+            <IntroAnimation />
+          </div>
+        </div>
+      </div>
+      <Quiz />
+      <NewsletterSignupBanner />
+      <div className="hero is-fullheight-with-navbar pt-6">
+        <div className="container mt-6 pt-5" id="learn">
+          <div className="columns">
+            <div className="column is-two-thirds">
+              <div className="eyebrow">
+                <SmoothScroll to="quiz">
+                  <div
+                    className="mr-1"
+                    style={{
+                      display: "inline-block",
+                      transform: "translateY(-2px) rotate(-90deg)",
+                    }}
+                  >
+                    ↗
+                  </div>
+                  Take our quiz
+                </SmoothScroll>
+              </div>
+              <h1
+                className="headline has-text-left mt-2"
+                style={{ maxWidth: "500px" }}
+              >
+                About the Candidates
+              </h1>
+              <CandidateSelectorMenu />
+            </div>
+            <div className="column">
+              <div className="eyebrow is-inline-block"> </div>
+              <h1 className="headline has-text-left mt-1">Recent News</h1>
+              <RecentCoverage />
+            </div>
+          </div>
+        </div>
+      </div>
+    </PageLayout>
+  );
+};
+
+export default Homepage;

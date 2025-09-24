@@ -1,1 +1,86 @@
-export const questionStpContent = {"question1":{"title":"Why are you running for mayor?","subject":"tk","tellMeMore":"tk","option1":"tk","option2":"tk","option3":"tk","option4":"tk"},"question2":{"title":"As mayor, how will you advocate for immigrants and communities of color?","subject":"tk","tellMeMore":"tk","option1":"tk","option2":"tk","option3":"tk","option4":"tk"},"question3":{"title":"Do you support the city’s sanctuary policy, and should it be expanded?","subject":"Immigration.","tellMeMore":"St. Paul city policy prohibits local law enforcement from asking people about their immigration status or for their immigration documents. The St. Paul Police Department is also not allowed to cooperate with U.S. Immigration and Customs Enforcement on federal immigration enforcement.","option1":"Yes, and it should be expanded.","option2":"Yes, and it is fine as it is.","option3":"No."},"question4":{"title":"The corridor in Midway starting at Snelling Ave and University Ave has lost or is losing several businesses. What should the mayor do to revive this corridor, which is home to many communities of color?","subject":"Economic development","tellMeMore":"The Midway corridor, home to many immigrants and communities of color, is struggling after the closure of several big box stores and grocery stores, including TJ Maxx, Herbergers, Cub Foods and WalMart.","option1":"Improve public safety.","Option2":"Be more welcoming to businesses.","option3":"Economic investment.","option4":"Institute a land value tax.","Option5":"Lower the city’s sales and property taxes."},"question5":{"title":"How can the city make up for lost federal grants and revenue due to cuts from the Trump administration?","subject":"tk","tellMeMore":"tk","option1":"Spend city money more efficiently.","option2":"Leverage relationship with state Legislature for more state funding.","option3":"Encourage more development.","Option4":"Reform the city’s business policies."},"question6":{"title":"Should the city cut services as one way to address loss of federal funds and dwindling downtown tax base?","subject":"","tellMeMore":"The Trump administration has slashed several federal grants and funds that go directly to cities like St. Paul. At the same time, St. Paul’s downtown buildings are largely vacant since the pandemic changed how workplaces use offices, leading to less tax revenue for the city.","option1":"Yes","option2":"No","option3":"Maybe","option4":"Don’t know"},"question7":{"title":"Should the state require its employees to return to the office fulltime to help revive downtown?","subject":"Business and economy","tellMeMore":"St. Paul is home to many state government offices. This last summer, Gov. Tim Walz required state employees to return to the office to work for at least half of the workweek for the first time since the pandemic started. The move is meant to help revitalize businesses reliant on office workers.","option1":"Yes","option2":"No","option3":"Maybe","option4":"Don’t know"},"question8":{"title":"How can the city revive downtown, which is home to several vacant offices?","subject":"Economic Development","tellMeMore":"tk","option1":"tk","option2":"tk","option3":"tk","option4":"tk"},"question9":{"title":"Should the city spend money to remodel the Grand Casino Arena (formerly Xcel Energy Center) that the Minnesota Wild is requesting?","subject":"Stadium subsidies","tellMeMore":"The Minnesota Wild are asking for $394 million from the state to renovate the 25-year-old hockey arena. A renovation would keep the Wild in downtown St. Paul.","option1":"Yes","option2":"No","option3":"Maybe","option4":"Don’t know"},"question10":{"title":"Should the city stop collecting trash and revert to the previous practice of leaving it up to residents to organize their own trash collection?","subject":"tk","tellMeMore":"tk","option1":"Yes","option2":"No","option3":"Maybe","option4":"Don’t know"},"question11":{"title":"Do you support the St. Paul rent control policy as it now stands? Does it need more exemptions for certain types of residences?","subject":"Rent Contol","tellMeMore":"tk","option1":"The city should keep rent control but add more exemptions.","option2":"The current rent control policy is adequate","option3":"The city should repeal rent control altogether","option4":"The city should go back to the original rent control policy that voters passed in 2023."},"question12":{"title":"Should the city look into charging fees to tax-exempt large nonprofits, hospitals and universities as a new way to raise revenue?","subject":"tk","tellMeMore":"tk","option1":"Yes","option2":"No","option3":"Maybe","option4":"Don’t know"},"question13":{"title":"Should the state revoke the operation permit for Northern Iron, a metal foundry on the East Side cited for pollution violations?","subject":"tk","tellMeMore":"tk","option1":"Yes","option2":"No","option3":"Maybe","option4":"Don’t know"},"question14":{"title":"How can the city best prevent another cyberattack?","subject":"tk","tellMeMore":"tk","option1":"tk","option2":"tk","option3":"tk","option4":"tk"},"question15":{"title":"Should St. Paul Public Works plow alleys instead of leaving it up to residents?","subject":"tk","tellMeMore":"tk","option1":"Yes","option2":"No","option3":"Maybe","option4":"Don’t know"}}
+export const questionStpContent = {
+  question1: {
+    title: "What is your position on NYC’s sanctuary city laws?",
+    subject: "Federal Government",
+    tellMeMore:
+      "NYC laws prohibit most cooperation with immigration enforcement, making exceptions only for the NYPD and Department of Correction to transfer custody where someone sought by federal agents has been convicted of a specified violent crime.",
+    option1:
+      "Laws should remain as they are: City authorities should only cooperate with federal agents on immigration enforcement where a person has previously been convicted of a qualifying crime, regardless of new charges",
+    option2:
+      "Change the laws: City authorities should help federal agents with enforcement for people charged with violent felonies, in addition to those already convicted",
+    option3:
+      "Change the laws: City authorities should cooperate with ICE as demanded regardless of a person's history with the justice system",
+    option4:
+      "Change the laws: City authorities should further restrict cooperation with federal authorities",
+  },
+  question2: {
+    title: "How should the next mayor deal with President Trump?",
+    subject: "Federal Government",
+    tellMeMore:
+      "President Donald Trump has taken numerous steps targeting New York City specifically, including threatening to end congestion pricing that helps fund mass transit and clawing back funds the city uses to aid migrants.",
+    option1: "Seek partnership and focus on benefits",
+    option2: "Resistance is the priority",
+    option3:
+      "Neutrality: focus on the city and let the governor and congressional delegation deal with the White House",
+    option4: "",
+  },
+  question3: {
+    title:
+      "What is your spending priority for $500 million in opioid settlement funds?",
+    subject: "Health",
+    tellMeMore:
+      'Under settlements reached with pharmaceutical companies, the state and city have <a href="https://www.nyc.gov/office-of-the-mayor/news/683-24/mayor-adams-ramp-up-annual-support-50-million-opioid-prevention-treatment-major">amassed funds</a> to aid people with substance use disorders. By 2040, the city anticipates that it will receive a total of $500 million.',
+    option1:
+      "Supportive housing services for people with substance use disorders",
+    option2:
+      "Safe injection facilities and needle exchanges to limit fatalities among users",
+    option3: "Law enforcement efforts to crack down on drug dealers",
+    option4: "",
+  },
+  question4: {
+    title:
+      "Do you support involuntary hospitalization for people with volatile episodes of mental illness?",
+    subject: "Health",
+    tellMeMore:
+      "New changes to the state’s involuntary commitment law make it easier for police and health professionals to admit people with mental illness — even without evidence of imminent physical harm to themselves or others — to hospitals.",
+    option1:
+      "I support the law’s premise: It needs to be easier to hospitalize people when warranted.",
+    option2:
+      "I oppose the law’s premise: People’s rights to make their own mental health care decisions should not be compromised",
+    option3: "I support the bill's premise but it does not go far enough",
+    option4: "",
+  },
+  question5: {
+    title: "What kind of manager should the next mayor be?",
+    subject: "Leadership",
+    tellMeMore: "",
+    option1:
+      "The Decider — centralize decision-making with the mayor and close advisers",
+    option2:
+      "The Partner — make decisions in coordination with the City Council",
+    option3:
+      "The Delegator — hire top talent to run agencies and rely on their judgment",
+    option4: "",
+  },
+  question6: {
+    title:
+      "A generation from now, what’s the one legacy you’d like New Yorkers to recall from the next mayor?",
+    subject: "Leadership",
+    tellMeMore: "",
+    option1:
+      "They expanded opportunities for poor and working-class New Yorkers",
+    option2: "They created lasting public works",
+    option3: "They imposed fiscal discipline and cleaned up government",
+    option4: "They curbed disorder and improved neighborhood quality of life",
+  },
+  question7: {
+    title:
+      "What kind of early-career experience is most important for the next mayor to have?",
+    subject: "Leadership",
+    tellMeMore: "",
+    option1: "Led a nonprofit",
+    option2: "Served as a community or labor organizer",
+    option3: "Worked in the private sector",
+    option4: "Career-long work in government or politics",
+  },
+};

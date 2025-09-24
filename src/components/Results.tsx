@@ -2,9 +2,8 @@ import React, { useEffect, useMemo } from "react";
 import { arrayToNiceList, groupBy, kebabCase, shuffleArray } from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
-import { SmoothScroll } from "./Links";
+import { InternalLink, SmoothScroll } from "./Links";
 import classnames from "classnames";
-import { Link } from "gatsby";
 import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
@@ -46,8 +45,6 @@ const Results: React.FC = () => {
 
   const answers = useAppStore((state) => state.answers);
   const resetAnswers = useAppStore((state) => state.resetAnswers);
-
-  const party = useAppStore((state) => state.party);
 
   const setScore = useAppStore((state) => state.setScore);
 
@@ -333,26 +330,30 @@ const Results: React.FC = () => {
                     MINIMUM_MATCHES_TO_SHOW + candidatesTiedWithLastPlace
                   )}
                 />
-                <a
-                  href="#main"
+                <div
                   className="is-hidden-tablet mt-4 mb-5"
-                  onClick={() => resetAnswers()}
+                  onClick={() => {
+                    window.scrollTo({ top: 0 });
+                    resetAnswers();
+                  }}
                 >
                   <button className="button is-link is-white is-pulled-right mt-0">
                     Take Quiz Again
                   </button>
-                </a>
+                </div>
               </div>
             </div>
-            <a
-              href="#main"
+            <div
               className="is-hidden-mobile"
-              onClick={() => resetAnswers()}
+              onClick={() => {
+                window.scrollTo({ top: 0 });
+                resetAnswers();
+              }}
             >
               <button className="button is-link is-white is-pulled-right mt-0 ml-3">
                 Take Quiz Again
               </button>
-            </a>
+            </div>
 
             <div className="deck has-text-left ml-0 mt-5">
               You matched most closely with{" "}
@@ -364,12 +365,6 @@ const Results: React.FC = () => {
                 )}
               </span>
               .{" "}
-              {party === "democrat" && (
-                <span>
-                  In the primary election you may choose up to five candidates,
-                  so consider your runner-up matches:
-                </span>
-              )}
             </div>
 
             {score
@@ -525,7 +520,7 @@ const Results: React.FC = () => {
 
                         <div className="buttons mt-5 ml-4">
                           <button className="button">
-                            <Link
+                            <InternalLink
                               to={kebabCase(candidate.candidateName)}
                               onClick={() =>
                                 track(
@@ -534,7 +529,7 @@ const Results: React.FC = () => {
                               }
                             >
                               Learn more about {candidate.candidateName}
-                            </Link>{" "}
+                            </InternalLink>{" "}
                           </button>
                         </div>
                       </div>

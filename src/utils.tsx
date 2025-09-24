@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useMemo } from "react";
 import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
-import candidateList from "./candidate-sample-list.json";
+import candidateMplsList from "./candidate-mpls-list.json";
+import candidateStpList from "./candidate-stp-list.json";
+
+export type City = "minneapolis" | "st-paul";
+
+export const getFullCityName = (city: City) => {
+  switch (city) {
+    case "minneapolis":
+      return "Minneapolis";
+    case "st-paul":
+      return "St. Paul";
+    default:
+      return "Minneapolis";
+  }
+};
+
+export function useCity(): City | undefined {
+  const location = useLocation();
+
+  return useMemo(() => {
+    const segments = location.pathname.toLowerCase().split("/").filter(Boolean);
+
+    if (segments.includes("minneapolis")) return "minneapolis";
+    if (segments.includes("st-paul")) return "st-paul";
+    return undefined;
+  }, [location.pathname]);
+}
 
 export type CandidateName = {
   name: string;
@@ -25,7 +51,8 @@ export function useIsCandidatePage() {
     .split("/")
     .filter((path) => path !== "")
     .pop();
-  const candidateSlugs = JSON.parse(JSON.stringify(candidateList)).map(
+  const fullCandidateList = candidateMplsList.concat(candidateStpList);
+  const candidateSlugs = JSON.parse(JSON.stringify(fullCandidateList)).map(
     (c: CandidateName) => kebabCase(c.name)
   );
   return candidateSlugs.includes(lastPathSegment);

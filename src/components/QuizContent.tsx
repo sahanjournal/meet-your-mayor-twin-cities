@@ -1,23 +1,18 @@
-import { questionContent } from "../question-sample-content";
-import { candidateContent } from "../candidate-sample-content";
-import { groupBy, kebabCase } from "../utils";
-import { Party, useAppStore } from "../useAppStore";
+import { questionMplsContent } from "../question-mpls-content";
+import { questionStpContent } from "../question-stp-content";
+import { candidateMplsContent } from "../candidate-mpls-content";
+import { candidateStpContent } from "../candidate-stp-content";
+import { City, groupBy, kebabCase, useCity } from "../utils";
 
 /**
  * This function takes our raw JSON content from `candidate-content.js`
  * and formats it into a organized JS object that keeps track of all
  * candidates' responses to quiz questions, with explanations.
  */
-export const formatCandidateContent = (party?: Party) => {
-  // Filter candidates by party (if selected):
+export const formatCandidateContent = (city: City | undefined) => {
+  // Filter candidates by city:
   const candidates =
-    party === "democrat"
-      ? Object.fromEntries(
-          Object.entries(candidateContent).filter(
-            (candidate) => candidate[1].party === "democrat"
-          )
-        )
-      : candidateContent;
+    city === "st-paul" ? candidateStpContent : candidateMplsContent;
 
   const splitCandidateInfo = (text: string) => text.split("|");
 
@@ -45,37 +40,57 @@ export const formatCandidateContent = (party?: Party) => {
 /**
  * This function can be used to test the formatting of the candidate content array.
  * For example: test to make sure each entry has no more than two `|` delimiters.
+ *
+ * TODO: Make this funciton more DRY by passing in the content to test as an argument.
  */
 export const testCandidateContentFormat = () => {
-  for (const outerKey in candidateContent) {
+  for (const outerKey in candidateMplsContent) {
     const innerObj =
-      candidateContent[outerKey as keyof typeof candidateContent];
+      candidateMplsContent[outerKey as keyof typeof candidateMplsContent];
     for (const innerKey in innerObj) {
       const value = innerObj[innerKey as keyof typeof innerObj];
       const pipeCount = (value.match(/\|/g) || []).length;
       const noSpaceBeforeParenthesis = (value.match(/\S\(/) || []).length > 0;
       if (pipeCount > 2) {
-        console.log(`Too many pipes in ${outerKey}.${innerKey}: "${value}"`);
+        console.log(
+          `Too many pipes in Minneapolis candidate ${outerKey}.${innerKey}: "${value}"`
+        );
       }
       if (noSpaceBeforeParenthesis) {
         console.log(
-          `Improper parentesis spacing in ${outerKey}.${innerKey}: "${value}"`
+          `Improper parentesis spacing in Minneapolis candidate ${outerKey}.${innerKey}: "${value}"`
+        );
+      }
+    }
+  }
+  for (const outerKey in candidateStpContent) {
+    const innerObj =
+      candidateStpContent[outerKey as keyof typeof candidateStpContent];
+    for (const innerKey in innerObj) {
+      const value = innerObj[innerKey as keyof typeof innerObj];
+      const pipeCount = (value.match(/\|/g) || []).length;
+      const noSpaceBeforeParenthesis = (value.match(/\S\(/) || []).length > 0;
+      if (pipeCount > 2) {
+        console.log(
+          `Too many pipes in St. Paul candidate ${outerKey}.${innerKey}: "${value}"`
+        );
+      }
+      if (noSpaceBeforeParenthesis) {
+        console.log(
+          `Improper parentesis spacing in St. Paul candidate ${outerKey}.${innerKey}: "${value}"`
         );
       }
     }
   }
 };
 
-export const generateListOfCandidatesByParty = (party?: Party) => {
+export const generateListOfCandidates = (city?: City) => {
+  // Filter candidates by city:
+  const candidateContent =
+    city === "st-paul" ? candidateStpContent : candidateMplsContent;
+
   return Object.values(candidateContent)
     .sort((a, b) => (a.name > b.name ? 1 : -1)) // Sort alphabetically by name
-    .filter((candidate) =>
-      party === "democrat"
-        ? candidate.party === "democrat"
-        : party === "other"
-        ? candidate.party !== "democrat"
-        : true
-    ) // Filter by party, if specified
     .map((candidate) => ({
       name: candidate.name,
       slug: kebabCase(candidate.name),
@@ -89,8 +104,10 @@ export const generateListOfCandidatesByParty = (party?: Party) => {
  * quiz question responses.
  */
 export const formatQuestionContent = () => {
-  const party = useAppStore((state) => state.party);
-  const candidates = formatCandidateContent(party);
+  const city = useCity();
+  const candidates = formatCandidateContent(city);
+  const questionContent =
+    city === "st-paul" ? questionStpContent : questionMplsContent;
   const findMatchingCandidates = (questionIndex: number, quizOption: string) =>
     candidates
       .filter((c) => c.responses[questionIndex].optionNumber === quizOption)
@@ -151,6 +168,12 @@ export type ScoreCard = {
  * candidates match up with user responses most closely.
  */
 export const generateBlankScorecard = (): ScoreCard => {
+  const city = useCity();
+
+  // Filter candidates by city:
+  const candidateContent =
+    city === "st-paul" ? candidateStpContent : candidateMplsContent;
+
   return Object.entries(candidateContent).map((candidate) => {
     return {
       candidateName: candidate[1].name,

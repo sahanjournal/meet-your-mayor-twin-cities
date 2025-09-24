@@ -1,16 +1,17 @@
 import React from "react";
-import { generateListOfCandidatesByParty } from "./QuizContent";
-import { Link } from "gatsby";
+import { generateListOfCandidates } from "./QuizContent";
 import classnames from "classnames";
 import { Bobblehead } from "./Illustration";
-import { useIsCandidatePage } from "../utils";
+import { useCity, useIsCandidatePage } from "../utils";
 import { track } from "@amplitude/analytics-browser";
+import { InternalLink } from "./Links";
 
 /**
  * A menu of buttons that link to each candidate page.
  */
 export const CandidateSelectorMenu: React.FC = () => {
-  const candidates = generateListOfCandidatesByParty(); // All Candidates
+  const city = useCity();
+  const candidates = generateListOfCandidates(city);
   const isCandidatePage = useIsCandidatePage();
   return (
     <div
@@ -23,7 +24,7 @@ export const CandidateSelectorMenu: React.FC = () => {
       )}
     >
       {candidates.map((candidate, i) => (
-        <Link
+        <InternalLink
           key={i}
           to={`/${candidate.slug}`}
           onClick={() =>
@@ -59,7 +60,7 @@ export const CandidateSelectorMenu: React.FC = () => {
               {candidate.name}
             </div>
           </div>
-        </Link>
+        </InternalLink>
       ))}
     </div>
   );

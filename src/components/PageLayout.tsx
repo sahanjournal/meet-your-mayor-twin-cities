@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import TheCityLogo from "../assets/logo.svg";
 import GothamistLogo from "../assets/logo-gothamist.svg";
 import { Helmet } from "react-helmet";
@@ -8,10 +7,11 @@ import { SocialButton } from "./SocialShareButtons";
 
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Script } from "gatsby";
-import { init } from "@amplitude/analytics-browser";
 
-const AMPLITUDE_PUBLIC_KEY = "cd8c6e9c6e26111a843bec73acf6fc28";
+// DISABLE AMPLITUDE TRACKING FOR NOW:
+// import { init } from "@amplitude/analytics-browser";
+
+// const AMPLITUDE_PUBLIC_KEY = "FILL IN YOUR KEY HERE";
 
 const THE_CITY_SITE_LINKS = {
   website: "https://www.thecity.nyc/",
@@ -121,8 +121,8 @@ const Footer = () => {
           <OutboundLink to="https://www.thecity.nyc/author/ben-fractenberg/">
             Ben Fractenberg
           </OutboundLink>{" "}
-          and courtesy of the Curtis Sliwa and Jim Walden campaigns. Design support from Tember
-          Hopkins. Development support from Sam Guzik.
+          and courtesy of the Curtis Sliwa and Jim Walden campaigns. Design
+          support from Tember Hopkins. Development support from Sam Guzik.
         </div>
 
         <div className="eyebrow mt-5 has-text-centered">
@@ -159,11 +159,7 @@ const Footer = () => {
   );
 };
 
-const Analytics = () => (
-  <>
-    {/* Google Analytics & Google Tag Manager: */}
-  </>
-);
+const Analytics = () => <>{/* Google Analytics & Google Tag Manager: */}</>;
 
 type MetadataProps = {
   slug?: string;
@@ -209,7 +205,7 @@ export const PageLayout: React.FC<{
 
   // Initialize Amplitude Tracking:
   useEffect(() => {
-    init(AMPLITUDE_PUBLIC_KEY);
+    // init(AMPLITUDE_PUBLIC_KEY);
   });
 
   return (

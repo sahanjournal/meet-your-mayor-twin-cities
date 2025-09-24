@@ -1,10 +1,14 @@
 import React, { FC } from "react";
 import { Bobblehead } from "./Illustration";
-import candidateList from "../candidate-sample-list.json";
-import { CandidateName, shuffleArray } from "../utils";
+import candidateMplsList from "../candidate-mpls-list.json";
+import candidateStpList from "../candidate-stp-list.json";
+import { CandidateName, shuffleArray, useCity } from "../utils";
 import classnames from "classnames";
 
 export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
+  const city = useCity();
+  const candidateList =
+    city === "st-paul" ? candidateStpList : candidateMplsList;
   const candidateNames: string[] = JSON.parse(
     JSON.stringify(candidateList)
   ).map((c: CandidateName) => c.name);
