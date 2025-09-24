@@ -59,9 +59,7 @@ export const RecentCoverage: React.FC = () => {
         return formattedLinks;
       })
       .then((formattedLinks) => setLinks(formattedLinks))
-      .catch((error) =>
-        console.error("Error loading Gothamist Links JSON:", error)
-      );
+      .catch((error) => console.error("Error loading Links JSON:", error));
   }, []);
 
   return (
@@ -84,9 +82,9 @@ export const RecentCoverage: React.FC = () => {
       <OutboundLink to={DONATION_URL}>
         <div
           className="button is-white is-small mt-3"
-          aria-label="Donate to THE CITY"
+          aria-label="Donate to Sahan Journal"
           onClick={() => {
-            track("Clicked THE CITY Donate button");
+            track("Clicked Sahan Journal Donate button");
           }}
         >
           Donate
