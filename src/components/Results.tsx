@@ -46,8 +46,6 @@ const Results: React.FC = () => {
   const answers = useAppStore((state) => state.answers);
   const resetAnswers = useAppStore((state) => state.resetAnswers);
 
-  const party = useAppStore((state) => state.party);
-
   const setScore = useAppStore((state) => state.setScore);
 
   const highestVisibleQuestion = useAppStore(
@@ -363,12 +361,6 @@ const Results: React.FC = () => {
                 )}
               </span>
               .{" "}
-              {party === "democrat" && (
-                <span>
-                  In the primary election you may choose up to five candidates,
-                  so consider your runner-up matches:
-                </span>
-              )}
             </div>
 
             {score

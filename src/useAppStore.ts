@@ -6,8 +6,6 @@ import { questionStpContent } from "./question-stp-content";
 import { track } from "@amplitude/analytics-browser";
 import { City, useCity } from "./utils";
 
-export type Party = "democrat" | "other" | null;
-
 /**
  * A blank template to keep track of user's
  * responses to quiz questions.
@@ -24,8 +22,6 @@ export const createBlankAnswersList = (city: City) => {
 
 type AppState = {
   version: number;
-  party: Party;
-  setParty: (party: Party, delay?: number) => void;
   favoriteTopics: string[];
   setFavoriteTopics: (favoriteTopics: string[]) => void;
   answers: QuizInput[];
@@ -64,27 +60,15 @@ function createAppStore(cityKey: City) {
   const blankAnswersList = createBlankAnswersList(cityKey);
   return create<AppState>()(
     persist<AppState>(
-      (set, get) => ({
+      (set) => ({
         version: cityVersion,
-        party: null,
-        setParty: (party, delay) => {
-          track("Selected party", { party });
-          const highestVisibleQuestion = get().highestVisibleQuestion;
-          const setHighestVisibleQuestion = get().setHighestVisibleQuestion;
-          if (highestVisibleQuestion === 0 && !!party) {
-            setHighestVisibleQuestion(1);
-          }
-          setTimeout(() => {
-            set({ party });
-          }, delay || 0);
-        },
         favoriteTopics: [],
         setFavoriteTopics: (favoriteTopics) => set({ favoriteTopics }),
         answers: blankAnswersList,
         setAnswers: (answers) => set({ answers }),
         score: null,
         setScore: (score) => set({ score }),
-        highestVisibleQuestion: 0,
+        highestVisibleQuestion: 1,
         setHighestVisibleQuestion: (highestVisibleQuestion) =>
           set({ highestVisibleQuestion }),
         resetAnswers: () => {
@@ -92,8 +76,7 @@ function createAppStore(cityKey: City) {
           set({
             answers: blankAnswersList,
             favoriteTopics: [],
-            highestVisibleQuestion: 0,
-            party: null,
+            highestVisibleQuestion: 1,
           });
         },
       }),
@@ -113,9 +96,8 @@ function createAppStore(cityKey: City) {
               ...state,
               answers: blankAnswersList,
               favoriteTopics: [],
-              highestVisibleQuestion: 0,
+              highestVisibleQuestion: 1,
               score: null,
-              party: null,
               version: cityVersion,
             };
           } else {

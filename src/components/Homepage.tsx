@@ -30,8 +30,10 @@ const getDateUpdated = () => {
 const Homepage = () => {
   const city = useCity();
   const cityName = !!city ? getFullCityName(city) : "Minneapolis";
-  const party = useAppStore((state) => state.party);
   const questionsLeftToAnswer = getQuestionsLeftToAnswer();
+  const highestVisibleQuestion = useAppStore(
+    (state) => state.highestVisibleQuestion
+  );
 
   return (
     <PageLayout>
@@ -58,7 +60,7 @@ const Homepage = () => {
                     to={
                       questionsLeftToAnswer.length === 0
                         ? "results"
-                        : !!party
+                        : highestVisibleQuestion > 1
                         ? `question-${questionsLeftToAnswer[0]}`
                         : "quiz"
                     }
@@ -69,7 +71,7 @@ const Homepage = () => {
                     >
                       {questionsLeftToAnswer.length === 0
                         ? "View my results"
-                        : !!party
+                        : highestVisibleQuestion > 1
                         ? "Continue the quiz"
                         : "Take the quiz"}
                     </button>
