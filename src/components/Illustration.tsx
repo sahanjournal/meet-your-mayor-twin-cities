@@ -23,7 +23,7 @@ export const Bobblehead: React.FC<{
   const candidatePath = kebabCase(candidateName);
 
   const imgPathPrefix = `${
-    isCandidatePage ? ".." : "."
+    isCandidatePage ? "../.." : "./.."
   }/illustrations/${candidatePath}`;
 
   const animationDelay = startAnimationRightAway
