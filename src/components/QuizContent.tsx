@@ -52,11 +52,13 @@ export const testCandidateContentFormat = () => {
       const pipeCount = (value.match(/\|/g) || []).length;
       const noSpaceBeforeParenthesis = (value.match(/\S\(/) || []).length > 0;
       if (pipeCount > 2) {
-        console.log(`Too many pipes in ${outerKey}.${innerKey}: "${value}"`);
+        console.log(
+          `Too many pipes in Minneapolis candidate ${outerKey}.${innerKey}: "${value}"`
+        );
       }
       if (noSpaceBeforeParenthesis) {
         console.log(
-          `Improper parentesis spacing in ${outerKey}.${innerKey}: "${value}"`
+          `Improper parentesis spacing in Minneapolis candidate ${outerKey}.${innerKey}: "${value}"`
         );
       }
     }
@@ -69,11 +71,13 @@ export const testCandidateContentFormat = () => {
       const pipeCount = (value.match(/\|/g) || []).length;
       const noSpaceBeforeParenthesis = (value.match(/\S\(/) || []).length > 0;
       if (pipeCount > 2) {
-        console.log(`Too many pipes in ${outerKey}.${innerKey}: "${value}"`);
+        console.log(
+          `Too many pipes in St. Paul candidate ${outerKey}.${innerKey}: "${value}"`
+        );
       }
       if (noSpaceBeforeParenthesis) {
         console.log(
-          `Improper parentesis spacing in ${outerKey}.${innerKey}: "${value}"`
+          `Improper parentesis spacing in St. Paul candidate ${outerKey}.${innerKey}: "${value}"`
         );
       }
     }
