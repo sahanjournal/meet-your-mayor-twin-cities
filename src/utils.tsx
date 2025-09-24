@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
-import candidateList from "./candidate-mpls-list.json";
+import candidateMplsList from "./candidate-mpls-list.json";
+import candidateStpList from "./candidate-stp-list.json";
 
 export type City = "minneapolis" | "st-paul";
 
@@ -50,7 +51,8 @@ export function useIsCandidatePage() {
     .split("/")
     .filter((path) => path !== "")
     .pop();
-  const candidateSlugs = JSON.parse(JSON.stringify(candidateList)).map(
+  const fullCandidateList = candidateMplsList.concat(candidateStpList);
+  const candidateSlugs = JSON.parse(JSON.stringify(fullCandidateList)).map(
     (c: CandidateName) => kebabCase(c.name)
   );
   return candidateSlugs.includes(lastPathSegment);
