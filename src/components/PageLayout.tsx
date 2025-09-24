@@ -8,7 +8,6 @@ import { SocialButton } from "./SocialShareButtons";
 
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Script } from "gatsby";
 import { init } from "@amplitude/analytics-browser";
 
 const AMPLITUDE_PUBLIC_KEY = "cd8c6e9c6e26111a843bec73acf6fc28";
@@ -121,8 +120,8 @@ const Footer = () => {
           <OutboundLink to="https://www.thecity.nyc/author/ben-fractenberg/">
             Ben Fractenberg
           </OutboundLink>{" "}
-          and courtesy of the Curtis Sliwa and Jim Walden campaigns. Design support from Tember
-          Hopkins. Development support from Sam Guzik.
+          and courtesy of the Curtis Sliwa and Jim Walden campaigns. Design
+          support from Tember Hopkins. Development support from Sam Guzik.
         </div>
 
         <div className="eyebrow mt-5 has-text-centered">
@@ -159,11 +158,7 @@ const Footer = () => {
   );
 };
 
-const Analytics = () => (
-  <>
-    {/* Google Analytics & Google Tag Manager: */}
-  </>
-);
+const Analytics = () => <>{/* Google Analytics & Google Tag Manager: */}</>;
 
 type MetadataProps = {
   slug?: string;
