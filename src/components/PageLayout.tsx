@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import TheCityLogo from "../assets/logo.svg";
 import GothamistLogo from "../assets/logo-gothamist.svg";
 import { Helmet } from "react-helmet";
@@ -8,9 +7,11 @@ import { SocialButton } from "./SocialShareButtons";
 
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { init } from "@amplitude/analytics-browser";
 
-const AMPLITUDE_PUBLIC_KEY = "cd8c6e9c6e26111a843bec73acf6fc28";
+// DISABLE AMPLITUDE TRACKING FOR NOW:
+// import { init } from "@amplitude/analytics-browser";
+
+// const AMPLITUDE_PUBLIC_KEY = "FILL IN YOUR KEY HERE";
 
 const THE_CITY_SITE_LINKS = {
   website: "https://www.thecity.nyc/",
@@ -204,7 +205,7 @@ export const PageLayout: React.FC<{
 
   // Initialize Amplitude Tracking:
   useEffect(() => {
-    init(AMPLITUDE_PUBLIC_KEY);
+    // init(AMPLITUDE_PUBLIC_KEY);
   });
 
   return (
