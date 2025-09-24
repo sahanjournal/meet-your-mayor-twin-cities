@@ -1,7 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
-const candidateList = require("./src/candidate-sample-list.json");
+const candidateListMpls = require("./src/candidate-sample-list.json");
+const candidateListStp = require("./src/candidate-sample-list.json");
 
 /**
  * Converts string to kebab case (for generating a url slug).
@@ -20,17 +21,32 @@ const kebabCase = (string) => {
  * path specified in `createPage` below, as well as any other property passed along
  * to it inside the `context` argument.
  */
-let dynamicPageContent = Object.entries(candidateList).map(
+
+// For Minneapolis:
+let dynamicPageContentMpls = Object.entries(candidateListMpls).map(
+  (candidate) => candidate[1]
+);
+
+// For St. Paul:
+let dynamicPageContentStp = Object.entries(candidateListStp).map(
   (candidate) => candidate[1]
 );
 
 exports.createPages = async function ({ actions }) {
-  dynamicPageContent.forEach(({ name }) => {
-    const slug = kebabCase(name);
+  dynamicPageContentMpls.forEach(({ name }) => {
+    const slug = "minneapolis/" + kebabCase(name);
     actions.createPage({
       path: slug,
       component: require.resolve("./src/components/CandidatePage.tsx"),
-      context: { slug: slug, candidateName: name },
+      context: { slug: slug, candidateName: name, city: "Mpls" },
+    });
+  });
+  dynamicPageContentStp.forEach(({ name }) => {
+    const slug = "st-paul/" + kebabCase(name);
+    actions.createPage({
+      path: slug,
+      component: require.resolve("./src/components/CandidatePage.tsx"),
+      context: { slug: slug, candidateName: name, city: "Stp" },
     });
   });
 };
