@@ -53,7 +53,7 @@ const downloadGoogleDocContent = () => {
             }
           );
           console.log(
-            `✅ Downloaded candidate list from Google Docs and saved it in candidate-list.json`
+            `✅ Downloaded candidate list from Google Docs and saved it in ${fileName}-list.json`
           );
         }
       }
