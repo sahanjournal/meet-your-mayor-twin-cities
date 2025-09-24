@@ -1,7 +1,7 @@
 import React from "react";
 import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
-import candidateList from "./candidate-list.json";
+import candidateList from "./candidate-sample-list.json";
 
 export type CandidateName = {
   name: string;

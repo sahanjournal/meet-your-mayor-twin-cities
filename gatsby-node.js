@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-const candidateList = require("./src/candidate-list.json");
+const candidateList = require("./src/candidate-sample-list.json");
 
 /**
  * Converts string to kebab case (for generating a url slug).

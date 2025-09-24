@@ -1,5 +1,5 @@
-import { questionContent } from "../question-content";
-import { candidateContent } from "../candidate-content";
+import { questionContent } from "../question-sample-content";
+import { candidateContent } from "../candidate-sample-content";
 import { groupBy, kebabCase } from "../utils";
 import { Party, useAppStore } from "../useAppStore";
 

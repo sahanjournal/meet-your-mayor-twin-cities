@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { QuizInput, ScoreCard } from "./components/QuizContent";
-import { questionContent } from "./question-content";
+import { questionContent } from "./question-sample-content";
 import { track } from "@amplitude/analytics-browser";
 
 export type Party = "democrat" | "other" | null;
