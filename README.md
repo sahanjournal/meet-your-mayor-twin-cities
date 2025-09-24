@@ -26,10 +26,10 @@
 ├── .github/                   # Scripts for running Github Actions
 ├── .env                       # Client-accessible environment variables
 ├── candidate-mpls-content.js  # JS object with each Minneapolis candidate's info and question responses
-├── candidate-mpls-list.json   # A JSON list of each Minneapolis candidate and their full name
+├── candidate-mpls-list.json   # JSON list of each Minneapolis candidate and their full name
 ├── question-mpls-content.js   # JS object with each Minneapolis quiz question and set of responses
 ├── candidate-stp-content.js   # JS object with each St. Paul candidate's info and question responses
-├── candidate-stp-list.json    # A JSON list of each St. Paul candidate and their full name
+├── candidate-stp-list.json    # JSON list of each St. Paul candidate and their full name
 ├── question-stp-content.js    # JS object with each St. Paul quiz question and set of responses
 ├── gatsby-config.js           # Gatsby configuration
 ├── gatsby-node.js             # Gatsby Node APIs
