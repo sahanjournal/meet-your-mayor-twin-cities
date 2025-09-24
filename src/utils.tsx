@@ -3,6 +3,21 @@ import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
 import candidateList from "./candidate-sample-list.json";
 
+export type City =
+  | "Mpls" // for Minneapolis
+  | "Stp"; // for St. Paul;
+
+export const getFullCityName = (city: City) => {
+  switch (city) {
+    case "Mpls":
+      return "Minneapolis";
+    case "Stp":
+      return "St. Paul";
+    default:
+      return "";
+  }
+};
+
 export type CandidateName = {
   name: string;
 };
