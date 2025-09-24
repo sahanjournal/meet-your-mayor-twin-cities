@@ -162,8 +162,6 @@ export type ScoreCard = {
 /**
  * This function creates a blank template to keep track of which
  * candidates match up with user responses most closely.
- *
- * TODO: Generate a Blank scorecard based on the city
  */
 export const generateBlankScorecard = (): ScoreCard => {
   const city = useCity();
