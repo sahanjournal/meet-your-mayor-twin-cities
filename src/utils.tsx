@@ -1,37 +1,22 @@
 import React, { useMemo } from "react";
 import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
-import candidateList from "./candidate-sample-list.json";
+import candidateList from "./candidate-mpls-list.json";
 
-export type City =
-  | "Mpls" // for Minneapolis
-  | "Stp"; // for St. Paul;
-
-export type CitySlug = "minneapolis" | "st-paul";
+export type City = "minneapolis" | "st-paul";
 
 export const getFullCityName = (city: City) => {
   switch (city) {
-    case "Mpls":
+    case "minneapolis":
       return "Minneapolis";
-    case "Stp":
+    case "st-paul":
       return "St. Paul";
     default:
       return "Minneapolis";
   }
 };
 
-export const getCitySlug = (city: City) => {
-  switch (city) {
-    case "Mpls":
-      return "minneapolis" as CitySlug;
-    case "Stp":
-      return "st-paul" as CitySlug;
-    default:
-      return "minneapolis" as CitySlug;
-  }
-};
-
-export function useCity(): CitySlug | undefined {
+export function useCity(): City | undefined {
   const location = useLocation();
 
   return useMemo(() => {

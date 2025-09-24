@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Bobblehead } from "./Illustration";
-import candidateList from "../candidate-sample-list.json";
+import candidateList from "../candidate-mpls-list.json";
 import { CandidateName, shuffleArray } from "../utils";
 import classnames from "classnames";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { PageLayout } from "./PageLayout";
 import { InternalLink, OutboundLink } from "./Links";
 import { formatCandidateContent } from "./QuizContent";
-import { convertToHtml, formatContent, kebabCase } from "../utils";
+import { convertToHtml, formatContent, kebabCase, useCity } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
@@ -17,8 +17,9 @@ const CANDIDATE_PAGE_DESCRIPTION =
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { candidateName } = pageContext;
   const score = useAppStore((state) => state.score);
+  const city = useCity();
 
-  const candidateInfo = formatCandidateContent().find(
+  const candidateInfo = formatCandidateContent(city).find(
     (candidate) => candidate.name === candidateName
   );
 

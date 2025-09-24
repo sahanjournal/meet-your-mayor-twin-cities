@@ -1,11 +1,8 @@
 import React, { FC, useState } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
-import { formatContent, smoothScrollToCenter } from "../utils";
-import {
-  formatQuestionContent,
-  generateListOfCandidatesByParty,
-} from "./QuizContent";
+import { formatContent, smoothScrollToCenter, useCity } from "../utils";
+import { formatQuestionContent, generateListOfCandidates } from "./QuizContent";
 import {
   ANCHOR_LINK_DURATION,
   QUESTION_ANCHOR_LINK_OFFSET,
@@ -32,6 +29,7 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 );
 
 const Quiz = () => {
+  const city = useCity();
   const party = useAppStore((state) => state.party);
   const setParty = useAppStore((state) => state.setParty);
 
@@ -55,8 +53,8 @@ const Quiz = () => {
     setMethodologyVisible(!currentVisibility);
   };
 
-  const democraticCandidates = generateListOfCandidatesByParty("democrat");
-  const otherCandidates = generateListOfCandidatesByParty("other");
+  const democraticCandidates = generateListOfCandidates(city);
+  const otherCandidates = generateListOfCandidates(city);
 
   type PartySelectorButton = {
     label: string;
