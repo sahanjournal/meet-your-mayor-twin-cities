@@ -2,9 +2,8 @@ import React, { useEffect, useMemo } from "react";
 import { arrayToNiceList, groupBy, kebabCase, shuffleArray } from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
-import { SmoothScroll } from "./Links";
+import { InternalLink, SmoothScroll } from "./Links";
 import classnames from "classnames";
-import { Link } from "gatsby";
 import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
@@ -525,7 +524,7 @@ const Results: React.FC = () => {
 
                         <div className="buttons mt-5 ml-4">
                           <button className="button">
-                            <Link
+                            <InternalLink
                               to={kebabCase(candidate.candidateName)}
                               onClick={() =>
                                 track(
@@ -534,7 +533,7 @@ const Results: React.FC = () => {
                               }
                             >
                               Learn more about {candidate.candidateName}
-                            </Link>{" "}
+                            </InternalLink>{" "}
                           </button>
                         </div>
                       </div>

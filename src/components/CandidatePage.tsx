@@ -1,7 +1,6 @@
 import React from "react";
 import { PageLayout } from "./PageLayout";
-import { Link } from "gatsby";
-import { OutboundLink } from "./Links";
+import { InternalLink, OutboundLink } from "./Links";
 import { formatCandidateContent } from "./QuizContent";
 import { convertToHtml, formatContent, kebabCase } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
@@ -56,7 +55,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
     >
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
         <div className="eyebrow">
-          <Link to="/">
+          <InternalLink to="/">
             <div
               className="mr-1"
               style={{
@@ -67,7 +66,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
               ↗
             </div>
             Meet your mayor
-          </Link>
+          </InternalLink>
         </div>
         <h1 className="headline has-text-left mt-1">{candidateName}</h1>
         <div className="columns candidate-page-intro">
@@ -81,7 +80,7 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
               }}
             >
               <LazyLoadImage
-                src={`../photos/${kebabCase(candidateName)}-photo.jpg`}
+                src={`../../photos/${kebabCase(candidateName)}-photo.jpg`}
                 effect="blur"
                 alt={candidateName}
                 style={{
@@ -107,13 +106,13 @@ const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
           <OutboundLink to={website}>
             <button className="button mb-1">Campaign Website</button>
           </OutboundLink>
-          <Link to="/">
+          <InternalLink to="/">
             <button className="button is-white mb-1">
               {questionsLeftToAnswer.length === 0
                 ? `Revisit the quiz`
                 : "See if you're a match"}
             </button>
-          </Link>
+          </InternalLink>
         </div>
         <div className="eyebrow has-text-left mt-5 mb-2 is-flex is-align-items-center">
           <div className="mr-3 is-flex-shrink-2">Share Meet Your Mayor:</div>{" "}

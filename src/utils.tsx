@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
 import candidateList from "./candidate-sample-list.json";
@@ -7,6 +7,8 @@ export type City =
   | "Mpls" // for Minneapolis
   | "Stp"; // for St. Paul;
 
+export type CitySlug = "minneapolis" | "st-paul";
+
 export const getFullCityName = (city: City) => {
   switch (city) {
     case "Mpls":
@@ -14,9 +16,32 @@ export const getFullCityName = (city: City) => {
     case "Stp":
       return "St. Paul";
     default:
-      return "";
+      return "Minneapolis";
   }
 };
+
+export const getCitySlug = (city: City) => {
+  switch (city) {
+    case "Mpls":
+      return "minneapolis" as CitySlug;
+    case "Stp":
+      return "st-paul" as CitySlug;
+    default:
+      return "minneapolis" as CitySlug;
+  }
+};
+
+export function useCity(): CitySlug | undefined {
+  const location = useLocation();
+
+  return useMemo(() => {
+    const segments = location.pathname.toLowerCase().split("/").filter(Boolean);
+
+    if (segments.includes("minneapolis")) return "minneapolis";
+    if (segments.includes("st-paul")) return "st-paul";
+    return undefined;
+  }, [location.pathname]);
+}
 
 export type CandidateName = {
   name: string;
