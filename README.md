@@ -4,7 +4,6 @@
 
 [![See it Live](https://img.shields.io/badge/See%20it%20Live-blue?style=for-the-badge)](https://projects.thecity.nyc/meet-your-mayor-2025-election-quiz-candidates/)
 
-
 ## 🛠️ Technologies Used
 
 - **[Gatsby](https://www.gatsbyjs.com/)**: A React-based open-source framework for creating fast websites.
@@ -17,23 +16,26 @@
 
 ```
 2025-meet-your-mayor/
-├── src/                  # Source files
-│   ├── @types/           # Custom type declarations
-│   ├── assets/           # Logos
-│   ├── components/       # Reusable UI components
-│   ├── pages/            # Pages (using Gatsby page logic)
-│   └── styles/           # Custom SCSS styles
-├── static/               # Static assets, like photos and illustrations
-├── .github/              # Scripts for running Github Actions
-├── .env                  # Client-accessible environment variables
-├── candidate-content.js  # JS object with each candidate's info and question responses
-├── candidate-list.json   # A JSON list of each candidate and their full name
-├── question-content.js   # JS object with each quiz question and set of responses
-├── gatsby-config.js      # Gatsby configuration
-├── gatsby-node.js        # Gatsby Node APIs
-├── package.json          # Project metadata and dependencies
-└── README.md             # Project documentation
-└── LICENSE               # Project license
+├── src/                       # Source files
+│   ├── @types/                # Custom type declarations
+│   ├── assets/                # Logos
+│   ├── components/            # Reusable UI components
+│   ├── pages/                 # Pages (using Gatsby page logic)
+│   └── styles/                # Custom SCSS styles
+├── static/                    # Static assets, like photos and illustrations
+├── .github/                   # Scripts for running Github Actions
+├── .env                       # Client-accessible environment variables
+├── candidate-mpls-content.js  # JS object with each Minneapolis candidate's info and question responses
+├── candidate-mpls-list.json   # A JSON list of each Minneapolis candidate and their full name
+├── question-mpls-content.js   # JS object with each Minneapolis quiz question and set of responses
+├── candidate-stp-content.js   # JS object with each St. Paul candidate's info and question responses
+├── candidate-stp-list.json    # A JSON list of each St. Paul candidate and their full name
+├── question-stp-content.js    # JS object with each St. Paul quiz question and set of responses
+├── gatsby-config.js           # Gatsby configuration
+├── gatsby-node.js             # Gatsby Node APIs
+├── package.json               # Project metadata and dependencies
+└── README.md                  # Project documentation
+└── LICENSE                    # Project license
 ```
 
 ## ⚙️ Getting Started
@@ -77,7 +79,7 @@ You may also see any lint errors in the console.
 
 Runs the `downloadGoogleDocContent` function inside `src/scripts.js`. This function uses [ArchieML](http://archieml.org/) to download content from a Google Doc and save it in a JavaScript object variable in `[FILENAME]-content.js` in the `src` directory.
 
-This current iteration of the project downloads from two different google docs via the two options: `FILENAME = candidate` and `FILENAME = questions`. However, you can edit the `downloadGoogleDocContent` function inside `src/scripts.js` to work with whatever set of documents makes sense for your project. Using this integration is totally optional — feel free to edit the content in `candidate-content.js`, `question-content.js`, and `candidate-list.json` directly.
+This current iteration of the project downloads from four different google docs via the four options: `FILENAME = candidate-mpls` and `FILENAME = questions-mpls` for Minneapolis candidate and quiz question data, and then `FILENAME = candidate-stp` and `FILENAME = questions-stp` for St. Paul candidate and quiz question data. However, you can edit the `downloadGoogleDocContent` function inside `src/scripts.js` to work with whatever set of documents makes sense for your project. Using this integration is totally optional — feel free to edit the content in any of these files directly, which all start with `candidate-` or `question-`.
 
 NOTE: before running this command, you must globally install the AML Google Doc Server on your computer by running:
 
