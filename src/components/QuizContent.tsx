@@ -166,7 +166,13 @@ export type ScoreCard = {
  * TODO: Generate a Blank scorecard based on the city
  */
 export const generateBlankScorecard = (): ScoreCard => {
-  return Object.entries(candidateMplsContent).map((candidate) => {
+  const city = useCity();
+
+  // Filter candidates by city:
+  const candidateContent =
+    city === "st-paul" ? candidateStpContent : candidateMplsContent;
+
+  return Object.entries(candidateContent).map((candidate) => {
     return {
       candidateName: candidate[1].name,
       scoreList: [],
