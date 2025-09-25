@@ -27,8 +27,12 @@ const byline = process.env.GATSBY_AUTHOR
 const Header = () => (
   <nav className="nav has-color-background">
     <div className="nav-container">
-      <div className="nav-logo" style={{ width: "100px" }}>
-        <OutboundLink to={SAHAN_SITE_LINKS.website} aria-label="THE CITY">
+      <div className="nav-logo">
+        <OutboundLink
+          to={SAHAN_SITE_LINKS.website}
+          aria-label="THE CITY"
+          className="is-flex"
+        >
           <SahanLogo />
         </OutboundLink>
       </div>
