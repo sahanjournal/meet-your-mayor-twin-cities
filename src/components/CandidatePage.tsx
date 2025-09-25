@@ -59,7 +59,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
 
   if (!candidateInfo) return <></>;
 
-  const { website, bio, quotes } = candidateInfo;
+  const { website, bio } = candidateInfo;
 
   return (
     <PageLayout
@@ -140,7 +140,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
 
         <div className="copy my-5 py-5">{formatContent(bio)}</div>
       </div>
-      <div className="container">
+      {/* <div className="container">
         <div className="columns">
           {quotes.map((quoteInfo, i) => {
             const { subject, quote, source } = quoteInfo;
@@ -173,7 +173,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
             );
           })}
         </div>
-      </div>
+      </div> */}
       <div className="container pt-5 mb-5" style={{ maxWidth: "600px" }}>
         <h1 className="headline has-text-left mt-6">Election Coverage</h1>
         <RecentCoverage />
