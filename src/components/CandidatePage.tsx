@@ -20,6 +20,21 @@ import { getQuestionsLeftToAnswer } from "./Results";
 const CANDIDATE_PAGE_DESCRIPTION =
   "Who should you rank on your ballot to be the next mayor of New York City? Take our quiz to find your closest match.";
 
+const MINNEAPOLIS_OPEN_ENDED_QUESTIONS = [
+  "Why are you running for mayor?",
+  "As mayor, how will you advocate for immigrants and communities of color?",
+  "Should homeless encampments be allowed to exist in Minneapolis? When should the city clear homeless encampments?",
+  "Do you agree with how the city handled its presence at the federal drug investigation on Lake Street in June, and how can Minneapolis improve its response in future incidents?",
+];
+
+const ST_PAUL_OPEN_ENDED_QUESTIONS = [
+  "Why are you running for mayor?",
+  "As mayor, how will you advocate for immigrants and communities of color?",
+  "How can the city revive downtown, which is home to several vacant offices?",
+  "How can the city best prevent another cyberattack",
+  "The corridor in Midway starting at Snelling Ave and University Ave has lost or is losing several businesses. What should the mayor do to revive this corridor, which is home to many communities of color?",
+];
+
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
   const { city } = pageContext;
 
@@ -59,7 +74,8 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
 
   if (!candidateInfo) return <></>;
 
-  const { website, bio, quotes } = candidateInfo;
+  const { website, bio, quote1, quote2, quote3, quote4, quote5 } =
+    candidateInfo;
 
   return (
     <PageLayout
@@ -99,7 +115,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
               }}
             >
               <LazyLoadImage
-                src={`../../photos/${kebabCase(candidateName)}-photo.jpg`}
+                src={`../../photos/${kebabCase(candidateName)}-photo.png`}
                 effect="blur"
                 alt={candidateName}
                 style={{
@@ -122,9 +138,11 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
           </div>
         )}
         <div className="field is-grouped">
-          <OutboundLink to={website}>
-            <button className="button mb-1">Campaign Website</button>
-          </OutboundLink>
+          {!!website && (
+            <OutboundLink to={website}>
+              <button className="button mb-1">Campaign Website</button>
+            </OutboundLink>
+          )}
           <InternalLink to="/">
             <button className="button is-white mb-1">
               {questionsLeftToAnswer.length === 0
@@ -138,9 +156,25 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
           <SocialShareButtons />
         </div>
 
-        <div className="copy my-5 py-5">{formatContent(bio)}</div>
+        {city === "st-paul"
+          ? [quote1, quote2, quote3, quote4, quote5].map((quote, i) => (
+              <div className="copy" key={i}>
+                <h3 className="deck has-text-left mb-4">
+                  {ST_PAUL_OPEN_ENDED_QUESTIONS[i]}
+                </h3>
+                {formatContent(quote)}
+              </div>
+            ))
+          : [quote1, quote2, quote3, quote4].map((quote, i) => (
+              <div className="copy my-2 py-2" key={i}>
+                <h3 className="deck has-text-left mb-4">
+                  {MINNEAPOLIS_OPEN_ENDED_QUESTIONS[i]}
+                </h3>
+                {formatContent(quote)}
+              </div>
+            ))}
       </div>
-      <div className="container">
+      {/* <div className="container">
         <div className="columns">
           {quotes.map((quoteInfo, i) => {
             const { subject, quote, source } = quoteInfo;
@@ -173,7 +207,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
             );
           })}
         </div>
-      </div>
+      </div> */}
       <div className="container pt-5 mb-5" style={{ maxWidth: "600px" }}>
         <h1 className="headline has-text-left mt-6">Election Coverage</h1>
         <RecentCoverage />

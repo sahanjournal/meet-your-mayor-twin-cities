@@ -356,7 +356,7 @@ details {
     position: absolute;
     width: 50%;
     height: 100%;
-    animation: slideInOut 18s linear infinite;
+    animation: slideInOut 9s linear infinite;
   }
 
   /* Left column slides (odd-numbered) */
@@ -385,18 +385,6 @@ details {
   .slide:nth-child(5),
   .slide:nth-child(6) {
     animation-delay: 5s;
-  }
-  .slide:nth-child(7),
-  .slide:nth-child(8) {
-    animation-delay: 8s;
-  }
-  .slide:nth-child(9),
-  .slide:nth-child(10) {
-    animation-delay: 11s;
-  }
-  .slide:nth-child(11),
-  .slide:nth-child(12) {
-    animation-delay: 14s;
   }
 }
 
@@ -802,23 +790,23 @@ hr {
 /* Left side animation: from left to center to left */
 @keyframes slideInOutLeft {
   0%,
-  14.66% {
+  29% {
     transform: translateX(-100%);
   }
-  2%,
-  12.66% {
+  4%,
+  25% {
     transform: translateX(0);
   }
 }
 
 /* Right side animation: from right to center to right */
 @keyframes slideInOutRight {
-  2%,
-  16.66% {
+  4%,
+  33% {
     transform: translateX(100%);
   }
-  4%,
-  14.66% {
+  8%,
+  29% {
     transform: translateX(0);
   }
 }

@@ -1,86 +1,114 @@
 export const questionStpContent = {
   question1: {
-    title: "What is your position on NYC’s sanctuary city laws?",
-    subject: "Federal Government",
+    title:
+      "Do you support the city’s sanctuary policy, and should it be expanded?",
+    subject: "immigration",
     tellMeMore:
-      "NYC laws prohibit most cooperation with immigration enforcement, making exceptions only for the NYPD and Department of Correction to transfer custody where someone sought by federal agents has been convicted of a specified violent crime.",
-    option1:
-      "Laws should remain as they are: City authorities should only cooperate with federal agents on immigration enforcement where a person has previously been convicted of a qualifying crime, regardless of new charges",
-    option2:
-      "Change the laws: City authorities should help federal agents with enforcement for people charged with violent felonies, in addition to those already convicted",
-    option3:
-      "Change the laws: City authorities should cooperate with ICE as demanded regardless of a person's history with the justice system",
-    option4:
-      "Change the laws: City authorities should further restrict cooperation with federal authorities",
+      "St. Paul city policy prohibits local law enforcement from asking people about their immigration status or for their immigration documents. The St. Paul Police Department is also not allowed to cooperate with U.S. Immigration and Customs Enforcement on federal immigration enforcement.",
+    option1: "Yes, and it should be expanded.",
+    option2: "Yes, and it is fine as it is.",
+    option3: "No.",
+    option4: "",
   },
   question2: {
-    title: "How should the next mayor deal with President Trump?",
-    subject: "Federal Government",
+    title:
+      "How can the city make up for lost federal grants and revenue due to cuts from the Trump administration?",
+    subject: "federal funding",
     tellMeMore:
-      "President Donald Trump has taken numerous steps targeting New York City specifically, including threatening to end congestion pricing that helps fund mass transit and clawing back funds the city uses to aid migrants.",
-    option1: "Seek partnership and focus on benefits",
-    option2: "Resistance is the priority",
-    option3:
-      "Neutrality: focus on the city and let the governor and congressional delegation deal with the White House",
+      "The Trump administration has cut several federal grants and funding that cities like St. Paul rely on.",
+    option1: "Spend city money more efficiently.",
+    option2:
+      "Encourage more development and leverage relationship with state Legislature for more state funding.",
+    option3: "Reform the city’s business policies.",
     option4: "",
   },
   question3: {
     title:
-      "What is your spending priority for $500 million in opioid settlement funds?",
-    subject: "Health",
+      "Should the city cut services as one way to address loss of federal funds and dwindling downtown tax base?",
+    subject: "federal funding",
     tellMeMore:
-      'Under settlements reached with pharmaceutical companies, the state and city have <a href="https://www.nyc.gov/office-of-the-mayor/news/683-24/mayor-adams-ramp-up-annual-support-50-million-opioid-prevention-treatment-major">amassed funds</a> to aid people with substance use disorders. By 2040, the city anticipates that it will receive a total of $500 million.',
-    option1:
-      "Supportive housing services for people with substance use disorders",
-    option2:
-      "Safe injection facilities and needle exchanges to limit fatalities among users",
-    option3: "Law enforcement efforts to crack down on drug dealers",
-    option4: "",
+      "The Trump administration has slashed several federal grants and funds that go directly to cities like St. Paul. At the same time, St. Paul’s downtown buildings are largely vacant since the pandemic changed how workplaces use offices, leading to less tax revenue for the city.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
   },
   question4: {
     title:
-      "Do you support involuntary hospitalization for people with volatile episodes of mental illness?",
-    subject: "Health",
+      "Should the state require its employees to return to the office fulltime to help revive downtown?",
+    subject: "development",
     tellMeMore:
-      "New changes to the state’s involuntary commitment law make it easier for police and health professionals to admit people with mental illness — even without evidence of imminent physical harm to themselves or others — to hospitals.",
-    option1:
-      "I support the law’s premise: It needs to be easier to hospitalize people when warranted.",
-    option2:
-      "I oppose the law’s premise: People’s rights to make their own mental health care decisions should not be compromised",
-    option3: "I support the bill's premise but it does not go far enough",
-    option4: "",
+      "St. Paul is home to many state government offices. This last summer, Gov. Tim Walz required state employees to return to the office to work for at least half of the workweek for the first time since the pandemic started. The move is meant to help revitalize businesses reliant on office workers.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
   },
   question5: {
-    title: "What kind of manager should the next mayor be?",
-    subject: "Leadership",
-    tellMeMore: "",
-    option1:
-      "The Decider — centralize decision-making with the mayor and close advisers",
-    option2:
-      "The Partner — make decisions in coordination with the City Council",
-    option3:
-      "The Delegator — hire top talent to run agencies and rely on their judgment",
-    option4: "",
+    title:
+      "Should the city spend money to remodel the Grand Casino Arena (formerly Xcel Energy Center) that the Minnesota Wild is requesting?",
+    subject: "development",
+    tellMeMore:
+      "The Minnesota Wild are asking for $394 million from the state to renovate the 25-year-old hockey arena. A renovation would keep the Wild in downtown St. Paul.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
   },
   question6: {
     title:
-      "A generation from now, what’s the one legacy you’d like New Yorkers to recall from the next mayor?",
-    subject: "Leadership",
-    tellMeMore: "",
-    option1:
-      "They expanded opportunities for poor and working-class New Yorkers",
-    option2: "They created lasting public works",
-    option3: "They imposed fiscal discipline and cleaned up government",
-    option4: "They curbed disorder and improved neighborhood quality of life",
+      "Should the city look into charging fees to tax-exempt large nonprofits, hospitals and universities as a new way to raise revenue?",
+    subject: "development",
+    tellMeMore:
+      "St. Paul is home to several nonprofits and government buildings, all of which do not pay property taxes into the city.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
   },
   question7: {
     title:
-      "What kind of early-career experience is most important for the next mayor to have?",
-    subject: "Leadership",
-    tellMeMore: "",
-    option1: "Led a nonprofit",
-    option2: "Served as a community or labor organizer",
-    option3: "Worked in the private sector",
-    option4: "Career-long work in government or politics",
+      "Do you support the St. Paul rent control policy as it now stands? Does it need more exemptions for certain types of residences?",
+    subject: "rent control",
+    tellMeMore:
+      "City voters approved a 3 percent cap on annual rent increases in 2023. The city has amended the policy many times since to exempt certain projects from the law, including new developments.",
+    option1: "The city should keep rent control but add more exemptions.",
+    option2: "The current rent control policy is adequate.",
+    option3: "The city should repeal rent control altogether.",
+    option4:
+      "The city should go back to the original rent control policy that voters passed in 2023.",
+  },
+  question8: {
+    title:
+      "Should the state revoke the operation permit for Northern Iron, a metal foundry on the East Side cited for pollution violations?",
+    subject: "environment",
+    tellMeMore:
+      "A metal foundry on the East Side has been in a legal battle with state regulators over pollution levels for the past two years.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
+  },
+  question9: {
+    title:
+      "Should the city stop collecting trash and revert to the previous practice of leaving it up to residents to organize their own trash collection?",
+    subject: "city services",
+    tellMeMore:
+      "St. Paul voters approved in 2019 to switch from a private trash collection system to a city-run trash collection system. Yet the implementation of this has been sometimes rocky, with Mayor Melvin Carter declaring a state of emergency on trash collection last spring.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
+  },
+  question10: {
+    title:
+      "Should St. Paul Public Works plow alleys instead of leaving it up to residents?",
+    subject: "city services",
+    tellMeMore:
+      "St. Paul alley plowing is currently done by private businesses.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
   },
 };
