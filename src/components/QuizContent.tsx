@@ -20,9 +20,9 @@ export const formatCandidateContent = (city: City | undefined) => {
     const quizResponses = Object.entries(candidate)
       .filter(([key]) => key.startsWith("quizResponse"))
       .map(([, value]) => ({
-        optionNumber: splitCandidateInfo(value)[0]?.trim(),
-        quote: splitCandidateInfo(value)[1]?.trim(),
-        source: splitCandidateInfo(value)[2]?.trim(),
+        optionNumber: splitCandidateInfo(value as string)[0]?.trim(),
+        quote: splitCandidateInfo(value as string)[1]?.trim(),
+        source: splitCandidateInfo(value as string)[2]?.trim(),
       }));
 
     return { responses: quizResponses, ...candidate };
