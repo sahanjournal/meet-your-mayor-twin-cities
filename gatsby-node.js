@@ -38,7 +38,7 @@ exports.createPages = async function ({ actions }) {
     actions.createPage({
       path: slug,
       component: require.resolve("./src/components/CandidatePage.tsx"),
-      context: { slug: slug, candidateName: name },
+      context: { slug: slug, candidateName: name, city: "minneapolis" },
     });
   });
   dynamicPageContentStp.forEach(({ name }) => {
@@ -46,7 +46,7 @@ exports.createPages = async function ({ actions }) {
     actions.createPage({
       path: slug,
       component: require.resolve("./src/components/CandidatePage.tsx"),
-      context: { slug: slug, candidateName: name },
+      context: { slug: slug, candidateName: name, city: "st-paul" },
     });
   });
 };

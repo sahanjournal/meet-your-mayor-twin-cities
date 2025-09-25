@@ -1,10 +1,28 @@
-import React, { useMemo } from "react";
+import React, { createContext, useContext } from "react";
 import parse from "html-react-parser";
 import { useLocation } from "@reach/router";
 import candidateMplsList from "./candidate-mpls-list.json";
 import candidateStpList from "./candidate-stp-list.json";
 
 export type City = "minneapolis" | "st-paul";
+
+const CityContext = createContext<City | undefined>(undefined);
+
+export function CityProvider({
+  city,
+  children,
+}: {
+  city: City;
+  children: React.ReactNode;
+}) {
+  return <CityContext.Provider value={city}>{children}</CityContext.Provider>;
+}
+
+export function useCity() {
+  const ctx = useContext(CityContext);
+  if (!ctx) throw new Error("useCity must be used within a CityProvider");
+  return ctx;
+}
 
 export const getFullCityName = (city: City) => {
   switch (city) {
@@ -16,18 +34,6 @@ export const getFullCityName = (city: City) => {
       return "Minneapolis";
   }
 };
-
-export function useCity(): City | undefined {
-  const location = useLocation();
-
-  return useMemo(() => {
-    const segments = location.pathname.toLowerCase().split("/").filter(Boolean);
-
-    if (segments.includes("minneapolis")) return "minneapolis";
-    if (segments.includes("st-paul")) return "st-paul";
-    return undefined;
-  }, [location.pathname]);
-}
 
 export type CandidateName = {
   name: string;
