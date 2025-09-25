@@ -111,7 +111,7 @@ const Homepage = () => {
           <div className="columns">
             <div className="column is-two-thirds">
               <div className="eyebrow">
-                <SmoothScroll to="quiz">
+                <a href="#quiz">
                   <div
                     className="mr-1"
                     style={{
@@ -122,7 +122,7 @@ const Homepage = () => {
                     ↗
                   </div>
                   Take our quiz
-                </SmoothScroll>
+                </a>
               </div>
               <h1
                 className="headline has-text-left mt-2"
