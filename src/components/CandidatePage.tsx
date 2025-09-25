@@ -122,9 +122,11 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
           </div>
         )}
         <div className="field is-grouped">
-          <OutboundLink to={website}>
-            <button className="button mb-1">Campaign Website</button>
-          </OutboundLink>
+          {!!website && (
+            <OutboundLink to={website}>
+              <button className="button mb-1">Campaign Website</button>
+            </OutboundLink>
+          )}
           <InternalLink to="/">
             <button className="button is-white mb-1">
               {questionsLeftToAnswer.length === 0
