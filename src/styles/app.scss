@@ -32,12 +32,12 @@ $tablet-breakpoint: 1025px;
     --city-green-light-shadow: color.adjust($color: #f06a6a, $lightness: -10%);
   }
   &.st-paul-style {
-    --city-green: #c2f2c8;
-    --city-green-light: #f1f1f1;
-    --city-green-dark: #227a32;
-    --city-green-dark-shadow: color.adjust($color: #227a32a, $lightness: -60%);
-    --city-green-mid-shadow: color.adjust($color: #c2f2c8, $lightness: -60%);
-    --city-green-light-shadow: color.adjust($color: #227a32a, $lightness: -10%);
+    --city-green: #c8c38a;
+    --city-green-light: #e5e2c4;
+    --city-green-dark: #99943c;
+    --city-green-dark-shadow: color.adjust($color: #99943c, $lightness: -60%);
+    --city-green-mid-shadow: color.adjust($color: #c8c38a, $lightness: -60%);
+    --city-green-light-shadow: color.adjust($color: #99943c, $lightness: -10%);
   }
 }
 
