@@ -1,32 +1,24 @@
 import React, { useEffect } from "react";
-import TheCityLogo from "../assets/logo.svg";
-import GothamistLogo from "../assets/logo-gothamist.svg";
+import SahanLogo from "../assets/logo.svg";
 import { Helmet } from "react-helmet";
 import { OutboundLink } from "./Links";
 import { SocialButton } from "./SocialShareButtons";
 
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useCity } from "../utils";
 
 // DISABLE AMPLITUDE TRACKING FOR NOW:
 // import { init } from "@amplitude/analytics-browser";
 
 // const AMPLITUDE_PUBLIC_KEY = "FILL IN YOUR KEY HERE";
 
-const THE_CITY_SITE_LINKS = {
-  website: "https://www.thecity.nyc/",
-  x: "https://x.com/intent/follow?screen_name=TheCityNY",
-  instagram: "https://www.instagram.com/thecityny",
-  facebook: "https://www.facebook.com/thecityny",
-  bluesky: "https://bsky.app/profile/thecity.nyc",
-};
-
-const GOTHAMIST_SITE_LINKS = {
-  website: "https://gothamist.com/",
-  x: "https://x.com/gothamist",
-  instagram: "https://www.instagram.com/gothamist",
-  facebook: "https://www.facebook.com/gothamist",
-  bluesky: "https://bsky.app/profile/gothamist.com",
+const SAHAN_SITE_LINKS = {
+  website: "https://sahanjournal.com/",
+  x: "https://x.com/sahanjournal",
+  instagram: "https://www.instagram.com/sahanjournal/",
+  facebook: "https://www.facebook.com/sahanjournal/",
+  bluesky: "https://bsky.app/profile/did:plc:ukvib7xzyn5cjdapkhntmmue",
 };
 
 const byline = process.env.GATSBY_AUTHOR
@@ -36,17 +28,16 @@ const byline = process.env.GATSBY_AUTHOR
 const Header = () => (
   <nav className="nav has-color-background">
     <div className="nav-container">
-      <div className="nav-logo" style={{ width: "80px" }}>
-        <OutboundLink to={THE_CITY_SITE_LINKS.website} aria-label="THE CITY">
-          <TheCityLogo />
+      <div className="nav-logo">
+        <OutboundLink
+          to={SAHAN_SITE_LINKS.website}
+          aria-label="THE CITY"
+          className="is-flex"
+        >
+          <SahanLogo />
         </OutboundLink>
       </div>
-      <div className="eyebrow ml-2 mt-1 is-size-4">×</div>
-      <div className="nav-logo ml-2 mt-1" style={{ width: "90px" }}>
-        <OutboundLink to={GOTHAMIST_SITE_LINKS.website} aria-label="Gothamist">
-          <GothamistLogo />
-        </OutboundLink>
-      </div>
+
       <div className="nav-title"></div>
     </div>
   </nav>
@@ -61,33 +52,17 @@ const Footer = () => {
         className="container is-flex is-flex-direction-column is-align-items-center p-0"
         style={{ maxWidth: "750px" }}
       >
-        <div className="eyebrow">Made with ♥ in NYC by</div>
+        <div className="eyebrow">Made with ♥ in the Twin Cities by</div>
         <div className="eyebrow mb-5">
-          <OutboundLink to={THE_CITY_SITE_LINKS.website} aria-label="THE CITY">
-            THE CITY
-          </OutboundLink>{" "}
-          <div className="has-text-weight-bold is-size-6 is-inline-block">
-            ×
-          </div>{" "}
           <OutboundLink
-            to={GOTHAMIST_SITE_LINKS.website}
-            aria-label="GOTHAMIST"
+            to={SAHAN_SITE_LINKS.website}
+            aria-label=" Sahan Journal"
           >
-            Gothamist
+            Sahan Journal
           </OutboundLink>
         </div>
         <div className="eyebrow">
-          {Object.entries(THE_CITY_SITE_LINKS)
-            .filter((link) => link[0] !== "website")
-            .map((link, i) => (
-              <SocialButton
-                url={link[1]}
-                key={i}
-                ariaLabel={`Share on ${link[0]}`}
-              />
-            ))}
-          {"• "}
-          {Object.entries(GOTHAMIST_SITE_LINKS)
+          {Object.entries(SAHAN_SITE_LINKS)
             .filter((link) => link[0] !== "website")
             .map((link, i) => (
               <SocialButton
@@ -186,6 +161,8 @@ export const PageLayout: React.FC<{
   children: React.ReactNode;
   customMetadata?: MetadataProps;
 }> = ({ children, customMetadata }) => {
+  const city = useCity();
+
   const slug = customMetadata?.slug || process.env.GATSBY_SLUG;
   const url = `${process.env.GATSBY_DOMAIN}${slug}/`;
 
@@ -209,7 +186,10 @@ export const PageLayout: React.FC<{
   });
 
   return (
-    <article id="main">
+    <article
+      id="main"
+      className={city === "st-paul" ? "st-paul-style" : "minneapolis-style"}
+    >
       <Header />
       <Helmet>
         <title>{`${siteName}`}</title>
