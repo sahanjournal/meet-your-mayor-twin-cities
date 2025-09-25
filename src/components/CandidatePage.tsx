@@ -2,7 +2,13 @@ import React from "react";
 import { PageLayout } from "./PageLayout";
 import { InternalLink, OutboundLink } from "./Links";
 import { formatCandidateContent } from "./QuizContent";
-import { convertToHtml, formatContent, kebabCase, useCity } from "../utils";
+import {
+  CityProvider,
+  convertToHtml,
+  formatContent,
+  kebabCase,
+  useCity,
+} from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
@@ -15,6 +21,18 @@ const CANDIDATE_PAGE_DESCRIPTION =
   "Who should you rank on your ballot to be the next mayor of New York City? Take our quiz to find your closest match.";
 
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
+  const { city } = pageContext;
+
+  return (
+    <CityProvider city={city}>
+      <CandidatePageContent pageContext={pageContext} />
+    </CityProvider>
+  );
+};
+
+const CandidatePageContent: React.FC<{ pageContext: any }> = ({
+  pageContext,
+}) => {
   const { candidateName } = pageContext;
   const score = useAppStore((state) => state.score);
   const city = useCity();
