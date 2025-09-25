@@ -6,6 +6,7 @@ import { SocialButton } from "./SocialShareButtons";
 
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useCity } from "../utils";
 
 // DISABLE AMPLITUDE TRACKING FOR NOW:
 // import { init } from "@amplitude/analytics-browser";
@@ -160,6 +161,8 @@ export const PageLayout: React.FC<{
   children: React.ReactNode;
   customMetadata?: MetadataProps;
 }> = ({ children, customMetadata }) => {
+  const city = useCity();
+
   const slug = customMetadata?.slug || process.env.GATSBY_SLUG;
   const url = `${process.env.GATSBY_DOMAIN}${slug}/`;
 
@@ -183,7 +186,10 @@ export const PageLayout: React.FC<{
   });
 
   return (
-    <article id="main">
+    <article
+      id="main"
+      className={city === "st-paul" ? "st-paul-style" : "minneapolis-style"}
+    >
       <Header />
       <Helmet>
         <title>{`${siteName}`}</title>

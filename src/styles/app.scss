@@ -22,6 +22,25 @@
 $mobile-breakpoint: 768px;
 $tablet-breakpoint: 1025px;
 
+#main {
+  &.minneapolis-style {
+    --city-green: #f2c2c7;
+    --city-green-light: #f4d2d6;
+    --city-green-dark: #f06a6a;
+    --city-green-dark-shadow: color.adjust($color: #f06a6a, $lightness: -60%);
+    --city-green-mid-shadow: color.adjust($color: #f2c2c7, $lightness: -60%);
+    --city-green-light-shadow: color.adjust($color: #f06a6a, $lightness: -10%);
+  }
+  &.st-paul-style {
+    --city-green: #c2f2c8;
+    --city-green-light: #f1f1f1;
+    --city-green-dark: #227a32;
+    --city-green-dark-shadow: color.adjust($color: #227a32a, $lightness: -60%);
+    --city-green-mid-shadow: color.adjust($color: #c2f2c8, $lightness: -60%);
+    --city-green-light-shadow: color.adjust($color: #227a32a, $lightness: -10%);
+  }
+}
+
 .columns {
   max-width: 100vw;
 }
@@ -163,7 +182,7 @@ details {
 // FORMS:
 
 .newsletter-signup {
-  background-color: colors.$city-green-dark;
+  background-color: var(--city-green-dark);
 }
 
 .homepage-election-updates .newsletter-signup {
@@ -185,10 +204,9 @@ details {
   transition: all 0.2s ease-in-out;
   color: colors.$city-black;
   border: none;
-  background-color: colors.$city-green-dark;
+  background-color: var(--city-green-dark);
   border: 1px solid colors.$city-black;
-  box-shadow: 2px 4px 0px
-    color.adjust($color: colors.$city-green-dark, $lightness: -60%);
+  box-shadow: 2px 4px 0px var(--city-green-dark-shadow);
   transform: translate(-2px, -4px);
 
   a {
@@ -221,12 +239,11 @@ details {
   }
 
   &.is-extra-dark {
-    background-color: colors.$city-green-dark;
+    background-color: var(--city-green-dark);
   }
 
   &:hover {
-    box-shadow: 1px 2px 0px
-      color.adjust($color: colors.$city-green-dark, $lightness: -60%);
+    box-shadow: 1px 2px 0px var(--city-green-dark-shadow);
     transform: translate(-1px, -2px);
     &.is-icon {
       box-shadow: 1px 2px 0px
@@ -248,20 +265,17 @@ details {
   }
 
   &:active {
-    box-shadow: inset 2px 1px 0px
-      color.adjust($color: colors.$city-green, $lightness: -60%);
+    box-shadow: inset 2px 1px 0px var(--city-green-mid-shadow);
     &.is-white {
       box-shadow: inset 2px 1px 0px colors.$city-black;
     }
   }
 
   &.is-selected {
-    background-color: colors.$city-green;
-    box-shadow: inset 2px 1px 0px
-      color.adjust($color: colors.$city-green-dark, $lightness: -10%);
+    background-color: var(--city-green);
+    box-shadow: inset 2px 1px 0px var(--city-green-light-shadow);
     &.is-white {
-      box-shadow: inset 2px 1px 0px
-        color.adjust($color: colors.$city-green-dark, $lightness: -10%);
+      box-shadow: inset 2px 1px 0px var(--city-green-light-shadow);
     }
   }
 
@@ -700,7 +714,7 @@ hr {
 }
 
 .has-color-background {
-  background-color: colors.$city-green-light;
+  background-color: var(--city-green-light);
 }
 
 .has-white-background {

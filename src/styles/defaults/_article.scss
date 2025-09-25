@@ -219,7 +219,7 @@ body {
 
 .footer {
   margin-top: 77px;
-  background-color: colors.$city-green-light;
+  background-color: var(--city-green-light);
 
   .donation-box-container {
     background-color: colors.$city-gold;
