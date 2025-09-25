@@ -1,135 +1,126 @@
 export const questionMplsContent = {
   question1: {
-    title: "What is your preferred model for outdoor dining?",
-    subject: "Streets",
+    title:
+      "Do you support the policing reforms in the recently abandoned federal consent decree against Minneapolis police?",
+    subject: "public safety",
     tellMeMore:
-      'Owners of cafes and restaurants say they are <a href="https://www.nytimes.com/2025/04/14/nyregion/nyc-restaurants-outdoor-seating.html">struggling to participate</a> in a new seasonal outdoor dining program advanced by the City Council, which requires city permits and operates under stricter rules than those that prevailed during the COVID emergency.',
-    option1:
-      "Bring back year-round outdoor dining as it existed during the pandemic",
-    option2: "Maintain the current permit program approved by the City Council",
+      "Following the murder of George Floyd, the U.S. Department of Justice under President Joe Biden conducted a pattern or practice investigation of the Minneapolis Police Department and found systemic abuse of the public’s constitutional rights. The DOJ and Minneapolis negotiated a consent decree that mandated police reform, yet President Donald Trump withdrew from the consent decree last spring.",
+    option1: "Yes, and we should still implement them.",
+    option2: "No, because we need a complete rebuild of the police department.",
     option3:
-      "Consult with restaurant owners and propose a new permit program tailored to their needs",
+      "No, because change will only come if workers overthrow the system of capitalism.",
     option4: "",
   },
   question2: {
-    title: "Which best describes your approach to bike lanes?",
-    subject: "Streets",
+    title: "Who should respond to mental health crises 911 calls?",
+    subject: "public safety",
     tellMeMore:
-      '<a href="https://ibo.nyc.ny.us/iboreports/local-law-195-explainer-february-2025.pdf">Local Law 195</a> mandates that the Department of Transportation install 250 miles of protected bike lanes by 2026. The agency has yet to install enough lanes to meet its own 50-mile annual target, often falling short by some 20 miles each year.',
-    option1:
-      "Continue to expand the bike lane network and provide more protected lanes",
-    option2: "Keep the bike lane network as is",
-    option3: "Remove bike lanes where they are not heavily used",
+      "The U.S. Department of Justice in 2023 found that Minneapolis police engaged in a pattern of discrimination against people with behavioral health disabilities. The question of the police’s role during mental health emergencies has been debated in Minneapolis for years.",
+    option1: "Police",
+    option2: "Mental health worker",
+    option3: "Other",
     option4: "",
   },
   question3: {
-    title: "Do you support trash containerization?",
-    subject: "Streets",
+    title:
+      "Should the city contract with the Rev. Jerry McAfee on violence prevention work?",
+    subject: "public safety",
     tellMeMore:
-      'The Department of Sanitation is <a href="https://www.thecity.nyc/2024/12/04/trash-bin-questions-answered-garbage/">rolling out rules</a> requiring household trash to be put into containers for curbside collection. Residences with fewer than 10 apartments must place garbage inside individual bins for pickup, and an upper Manhattan pilot is underway of big bins for larger buildings.',
-    option1:
-      "Requiring property owners to use standard containers is overreach and should be rolled back",
-    option2: "Only small properties should use standardized containers",
-    option3:
-      "Following the test pilot, roll out standardized containerization for larger buildings but reverse the requirement for small properties",
-    option4: "Promote containerization for all residential buildings",
+      "City Council prevented a $650,000 contract for violence prevention to the outspoken and sometimes controversial pastor’s nonprofit after he went on a rant at a city council meeting earlier this year. City Council is slated to consider awarding the contract again later this year.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Don’t know",
+    option4: "",
   },
   question4: {
-    title: "Which statement best reflects your preferred approach to policing?",
-    subject: "Public Safety",
+    title:
+      "Should Minneapolis ban assault rifles on the city level in light of the Annunciation Catholic Church shooting?",
+    subject: "public safety",
     tellMeMore:
-      'All major categories of crime are far above <a href="https://www.vitalcitynyc.org/articles/vital-signs-state-of-the-city-on-crime-2024">pre-pandemic levels</a>, especially felony assaults, while the number of NYPD officers has declined below the department’s budgeted headcount. The current mayor has intensified <a href="https://www.thecity.nyc/2023/09/12/nypd-quality-of-life-crackdown-enforcement-skyrockets-criminal-court/">criminal enforcement</a> of quality-of-life offenses.',
-    option1:
-      "Increase the size of the police force and ramp up enforcement of quality-of-life violations as well as more serious crimes",
-    option2:
-      "Maintain roughly the current size of the police force and focus enforcement on serious crimes",
-    option3:
-      "Scale back the police force and focus on improving New Yorkers’ economic prosperity and access to public goods",
-    option4: "",
+      "In August, a former student of Annunciation Catholic School attacked students and parishioners during the school year’s inaugural mass and used an assault rifle to fire hundreds of bullets inside the church, killing two young children and wounding 21 others. The mass shooting sparked a debate on gun control.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Maybe",
+    option4: "Don’t know",
   },
   question5: {
-    title: "How should the NYPD enforce transit fares?",
-    subject: "Public Safety",
-    tellMeMore:
-      'The state-run Metropolitan Transportation Authority estimated that in 2022 it lost $600 million in revenue due to subway and bus fare evasion. The MTA reported a <a href="https://gothamist.com/news/mta-reports-dip-in-fare-evasion-as-nypd-arrests-skyrocket-in-subway-system?gad_source=1&gbraid=0AAAAAD9J8hHe2SwLleiW8C4K41XuGz8JL&gclid=Cj0KCQjw2ZfABhDBARIsAHFTxGzF0WiI-DTRimsPaPfQRnN2MaHiJddO3eByk6nKll3DQbIjFdgZZ4waAnzeEALw_wcB">modest decrease</a> in fare evasion during the last three months of 2024, even as fare evasion arrests <a href="https://www.nyc.gov/site/nypd/stats/reports-analysis/subway-fare-evasion.page">more than doubled</a> compared with the same period a year earlier.',
-    option1:
-      "Consistent summonses for violators — maintain or expand fare enforcement",
-    option2: "Fewer summonses for violators — enforcement is too aggressive",
-    option3: "Do not issue summonses for fare nonpayment",
-    option4: "",
-  },
-  question5a: {
     title:
-      "The number of people incarcerated at Rikers Island is approaching double the capacity of planned new jails. What should the next mayor do?",
-    subject: "Public Safety",
+      "Do you support the city’s sanctuary policy, and should it be expanded?",
+    subject: "immigration",
     tellMeMore:
-      'The four new borough-based jails – meant to replace the Rikers Island complex and place incarcerated folks in areas closer to their families and courts — will have 4,160 beds. As of March, 7,067 people were <a href="https://www.thecity.nyc/2025/03/20/rikers-population-tops-7000/">incarcerated at Rikers</a>.',
-    option1:
-      "Stay on course with the Rikers Island shutdown, work with DAs to release more people pretrial or divert them from prosecution entirely",
-    option2:
-      "Stay on course with the Rikers Island shutdown, work with the City Council to keep a Rikers facility open to maintain continued capacity",
-    option3:
-      "Pause planning for jails still in the design phase, work with the City Council to reinvest in Rikers facilities",
+      "Minneapolis city policy currently prohibits local law enforcement from asking people about their immigration status or making “any law enforcement action for the purpose of detecting the presence of undocumented persons.” The Minneapolis Police Department is also prohibited from “operating its programs for the purpose of enforcing federal immigration laws.”",
+    option1: "Yes, and it should be expanded.",
+    option2: "Yes, and it’s fine as it is.",
+    option3: "No.",
     option4: "",
   },
   question6: {
-    title: "What is your preferred path to creating more affordable housing?",
-    subject: "Housing",
+    title:
+      "Did the city violate its sanctuary policy during the June Lake Street raid?",
+    subject: "immigration",
     tellMeMore:
-      'New York City is short by half a million homes <a href="https://rpa.org/work/reports/city-of-yes-and-missing-middle-housing">by some estimates</a>, and over half of the city’s households are rent-burdened –— spending more than 30% of their income on housing.',
-    option1:
-      "Push to expand development rights in every community district, with existing affordable housing set-asides",
-    option2:
-      "Provide subsidies to renovate existing apartments and office space",
-    option3: "Lower taxes and other development costs",
-    option4:
-      "Promote policies that give renters more control over their housing and curb real estate speculation",
-  },
-  question7: {
-    title: "How should the next mayor manage decaying public housing?",
-    subject: "Housing",
-    tellMeMore:
-      "The New York City Housing Authority operates under a federal monitor who is overseeing repairs. Dozens of developments now operate under private management via programs that invest in upgrades, including Rental Assistance Demonstration, or “RAD.”",
-    option1:
-      "Public housing is public. Stop bringing in private management to take over",
-    option2: "Consider private management for existing public housing",
-    option3: "Pursue new development on NYCHA property with private landlords",
+      "Last June, U.S. Immigration and Customs Enforcement agents took part in a federal raid of a Lake Street restaurant that was the target of a drug trafficking investigation. As people gathered to protest ICE at the raid, Minneapolis police officers showed up and conducted crowd control.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Don’t know",
     option4: "",
   },
-  question8: {
-    title: "What should the Rent Guidelines Board do next year?",
-    subject: "Housing",
+  question7: {
+    title:
+      "How can the city make up for lost federal grants and revenue due to cuts from the Trump administration?",
+    subject: "federal funding",
     tellMeMore:
-      'Each June, a panel selected by the mayor, representing property owners, tenants and the public, votes on whether to increase the rent on <a href="https://rentguidelinesboard.cityofnewyork.us/resources/faqs/rent-control/#:~:text=Yes.,on%20their%20Rent%20Control%20page:">some 960,000 rent-stabilized units</a> and by how much. The board <a href="https://rentguidelinesboard.cityofnewyork.us/2025-summary-of-proposed-apartment-loft-hotel-guidelines/">proposed</a> in April to increase rents of one-year leases by as much as 4.75% and two-year leases by as much as 7.75%.',
-    option1: "Freeze rents, period",
-    option2: "Freeze rents if economic analysis determines it's feasible",
+      "The Trump administration has cut several federal grants and funding that cities like Minneapolis rely on.",
+    option1:
+      "Deepen relationship with the county and the state, and encourage foundations to donate to the city.",
+    option2:
+      "Sue the Trump administration over proposed federal cuts and reduce non-essential and lower priority city projects without cutting core services.",
     option3:
-      "The Rent Guidelines Board should set rent increases, in line with landlords' actual costs",
+      "Pushing for a massive public works program to provide employment at union-scale wages.",
+    option4:
+      "Lobbying the State of Minnesota to allow the City of Minneapolis to institute a local option income tax to ensure the wealthy pay their fair share.",
+  },
+  question8: {
+    title:
+      "Should the city cut services as one way to address loss of federal funds and dwindling downtown tax base?",
+    subject: "federal funding",
+    tellMeMore:
+      "Mayor Jacob Frey has stated that with all the federal cuts and dwindling downtown tax base, the city would need to raise property taxes by 13% to maintain current spending levels.",
+    option1: "Yes",
+    option2: "No",
+    option3: "",
     option4: "",
   },
   question9: {
-    title: "What’s the best way to admit students to specialized high schools?",
-    subject: "Schools",
+    title:
+      "Do you support the 7.8% property tax increase proposal in Mayor Jacob Frey’s proposed 2026 budget?",
+    subject: "development",
     tellMeMore:
-      'State <a href="https://nebula.wsimg.com/75694f5e724770756e3a1c3e229c2616?AccessKeyId=45A6F09DA41DB93D9538&disposition=0&alloworigin=1">law</a> requires three coveted specialized high schools to admit students based solely on a single exam’s scores. (Five other schools have adopted the same admissions procedure.) But the results are inequitable: less than 5% of offers last year <a href="https://www.chalkbeat.org/newyork/2024/06/18/specialized-high-school-offers-to-black-and-latino-students-increase-but-remain-low/">went to Black students</a>, while 7.6% went to Latino students, far lower than their population share.',
-    option1:
-      "Maintain the SHSAT as the exclusive test for all of the eight schools where it’s currently used for admission",
-    option2:
-      "Maintain the SHSAT only for the three schools where it’s required by state law (Bronx Science, Brooklyn Tech, Stuyvesant)",
-    option3:
-      "Demand state lawmakers remove the SHSAT as the sole path to admissions to the three schools",
+      "Mayor Jacob Frey is proposing the tax increase to secure funding for his proposed $2 billion budget, which largely keeps the city’s current services intact and eliminates some vacant city positions and some public events. The tax increase, which would amount to $240 more per year for a homeowner of a home valued at $333,000, also comes as the city’s downtown tax base has dropped following the COVID pandemic.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Don’t know",
     option4: "",
   },
   question10: {
-    title:
-      "Just 28% of fourth graders are proficient in reading. What should the next mayor do to improve learning?",
-    subject: "Schools",
+    title: "Do you support a new arena for the Timberwolves?",
+    subject: "development",
     tellMeMore:
-      "All public elementary schools are now teaching students how to read using city-mandated curricula, aimed at improving literacy rates among the youngest students. Educators typically promote students to the next grade level after a review of their work from the current school year.",
-    option1: "Stay on the current course, since scores are gradually improving",
+      "The new owners of the Minnesota Timberwolves have signaled that they want a new arena to replace Target Center, which is 35 years old and lacks the amenities of a modern NBA arena. The owners have signaled an interest in funding it privately, which also happened in St. Paul with Allianz Field, although it is exempt from property taxes.",
+    option1: "Yes, privately funded.",
     option2:
-      "Only promote children to the next grade once they can pass the reading test",
-    option3: "Reduce standardized testing in city public schools",
+      "Yes, privately funded and without incentives like property tax exemptions.",
+    option3: "Yes, publicly funded.",
+    option4: "No",
+  },
+  question11: {
+    title: "Should the city build a pedestrian mall at George Floyd Square?",
+    subject: "development",
+    tellMeMore:
+      "Activists have held a memorial at the intersection where George Floyd was murdered since the summer of 2020. The city’s most recent proposal for a permanent memorial is to add a pedestrian mall and cul de sac, effectively cutting off the intersection.",
+    option1: "Yes",
+    option2: "No",
+    option3: "Don’t know",
     option4: "",
   },
 };

@@ -25,15 +25,7 @@ export const formatCandidateContent = (city: City | undefined) => {
         source: splitCandidateInfo(value)[2]?.trim(),
       }));
 
-    const quotes = Object.entries(candidate)
-      .filter(([key]) => key.startsWith("quote"))
-      .map(([, value]) => ({
-        subject: splitCandidateInfo(value)[0]?.trim(),
-        quote: splitCandidateInfo(value)[1]?.trim(),
-        source: splitCandidateInfo(value)[2]?.trim(),
-      }));
-
-    return { responses: quizResponses, quotes, ...candidate };
+    return { responses: quizResponses, ...candidate };
   });
 };
 
