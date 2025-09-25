@@ -770,7 +770,7 @@ $deaths-incomplete: #d0b9df;
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--city-green-light);
+  background: var(--sahan-primary-light);
 }
 
 .nav-container {
@@ -803,7 +803,7 @@ $deaths-incomplete: #d0b9df;
     border: 2px solid #a40501;
     font-size: 20px;
     color: #a40501;
-    background: colors.$city-white;
+    background: colors.$sahan-white;
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
@@ -813,9 +813,9 @@ $deaths-incomplete: #d0b9df;
 
     &:hover {
       transition: 0.2s;
-      border-color: colors.$city-white;
-      color: colors.$city-white;
-      background-color: colors.$city-black;
+      border-color: colors.$sahan-white;
+      color: colors.$sahan-white;
+      background-color: colors.$sahan-black;
     }
   }
 }

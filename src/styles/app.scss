@@ -24,20 +24,20 @@ $tablet-breakpoint: 1025px;
 
 #main {
   &.minneapolis-style {
-    --city-green: #f2c2c7;
-    --city-green-light: #f4d2d6;
-    --city-green-dark: #f06a6a;
-    --city-green-dark-shadow: color.adjust($color: #f06a6a, $lightness: -60%);
-    --city-green-mid-shadow: color.adjust($color: #f2c2c7, $lightness: -60%);
-    --city-green-light-shadow: color.adjust($color: #f06a6a, $lightness: -10%);
+    --sahan-primary: #f2c2c7;
+    --sahan-primary-light: #f4d2d6;
+    --sahan-primary-dark: #f06a6a;
+    --sahan-primary-dark-shadow: #{color.adjust(#f06a6a, $lightness: -60%)};
+    --sahan-primary-mid-shadow: #{color.adjust(#f2c2c7, $lightness: -60%)};
+    --sahan-primary-light-shadow: #{color.adjust(#f06a6a, $lightness: -10%)};
   }
   &.st-paul-style {
-    --city-green: #c8c38a;
-    --city-green-light: #e5e2c4;
-    --city-green-dark: #99943c;
-    --city-green-dark-shadow: color.adjust($color: #99943c, $lightness: -60%);
-    --city-green-mid-shadow: color.adjust($color: #c8c38a, $lightness: -60%);
-    --city-green-light-shadow: color.adjust($color: #99943c, $lightness: -10%);
+    --sahan-primary: #c8c38a;
+    --sahan-primary-light: #e5e2c4;
+    --sahan-primary-dark: #99943c;
+    --sahan-primary-dark-shadow: #{color.adjust(#99943c, $lightness: -60%)};
+    --sahan-primary-mid-shadow: #{color.adjust(#c8c38a, $lightness: -60%)};
+    --sahan-primary-light-shadow: #{color.adjust(#99943c, $lightness: -10%)};
   }
 }
 
@@ -64,7 +64,7 @@ $tablet-breakpoint: 1025px;
 }
 
 .article {
-  background-color: colors.$city-white;
+  background-color: colors.$sahan-white;
 }
 
 // TEXT:
@@ -76,7 +76,7 @@ $tablet-breakpoint: 1025px;
 .label,
 .copyright,
 .button-link {
-  color: colors.$city-black;
+  color: colors.$sahan-black;
   font-family: fonts.$sans;
 }
 
@@ -108,11 +108,11 @@ $tablet-breakpoint: 1025px;
 p,
 span,
 .label {
-  color: colors.$city-black;
+  color: colors.$sahan-black;
   a,
   &.is-link {
     cursor: pointer;
-    color: colors.$city-black;
+    color: colors.$sahan-black;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -121,15 +121,15 @@ span,
 }
 
 input.input {
-  background-color: colors.$city-white;
-  color: colors.$city-black;
+  background-color: colors.$sahan-white;
+  color: colors.$sahan-black;
 
   &.is-small {
     font-size: 0.85rem;
   }
 
   &::placeholder {
-    color: colors.$city-grey;
+    color: colors.$sahan-grey;
   }
 }
 
@@ -182,12 +182,12 @@ details {
 // FORMS:
 
 .newsletter-signup {
-  background-color: var(--city-green-dark);
+  background-color: var(--sahan-primary-dark);
 }
 
 .homepage-election-updates .newsletter-signup {
   border-radius: 5px;
-  border: 1px solid colors.$city-black;
+  border: 1px solid colors.$sahan-black;
   background-color: transparent;
 }
 
@@ -202,15 +202,15 @@ details {
   padding: 0.15rem 2rem;
   border-radius: 45px;
   transition: all 0.2s ease-in-out;
-  color: colors.$city-black;
+  color: colors.$sahan-black;
   border: none;
-  background-color: var(--city-green-dark);
-  border: 1px solid colors.$city-black;
-  box-shadow: 2px 4px 0px var(--city-green-dark-shadow);
+  background-color: var(--sahan-primary-dark);
+  border: 1px solid colors.$sahan-black;
+  box-shadow: 2px 4px 0px var(--sahan-primary-dark-shadow);
   transform: translate(-2px, -4px);
 
   a {
-    color: colors.$city-black;
+    color: colors.$sahan-black;
   }
 
   @media screen and (max-width: $mobile-breakpoint) {
@@ -222,15 +222,15 @@ details {
   }
 
   &.is-white {
-    background-color: colors.$city-white;
-    color: colors.$city-black;
-    box-shadow: 2px 4px 0px colors.$city-black;
+    background-color: colors.$sahan-white;
+    color: colors.$sahan-black;
+    box-shadow: 2px 4px 0px colors.$sahan-black;
   }
 
   &.is-icon {
-    background-color: colors.$city-black;
+    background-color: colors.$sahan-black;
     box-shadow: 2px 4px 0px
-      color.adjust($color: colors.$city-grey, $lightness: -10%);
+      color.adjust($color: colors.$sahan-grey, $lightness: -10%);
   }
 
   &:focus-visible {
@@ -239,18 +239,18 @@ details {
   }
 
   &.is-extra-dark {
-    background-color: var(--city-green-dark);
+    background-color: var(--sahan-primary-dark);
   }
 
   &:hover {
-    box-shadow: 1px 2px 0px var(--city-green-dark-shadow);
+    box-shadow: 1px 2px 0px var(--sahan-primary-dark-shadow);
     transform: translate(-1px, -2px);
     &.is-icon {
       box-shadow: 1px 2px 0px
-        color.adjust($color: colors.$city-grey, $lightness: -10%);
+        color.adjust($color: colors.$sahan-grey, $lightness: -10%);
     }
     &.is-white {
-      box-shadow: 1px 2px 0px colors.$city-black;
+      box-shadow: 1px 2px 0px colors.$sahan-black;
     }
   }
 
@@ -260,27 +260,27 @@ details {
 
     &.is-icon {
       box-shadow: inset 2px 1px 0px
-        color.adjust($color: colors.$city-grey, $lightness: -10%);
+        color.adjust($color: colors.$sahan-grey, $lightness: -10%);
     }
   }
 
   &:active {
-    box-shadow: inset 2px 1px 0px var(--city-green-mid-shadow);
+    box-shadow: inset 2px 1px 0px var(--sahan-primary-mid-shadow);
     &.is-white {
-      box-shadow: inset 2px 1px 0px colors.$city-black;
+      box-shadow: inset 2px 1px 0px colors.$sahan-black;
     }
   }
 
   &.is-selected {
-    background-color: var(--city-green);
-    box-shadow: inset 2px 1px 0px var(--city-green-light-shadow);
+    background-color: var(--sahan-primary);
+    box-shadow: inset 2px 1px 0px var(--sahan-primary-light-shadow);
     &.is-white {
-      box-shadow: inset 2px 1px 0px var(--city-green-light-shadow);
+      box-shadow: inset 2px 1px 0px var(--sahan-primary-light-shadow);
     }
   }
 
   &:disabled {
-    background-color: colors.$city-grey;
+    background-color: colors.$sahan-grey;
     box-shadow: none;
     pointer-events: none;
 
@@ -408,13 +408,13 @@ $full-color-image-filter: contrast(1);
 .quiz-selection-oval {
   background-color: transparent;
   display: inline-block;
-  border: 2px solid colors.$city-black;
+  border: 2px solid colors.$sahan-black;
   border-radius: 50%;
   width: 40px;
   height: 25px;
 
   &.is-filled {
-    background-color: colors.$city-black;
+    background-color: colors.$sahan-black;
   }
 }
 
@@ -439,7 +439,7 @@ $full-color-image-filter: contrast(1);
     font-weight: 600;
     pointer-events: none;
     .quiz-selection-oval {
-      background-color: colors.$city-black;
+      background-color: colors.$sahan-black;
     }
   }
 
@@ -483,8 +483,8 @@ $full-color-image-filter: contrast(1);
   position: absolute;
   transform: translate(-40px, 5px);
   border-radius: 100%;
-  background-color: colors.$city-black;
-  color: colors.$city-white;
+  background-color: colors.$sahan-black;
+  color: colors.$sahan-white;
   @media screen and (max-width: $mobile-breakpoint) {
     position: relative;
     transform: translate(0px, -5px);
@@ -497,7 +497,7 @@ $full-color-image-filter: contrast(1);
     position: sticky;
     bottom: 0;
     padding: 0.5rem 0;
-    background-color: colors.$city-white;
+    background-color: colors.$sahan-white;
   }
 }
 
@@ -601,7 +601,7 @@ $full-color-image-filter: contrast(1);
       }
     }
     a.is-active {
-      border: 1px dashed colors.$city-black;
+      border: 1px dashed colors.$sahan-black;
       border-radius: 5px;
     }
     a:hover img {
@@ -714,15 +714,15 @@ hr {
 }
 
 .has-color-background {
-  background-color: var(--city-green-light);
+  background-color: var(--sahan-primary-light);
 }
 
 .has-white-background {
-  background-color: colors.$city-white;
+  background-color: colors.$sahan-white;
 }
 
 .has-light-grey-background {
-  background-color: colors.$city-light-grey;
+  background-color: colors.$sahan-light-grey;
 }
 
 // ANIMATIONS:
