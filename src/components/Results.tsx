@@ -37,7 +37,7 @@ const MAX_FAVORITE_TOPICS = 3;
 /**
  * Minimum number of matching candidates we should show users in their quiz results.
  */
-const MINIMUM_MATCHES_TO_SHOW = 5;
+const MINIMUM_MATCHES_TO_SHOW = 3;
 
 const Results: React.FC = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
