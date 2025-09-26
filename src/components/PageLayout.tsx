@@ -26,7 +26,7 @@ const byline = process.env.GATSBY_AUTHOR
   ? JSON.parse(process.env.GATSBY_AUTHOR)
   : ([] as any);
 
-const Header = () => {
+const Header: React.FC<{ hideCityToggle?: boolean }> = ({ hideCityToggle }) => {
   const city = useCity();
   return (
     <nav className="nav has-color-background">
@@ -42,12 +42,14 @@ const Header = () => {
         </div>
 
         <div className="nav-title"></div>
-        <Link
-          to={city === "minneapolis" ? "/st-paul" : "/minneapolis"}
-          className="button city-toggle is-small has-opposite-background mt-1"
-        >
-          {city === "minneapolis" ? "St. Paul" : "Minneapolis"} Quiz
-        </Link>
+        {!hideCityToggle && (
+          <Link
+            to={city === "minneapolis" ? "/st-paul" : "/minneapolis"}
+            className="button city-toggle is-small has-opposite-background mt-1"
+          >
+            {city === "minneapolis" ? "St. Paul" : "Minneapolis"} Quiz
+          </Link>
+        )}
       </div>
     </nav>
   );
@@ -170,7 +172,8 @@ type MetadataProps = {
 export const PageLayout: React.FC<{
   children: React.ReactNode;
   customMetadata?: MetadataProps;
-}> = ({ children, customMetadata }) => {
+  hideCityToggle?: boolean;
+}> = ({ children, customMetadata, hideCityToggle }) => {
   const city = useCity();
 
   const slug = customMetadata?.slug || process.env.GATSBY_SLUG;
@@ -200,7 +203,7 @@ export const PageLayout: React.FC<{
       id="main"
       className={city === "st-paul" ? "st-paul-style" : "minneapolis-style"}
     >
-      <Header />
+      <Header hideCityToggle={hideCityToggle} />
       <Helmet>
         <title>{`${siteName}`}</title>
         <meta name="theme-color" content="#000000" />
