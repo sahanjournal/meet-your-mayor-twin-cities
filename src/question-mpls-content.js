@@ -2,7 +2,7 @@ export const questionMplsContent = {
   question1: {
     title:
       "Do you support the policing reforms in the recently abandoned federal consent decree against Minneapolis police?",
-    subject: "public safety",
+    subject: "Public Safety",
     tellMeMore:
       "Following the murder of George Floyd, the U.S. Department of Justice under President Joe Biden conducted a pattern or practice investigation of the Minneapolis Police Department and found systemic abuse of the public’s constitutional rights. The DOJ and Minneapolis negotiated a consent decree that mandated police reform, yet President Donald Trump withdrew from the consent decree last spring.",
     option1: "Yes, and we should still implement them.",
@@ -13,7 +13,7 @@ export const questionMplsContent = {
   },
   question2: {
     title: "Who should respond to mental health crises 911 calls?",
-    subject: "public safety",
+    subject: "Public Safety",
     tellMeMore:
       "The U.S. Department of Justice in 2023 found that Minneapolis police engaged in a pattern of discrimination against people with behavioral health disabilities. The question of the police’s role during mental health emergencies has been debated in Minneapolis for years.",
     option1: "Police",
@@ -24,7 +24,7 @@ export const questionMplsContent = {
   question3: {
     title:
       "Should the city contract with the Rev. Jerry McAfee on violence prevention work?",
-    subject: "public safety",
+    subject: "Public Safety",
     tellMeMore:
       "City Council prevented a $650,000 contract for violence prevention to the outspoken and sometimes controversial pastor’s nonprofit after he went on a rant at a city council meeting earlier this year. City Council is slated to consider awarding the contract again later this year.",
     option1: "Yes",
@@ -35,7 +35,7 @@ export const questionMplsContent = {
   question4: {
     title:
       "Should Minneapolis ban assault rifles on the city level in light of the Annunciation Catholic Church shooting?",
-    subject: "public safety",
+    subject: "Public Safety",
     tellMeMore:
       "In August, a former student of Annunciation Catholic School attacked students and parishioners during the school year’s inaugural mass and used an assault rifle to fire hundreds of bullets inside the church, killing two young children and wounding 21 others. The mass shooting sparked a debate on gun control.",
     option1: "Yes",
@@ -46,7 +46,7 @@ export const questionMplsContent = {
   question5: {
     title:
       "Do you support the city’s sanctuary policy, and should it be expanded?",
-    subject: "immigration",
+    subject: "Immigration",
     tellMeMore:
       "Minneapolis city policy currently prohibits local law enforcement from asking people about their immigration status or making “any law enforcement action for the purpose of detecting the presence of undocumented persons.” The Minneapolis Police Department is also prohibited from “operating its programs for the purpose of enforcing federal immigration laws.”",
     option1: "Yes, and it should be expanded.",
@@ -57,7 +57,7 @@ export const questionMplsContent = {
   question6: {
     title:
       "Did the city violate its sanctuary policy during the June Lake Street raid?",
-    subject: "immigration",
+    subject: "Immigration",
     tellMeMore:
       "Last June, U.S. Immigration and Customs Enforcement agents took part in a federal raid of a Lake Street restaurant that was the target of a drug trafficking investigation. As people gathered to protest ICE at the raid, Minneapolis police officers showed up and conducted crowd control.",
     option1: "Yes",
@@ -68,7 +68,7 @@ export const questionMplsContent = {
   question7: {
     title:
       "How can the city make up for lost federal grants and revenue due to cuts from the Trump administration?",
-    subject: "federal funding",
+    subject: "Federal Funding",
     tellMeMore:
       "The Trump administration has cut several federal grants and funding that cities like Minneapolis rely on.",
     option1:
@@ -83,7 +83,7 @@ export const questionMplsContent = {
   question8: {
     title:
       "Should the city cut services as one way to address loss of federal funds and dwindling downtown tax base?",
-    subject: "federal funding",
+    subject: "Federal Funding",
     tellMeMore:
       "Mayor Jacob Frey has stated that with all the federal cuts and dwindling downtown tax base, the city would need to raise property taxes by 13% to maintain current spending levels.",
     option1: "Yes",
@@ -94,7 +94,7 @@ export const questionMplsContent = {
   question9: {
     title:
       "Do you support the 7.8% property tax increase proposal in Mayor Jacob Frey’s proposed 2026 budget?",
-    subject: "development",
+    subject: "Development",
     tellMeMore:
       "Mayor Jacob Frey is proposing the tax increase to secure funding for his proposed $2 billion budget, which largely keeps the city’s current services intact and eliminates some vacant city positions and some public events. The tax increase, which would amount to $240 more per year for a homeowner of a home valued at $333,000, also comes as the city’s downtown tax base has dropped following the COVID pandemic.",
     option1: "Yes",
@@ -104,7 +104,7 @@ export const questionMplsContent = {
   },
   question10: {
     title: "Do you support a new arena for the Timberwolves?",
-    subject: "development",
+    subject: "Development",
     tellMeMore:
       "The new owners of the Minnesota Timberwolves have signaled that they want a new arena to replace Target Center, which is 35 years old and lacks the amenities of a modern NBA arena. The owners have signaled an interest in funding it privately, which also happened in St. Paul with Allianz Field, although it is exempt from property taxes.",
     option1: "Yes, privately funded.",
@@ -115,7 +115,7 @@ export const questionMplsContent = {
   },
   question11: {
     title: "Should the city build a pedestrian mall at George Floyd Square?",
-    subject: "development",
+    subject: "Development",
     tellMeMore:
       "Activists have held a memorial at the intersection where George Floyd was murdered since the summer of 2020. The city’s most recent proposal for a permanent memorial is to add a pedestrian mall and cul de sac, effectively cutting off the intersection.",
     option1: "Yes",

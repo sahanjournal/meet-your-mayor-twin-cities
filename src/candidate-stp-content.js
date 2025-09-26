@@ -5,6 +5,7 @@ export const candidateStpContent = {
     website: "https://kaohlyforstp.com/",
     neighborhood: "Mac-Groveland",
     occupation: "Legislator",
+    age: "52",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "I am running for mayor because our city is at a standstill. Progress has stalled at most of our major developments, key retailers in our neighborhoods are closing, and city services are stretched to the limit without the necessary investment and support they need. It’s time to get our city moving forward again.",
@@ -33,6 +34,7 @@ export const candidateStpContent = {
     website: "https://www.yanchenmn.com/",
     neighborhood: "Summit-University",
     occupation: "Scientist/Business Owner",
+    age: "55",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "To put St. Paul back on track: safer neighborhoods, a stronger tax base, and real upward mobility. I’m a scientist and a small-business owner who fixes things by finding root causes and measuring results. City Hall keeps repeating costly mistakes—especially on development subsidies—while services lag. I’m running to deliver basic competence, transparency, and outcomes residents can feel.",
@@ -61,6 +63,7 @@ export const candidateStpContent = {
     website: "https://www.melvincarter.org/",
     neighborhood: "Eastside",
     occupation: "Mayor",
+    age: "46",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "In my eight years leading this city, we have faced one unprecedented challenge after the next — from COVID-19, to the murder of George Floyd, to civil unrest, a rock slide, a cyberattack, and now new Trump-era uncertainty. Each crisis tested our resolve, but through it all we’ve not only learned how to better support each other in tough times — but how to come out of those times stronger. We’ve reduced violent crime through our nationally recognized Community-First Public Safety model, which centers prevention, partnership, and care. We’ve invested in mental health responders, youth outreach workers, and neighborhood safety teams — and the results are clear: Saint Paul is safer today because of this work. At the same time, we’ve built real momentum across every corner of our city. We’ve made historic investments in families and neighborhoods — raising the minimum wage, eliminating library late fines, and making youth sports free. We launched CollegeBound Saint Paul, giving every newborn a college savings account, and created one of the first city-led guaranteed income pilots in the nation. We’ve built more affordable housing than ever before, launched new renter protections, and forgiven medical debt owed by low-income residents. We’ve doubled our pace to rebuild arterial streets in our city, we’re improving our parks faster than ever, and we’ve set about the enormous task of replacing lead water lines across our city — at no cost to families. We’ve come a long way — and we’re not done. That’s why I’m running for re-election: because I believe in this moment, and I believe that there’s so much more we can build — together. We’re set up well for this next phase. That means making our public spaces more accessible, helping people get connected to care, and contributing to hold accountable those who choose to break our social contract. It means seizing our opportunities to grow — cutting red tape, attracting new investments, and making sure the world knows what we know: Saint Paul is one of the best places anywhere to build a family, a business, and a home. Together, we’ve built real momentum — and I’m ready to keep it going alongside you.",
@@ -89,6 +92,7 @@ export const candidateStpContent = {
     website: "",
     neighborhood: "North End",
     occupation: "Mechanical Engineer",
+    age: "29",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "To run the city better! The current administration is wasting money left and right and ignoring easily solvable problems. I consider myself an urbanist and I do not think any of the other candidates fully understand what it takes to build a great city. I also think we need a mayor who is focused on actually doing the job of running the city rather than just trying to be a figurehead for policy decisions that are up to the city council to enact, not the mayor.",
@@ -117,6 +121,7 @@ export const candidateStpContent = {
     website: "https://www.hilbornforstpaul.com/",
     neighborhood: "West Seventh",
     occupation: "Business owner",
+    age: "62",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "I started my business in Saint Paul in 1995 out of my house.  My company turned 30 on August 14th.  I’m a second chance employer.  Many of my employees have either been incarcerated or are in recovery.  Everyone starts at $25 an hour with health, dental, 401K and PTO.  My landlord contacted me last November saying that my rent was going from $17,000 to $22,000 per month due to property taxes.  He showed me the statements.  That is why over 500 businesses have left Saint Paul since 2020.",

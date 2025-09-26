@@ -5,6 +5,7 @@ export const candidateMplsContent = {
     website: "https://www.brendashort4mpls.com/",
     neighborhood: "Powderhorn",
     occupation: "Respite Care",
+    age: "52",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "I'm running for mayor because I believe Minneapolis is heading in the wrong direction. If we’re not careful, we’ll end up like Detroit, where working-class families were pushed out of their homes, and low-income families became the next unhoused neighbors. With my background and experience, I believe I can help stop that from happening and lead real change to turn this city around.",
@@ -31,6 +32,7 @@ export const candidateMplsContent = {
     website: "https://www.dewayneforminneapolis.com/",
     neighborhood: "Willard Hay",
     occupation: "Former Lead Minister at Plymouth Congregational Church",
+    age: "55",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "We deserve a city where everyone can afford a safe and stable place to call home. We deserve community safety solutions that are grounded in our shared humanity and responsive to our diverse needs. We deserve a mayor who acts with honesty and integrity. We deserve leadership that will meet the urgency of our climate crisis. We deserve an interconnected and multigenerational city with a vibrant, worker-centered economy and thriving public schools.{newParagraph}I'm running for mayor because Minneapolis is at a moral moment right now. We can either continue down this same path for another four years, or we can make a change.{newParagraph}We have everything we need to solve our most pressing problems as a city – but gridlock and division are making it impossible for our city to get things done. Our current mayor has awarded jobs and contracts based on personal loyalty rather than qualifications. The antagonism between the Mayor and the City Council has created dysfunction, which negatively impacts everyone who lives here.{newParagraph}Under the threat of the Trump administration, it’s more important than ever that our city government can work together. I’m running because we deserve a mayor who can build consensus and trust out of division, one who will govern with integrity. I believe in us – and I know that with the right leadership, we can build the city we deserve together.",
@@ -59,6 +61,7 @@ export const candidateMplsContent = {
     neighborhood: "Stevens Square",
     occupation:
       "State Senator SD62/Business Analyst at University of Minnesota",
+    age: "35",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "I’m running for Mayor of Minneapolis to work alongside our community to achieve the vibrant, loving city we know Minneapolis can be. We know that for working people, it’s getting harder to build our lives here. And with Donald Trump back in power, everything we’ve worked so hard for is in jeopardy. It’s time to push back with forward-thinking leadership. Mayor Frey and the status quo are failing Minneapolis residents. We deserve leadership that makes it so people want to live here, raise families here, and start businesses here. Minneapolis is ready to invest in long-term solutions that will bring stability and security to our communities. We all want to invest in our shared success. We deserve an affordable city that is accountable to us.",
@@ -87,6 +90,7 @@ export const candidateMplsContent = {
     neighborhood: "South West Minneapolis",
     occupation:
       "CEO & Founder of TurnSignl, attorney, professor of entrepreneurial finance.",
+    age: "34",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "I’m not running against anyone, I’m running for our city.{newParagraph}Minneapolis is more than where I live. It’s part of who I am. I was born and raised just miles from here, I’m raising my three kids in this city, and I’ve spent my career fighting for justice, equity, safety, and opportunity for all of us.{newParagraph}But right now, our city feels stuck. Too many people feel unsafe, unheard, and left behind. Government feels gridlocked and out of touch. It’s like watching tires spin in the snow, we need new leadership that can get us moving forward again.{newParagraph}I’m running to bring bold, people-powered leadership to City Hall. I’ve worked as a public defender while in law school, a civil rights advocate, a CEO, and an educator. I’ve helped free the wrongfully convicted, co-founded a tech company to protect drivers’ rights, and partnered on affordable housing solutions. I know how to bring people together to solve big problems.{newParagraph}This campaign is about building a Minneapolis that works for everyone, where our neighbors can afford to live, where workers and small businesses can thrive, and where public safety means everyone is truly safe, not just some of us.{newParagraph}I’m running because I love this city. And I believe that with the right leadership, we can turn frustration into momentum and build a future we can all be proud of.",
@@ -114,6 +118,7 @@ export const candidateMplsContent = {
     website: "https://www.jacobfrey.org/",
     neighborhood: "Northeast",
     occupation: "mayor",
+    age: "43",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "Over the last five years, Minneapolis was tested as never before. American cities have faced some of the toughest challenges that we’ve had to confront in generations. But where other cities across the country have struggled and stagnated, Minneapolis has been making a comeback. The challenges we’re facing have not gone away, but our progress is improving people’s lives.{newParagraph}On housing, Minneapolis is leading the nation. While the rest of the country saw rent increase by 31% since 2017. In Minneapolis, we held that increase to just 1%. Now, Minneapolis is producing 8.5 times more deeply affordable housing than before I took office. We also made unprecedented investments in affordable homeownership. And our Stable Homes Stable Schools program has provided stable housing to about 6,000 MPS kids across over 2,000 families.{newParagraph}We’re also making progress on public safety. Police recruitment is up 135%, MPD has more officers today than it has had in years, and the department is the most diverse in our city’s history. And, violent crime is down – in fact, in North Minneapolis, shootings are lower than they’ve been in over 15 years. {newParagraph}Meanwhile, we’re moving forward on police reform. The independent, court-appointed monitor for our consent decree credited Minneapolis with making “more progress toward building a foundation for sustainable reform in the first year of monitoring than nearly any other jurisdiction” in the nation.{newParagraph}Now, I’m running for one more term to bring Minneapolis through to its next brilliant chapter. Let’s do that by building more affordable housing, hiring more police officers to bring down violent crime, accelerating our climate action goals, and delivering exemplary core city services for Minneapolis.",
@@ -141,6 +146,7 @@ export const candidateMplsContent = {
     website: "https://themilitant.com/",
     neighborhood: "Northeast",
     occupation: "Cook",
+    age: "69",
     bio: "A few paragraphs describing the candidate’s background, to be shown at the top of the candidate’s profile page. Note: if the text includes more than one paragraph, just write {newParagraph} in between to split it up. Do not separate the paragraphs with line breaks.",
     quote1:
       "The Socialist Workers Party campaign is the only campaign with a program for the vast majority – the working class. Capitalism is the source of the economic, social and moral crises faced by working people worldwide, including in Minneapolis, which includes the drive toward another world war. The SWP campaign opposes Jew-hatred and supports Israel’s right to exist. Only a movement of workers to take power out of the hands of the capitalist class can begin to solve these crises in the interest of our class.",
