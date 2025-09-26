@@ -49,6 +49,9 @@ export const MatchingCandidates: FC<{
     setIsExpanded(!isExpanded);
   };
 
+  // Only show expandable "See details +" button if at least one candidate has a quote:
+  const anyQuotesPresent = candidates.some((c) => !!c.quote);
+
   return (
     <div
       className={classnames(
@@ -129,13 +132,15 @@ export const MatchingCandidates: FC<{
               <ListOfCandidates candidates={candidates} />
             </span>
           )}
-          <button
-            key="x"
-            className="eyebrow is-link is-inline-block"
-            onClick={handleClick}
-          >
-            See <span className="no-wrap">details +</span>
-          </button>
+          {anyQuotesPresent && (
+            <button
+              key="x"
+              className="eyebrow is-link is-inline-block"
+              onClick={handleClick}
+            >
+              See <span className="no-wrap">details +</span>
+            </button>
+          )}
         </div>
       )}
 
