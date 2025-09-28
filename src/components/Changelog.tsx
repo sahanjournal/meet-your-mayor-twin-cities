@@ -1,5 +1,4 @@
 import React from "react";
-import { OutboundLink } from "./Links";
 
 /**
  * An array of objects, which include a date in the format like "May 21, 2025",
@@ -9,30 +8,8 @@ import { OutboundLink } from "./Links";
  */
 const CHANGELOG_ENTRIES = [
   {
-    date: "June 3, 2025",
-    changes: [
-      <>
-        Zohran Mamdani{" "}
-        <OutboundLink to="https://gothamist.com/news/mamdani-to-get-key-endorsement-for-nyc-mayor-in-battle-for-asian-american-votes">
-          told Gothamist
-        </OutboundLink>{" "}
-        he has no plans to change the Specialized High Schools Admissions Test
-        if elected mayor. We updated question #10 accordingly.
-      </>,
-    ],
-  },
-  {
-    date: "May 21, 2025",
-    changes: [
-      <>
-        We added Jim Walden’s survey responses, submitted after Meet Your Mayor
-        launched.
-      </>,
-      <>
-        Brad Lander changed his response on the Rikers Island question (#6) and
-        added a response on public housing (#8).
-      </>,
-    ],
+    date: "October TK, 2025",
+    changes: [<>Write Changelog Entry Here</>],
   },
 ];
 
