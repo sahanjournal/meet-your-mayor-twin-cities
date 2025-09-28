@@ -32,21 +32,15 @@ const getShareText = (
   platform: "x" | "bluesky" | "email",
   results?: ScoreShareDetails
 ) => {
-  const theCityHandle =
+  const sahanHandle =
     platform === "x"
-      ? "@THECITYNY"
+      ? "@sahanjournal"
       : platform === "bluesky"
-      ? "@thecity.nyc"
-      : "THE CITY";
-  const gothamistHandle =
-    platform === "x"
-      ? "@Gothamist"
-      : platform === "bluesky"
-      ? "@gothamist.com"
-      : "Gothamist";
+      ? "@sahanjournal"
+      : "Sahan Journal";
   return !!results
-    ? `I'm a ${results.matchScore}%25 match with ${results.topCandidate} on the Meet Your Mayor quiz! Find your own match, powered by ${theCityHandle} and ${gothamistHandle}:`
-    : `Check out the Meet Your Mayor quiz from ${theCityHandle} and ${gothamistHandle}!`;
+    ? `I'm a ${results.matchScore}%25 match with ${results.topCandidate} on the Meet Your Mayor quiz! Find your own match, powered by ${sahanHandle}:`
+    : `Check out the Meet Your Mayor quiz from ${sahanHandle}!`;
 };
 
 export const SocialShareButtons: React.FC<{
