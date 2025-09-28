@@ -128,7 +128,7 @@ export const NewsletterSignupBanner: React.FC<{
                 !isOnLandingPage && "has-text-centered"
               )}
             >
-              Remind me when it's time to vote:
+              Keep up with the election and other news from Sahan Journal:
             </div>
             <div
               className={classnames(
