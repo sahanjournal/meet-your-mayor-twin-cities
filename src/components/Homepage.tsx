@@ -42,19 +42,22 @@ const Homepage = () => {
         <div className="hero-body pt-6">
           <div className="columns" style={{ width: "100%" }}>
             <div className="column is-half">
-              <h1 className="headline has-text-left mt-0">
-                Meet Your Mayor {cityName}
+              <p className="eyebrow has-text-left mb-1 has-text-weight-semibold">
+                {cityName}
+              </p>
+              <h1 className="headline has-text-left mt-0 mb-3">
+                Meet Your Mayor 2025
               </h1>
               <div className="attribution">
                 <p className="eyebrow has-text-left mb-2">
                   Updated: {getDateUpdated()}
                 </p>
                 <p className="deck has-text-left" style={{ maxWidth: "600px" }}>
-                  Who should you rank on your ballot to be the next mayor of New
-                  York City? Take the same quiz the candidates did and find your
-                  closest match.
+                  Who should you rank on your ballot to be the next mayor of{" "}
+                  {cityName}? Take the same quiz the candidates did and find
+                  your closest match.
                 </p>
-                <div className="is-flex is-flex-direction-column my-6">
+                <div className="is-flex is-flex-direction-column mt-5 mb-6">
                   <SmoothScroll
                     className="mb-4"
                     to={

@@ -20,6 +20,10 @@ const DEFAULT_LINKS = [
     text: "Will Minneapolis’ Somali voters decide the mayoral race between Jacob Frey and Omar Fateh?",
     href: "https://sahanjournal.com/democracy-politics/minneapolis-mayor-jacob-frey-omar-fateh-election/",
   },
+  {
+    text: "Minnesota Rep. Kaohly Vang Her announces run for St. Paul mayor",
+    href: "https://sahanjournal.com/democracy-politics/kaohly-vang-her-st-paul-mayor-election-melvin-carter/",
+  },
 ];
 
 const testValidSetOfLinks = (links: any[]) => {
