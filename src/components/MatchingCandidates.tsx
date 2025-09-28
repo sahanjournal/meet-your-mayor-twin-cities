@@ -11,8 +11,12 @@ type MatchingCandidate = {
 
 export const abbreviateName = (name: string) => {
   const lastName = name.split(" ")[name.split(" ").length - 1];
-  // Add first initial to each "Adams" candidate name label:
-  return lastName === "Adams" ? `${name[0]}. ${lastName}` : lastName;
+  // Handle special names, or otherwise return the last name
+  return lastName === "Her"
+    ? "Vang Her"
+    : lastName === "III"
+    ? "Carter"
+    : lastName;
 };
 
 const ListOfCandidates: FC<{ candidates: MatchingCandidate[] }> = ({
