@@ -1,7 +1,12 @@
 import React, { FC, useState } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
-import { formatContent, smoothScrollToCenter, useCity } from "../utils";
+import {
+  formatContent,
+  getFullCityName,
+  smoothScrollToCenter,
+  useCity,
+} from "../utils";
 import { formatQuestionContent, generateListOfCandidates } from "./QuizContent";
 import { SmoothScroll } from "./Links";
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
@@ -25,6 +30,7 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 
 const Quiz = () => {
   const city = useCity();
+  const cityName = getFullCityName(city);
   const candidates = generateListOfCandidates(city);
 
   const answers = useAppStore((state) => state.answers);
@@ -81,12 +87,12 @@ const Quiz = () => {
                 The Meet Your Mayor Quiz
               </h1>
               <p className="copy has-text-left mt-5">
-                Voters of New York City: Can’t decide who to put on your ballot
-                for mayor? This quiz will help you decide by matching your
-                responses to 18 questions with how candidates answered the same
-                questions on urgent issues facing New Yorkers. The primary is on
-                June 24, and early voting starts on June 14. The general
-                election is on November 4, 2025.
+                Voters of {cityName}: Still trying to figure out who to rank for
+                mayor? This quiz will help you decide by matching your responses
+                to {city === "st-paul" ? "10" : "11"} questions the candidates
+                also answered on urgent issues facing {cityName}. Early voting
+                has already started and the general election is on November 4,
+                2025.
               </p>
 
               <div
