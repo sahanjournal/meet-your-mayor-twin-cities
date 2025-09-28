@@ -1,13 +1,14 @@
 import React, { FC, useState } from "react";
 import classnames from "classnames";
 import Results, { getQuestionsLeftToAnswer } from "./Results";
-import { formatContent, smoothScrollToCenter } from "../utils";
-import { formatQuestionContent } from "./QuizContent";
+import { formatContent, smoothScrollToCenter, useCity } from "../utils";
+import { formatQuestionContent, generateListOfCandidates } from "./QuizContent";
 import { SmoothScroll } from "./Links";
-import { MatchingCandidates } from "./MatchingCandidates";
+import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { useAppStore } from "../useAppStore";
 import { Methodology } from "./Methodology";
 import { track } from "@amplitude/analytics-browser";
+import { Bobblehead } from "./Illustration";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -23,6 +24,9 @@ export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
 );
 
 const Quiz = () => {
+  const city = useCity();
+  const candidates = generateListOfCandidates(city);
+
   const answers = useAppStore((state) => state.answers);
   const setAnswers = useAppStore((state) => state.setAnswers);
 
@@ -138,10 +142,29 @@ const Quiz = () => {
                           <button className="button mb-1">Start Quiz</button>
                         </SmoothScroll>
                       </div>
+                      <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center my-3">
+                        {candidates.map((candidate, i) => (
+                          <div key={i}>
+                            <div
+                              key={i}
+                              className="is-flex is-flex-direction-column is-align-items-center mr-1"
+                            >
+                              <Bobblehead
+                                candidateName={candidate.name}
+                                size="is-48x48"
+                                showBustOnly
+                              />
+                              <span className="label has-text-centered">
+                                {abbreviateName(candidate.name)}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </>
                   </div>
                 )}
-                <div className="mb-5">
+                <div className="my-5">
                   <button
                     key="x"
                     className="eyebrow is-link is-inline-block"
