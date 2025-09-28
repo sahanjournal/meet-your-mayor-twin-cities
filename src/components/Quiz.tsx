@@ -14,6 +14,7 @@ import { useAppStore } from "../useAppStore";
 import { Methodology } from "./Methodology";
 import { track } from "@amplitude/analytics-browser";
 import { Bobblehead } from "./Illustration";
+import { Link } from "gatsby";
 
 export const CircleIcon: FC<{ filledIn?: boolean }> = ({ filledIn }) => (
   <div
@@ -93,6 +94,15 @@ const Quiz = () => {
                 also answered on urgent issues facing {cityName}. Early voting
                 has already started and the general election is on November 4,
                 2025.
+              </p>
+              <p className="copy has-text-left mt-5">
+                Do you live in{" "}
+                {city === "minneapolis" ? "St. Paul" : "Minneapolis"}? Check out
+                our{" "}
+                <Link to={city === "minneapolis" ? "/st-paul" : "/minneapolis"}>
+                  {city === "minneapolis" ? "St. Paul" : "Minneapolis"} Quiz
+                </Link>{" "}
+                instead.
               </p>
 
               <div
