@@ -79,6 +79,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
 
   return (
     <PageLayout
+      hideCityToggle
       customMetadata={{
         shareImageFilename: `composites/${kebabCase(candidateName)}-social.jpg`,
         siteName: `${candidateName} | ${process.env.GATSBY_SITE_NAME}`,

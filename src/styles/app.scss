@@ -30,6 +30,7 @@ $tablet-breakpoint: 1025px;
     --sahan-primary-dark-shadow: #{color.adjust(#f06a6a, $lightness: -60%)};
     --sahan-primary-mid-shadow: #{color.adjust(#f2c2c7, $lightness: -60%)};
     --sahan-primary-light-shadow: #{color.adjust(#f06a6a, $lightness: -10%)};
+    --sahan-opposite: #c8c38a;
   }
   &.st-paul-style {
     --sahan-primary: #c8c38a;
@@ -38,6 +39,7 @@ $tablet-breakpoint: 1025px;
     --sahan-primary-dark-shadow: #{color.adjust(#99943c, $lightness: -60%)};
     --sahan-primary-mid-shadow: #{color.adjust(#c8c38a, $lightness: -60%)};
     --sahan-primary-light-shadow: #{color.adjust(#99943c, $lightness: -10%)};
+    --sahan-opposite: #f2c2c7;
   }
 }
 
@@ -60,6 +62,12 @@ $tablet-breakpoint: 1025px;
 
   @media screen and (max-width: $mobile-breakpoint) {
     padding-left: 1.5rem;
+
+    .button.city-toggle {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      letter-spacing: 0.5px;
+    }
   }
 }
 
@@ -711,6 +719,10 @@ hr {
 
 .has-light-grey-background {
   background-color: colors.$sahan-light-grey;
+}
+
+.has-opposite-background {
+  background-color: var(--sahan-opposite);
 }
 
 // ANIMATIONS:
