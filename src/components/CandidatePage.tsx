@@ -2,13 +2,7 @@ import React from "react";
 import { PageLayout } from "./PageLayout";
 import { InternalLink, OutboundLink } from "./Links";
 import { formatCandidateContent } from "./QuizContent";
-import {
-  CityProvider,
-  convertToHtml,
-  formatContent,
-  kebabCase,
-  useCity,
-} from "../utils";
+import { CityProvider, formatContent, kebabCase, useCity } from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
@@ -74,12 +68,21 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
 
   if (!candidateInfo) return <></>;
 
-  const { website, bio, quote1, quote2, quote3, quote4, quote5 } =
-    candidateInfo;
+  const {
+    website,
+    age,
+    occupation,
+    neighborhood,
+    party,
+    quote1,
+    quote2,
+    quote3,
+    quote4,
+    quote5,
+  } = candidateInfo;
 
   return (
     <PageLayout
-      hideCityToggle
       customMetadata={{
         shareImageFilename: `composites/${kebabCase(candidateName)}-social.jpg`,
         siteName: `${candidateName} | ${process.env.GATSBY_SITE_NAME}`,
@@ -157,10 +160,40 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
           <SocialShareButtons />
         </div>
 
+        <div className="p-3 has-color-background my-6">
+          {!!age && (
+            <div className="eyebrow has-text-left mt-0 mb-4">
+              <span className="has-text-weight-semibold">Age: </span>
+              {age}
+            </div>
+          )}
+
+          {!!party && (
+            <div className="eyebrow has-text-left mb-4">
+              <span className="has-text-weight-semibold">Party: </span>
+              {party}
+            </div>
+          )}
+
+          {!!occupation && (
+            <div className="eyebrow has-text-left mb-4">
+              <span className="has-text-weight-semibold">Occupation: </span>
+              {occupation}
+            </div>
+          )}
+
+          {!!neighborhood && (
+            <div className="eyebrow has-text-left mb-0">
+              <span className="has-text-weight-semibold">Neighborhood: </span>
+              {neighborhood}
+            </div>
+          )}
+        </div>
+
         {city === "st-paul"
           ? [quote1, quote2, quote3, quote4, quote5].map((quote, i) => (
               <div className="copy" key={i}>
-                <h3 className="deck has-text-left mb-4">
+                <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
                   {ST_PAUL_OPEN_ENDED_QUESTIONS[i]}
                 </h3>
                 {formatContent(quote)}
@@ -168,7 +201,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
             ))
           : [quote1, quote2, quote3, quote4].map((quote, i) => (
               <div className="copy my-2 py-2" key={i}>
-                <h3 className="deck has-text-left mb-4">
+                <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
                   {MINNEAPOLIS_OPEN_ENDED_QUESTIONS[i]}
                 </h3>
                 {formatContent(quote)}
