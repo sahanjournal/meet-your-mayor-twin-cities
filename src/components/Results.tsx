@@ -445,7 +445,7 @@ const Results: React.FC = () => {
                             size="is-128x128"
                             customClassNames="py-4 mr-4"
                           />
-                          <div className="headline has-text-left is-size-3-mobile">
+                          <div className="headline has-text-left is-size-3-mobile pr-1">
                             <span className="is-link">
                               {candidate.candidateName}
                             </span>{" "}
