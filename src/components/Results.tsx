@@ -364,7 +364,8 @@ const Results: React.FC = () => {
                     .map((candidate) => candidate.candidateName)
                 )}
               </span>
-              .{" "}
+              . In the election you may choose up to three candidates, so
+              consider your runner-up matches:
             </div>
 
             {score
