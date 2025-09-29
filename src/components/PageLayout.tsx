@@ -159,11 +159,12 @@ const Analytics = () => (
         gtag('js', new Date());
 
         gtag('config', 'G-WNJ80Q5BTH');
-        dataLayer.push({
-          'Author': 'Alyssa Katz:Mia Hollie:Sam Rabiyah:Richard Kim',
-          'Primary_Group': 'Campaign 2023',
-          'Type': 'Interactive'
-        });`}
+        // dataLayer.push({
+        //   'Author': 'TK',
+        //   'Primary_Group': 'TK',
+        //   'Type': 'TK'
+        // });
+        `}
     </Script>
 
     {/* Parse.ly Analytics: */}
