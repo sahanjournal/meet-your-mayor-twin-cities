@@ -1,8 +1,10 @@
-# Meet Your Mayor 2025
+# Meet Your Mayor 2025: Twin Cities
 
-**A multi-page Gatsby-powered news application by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform New Yorkers about the 2025 NYC mayoral candidates.**
+**A multi-page Gatsby-powered news application by [Sahan Journal](https://sahanjournal.com), based on a project by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform residents of Minneapolis and St. Paul about their 2025 NYC mayoral candidates.**
 
-[![See it Live](https://img.shields.io/badge/See%20it%20Live-blue?style=for-the-badge)](https://projects.thecity.nyc/meet-your-mayor-2025-election-quiz-candidates/)
+***This README is copied from the original project documentation, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)***
+
+[![See original Live](https://img.shields.io/badge/See%20original%20Live-blue?style=for-the-badge)](https://projects.thecity.nyc/meet-your-mayor-2025-election-quiz-candidates/)
 
 ## 🛠️ Technologies Used
 
@@ -45,13 +47,13 @@ First you’ll need to clone this repository down to your computer to work with 
 Open up your terminal and cd to your code folder. Clone the project into your folder. This will copy the project onto your computer.
 
 ```sh
-gh repo clone https://github.com/thecityny/2025-meet-your-mayor
+gh repo clone https://github.com/sahanjournal/meet-your-mayor-twin-cities
 ```
 
 Once the repository has finished downloading, cd into it and install the Node.js dependencies.
 
 ```sh
-cd 2025-meet-your-mayor
+cd meet-your-mayor-twin-cities
 npm install
 ```
 
@@ -110,7 +112,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-### Using this code as a template
+### Using this code as a template 
+
+***This section refers to using the original project code, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)***
 
 This code is free and open source and you are permitted to use for your own projects under the [Apache 2.0 License](LICENSE) included in this repository. However, before deploying anything publicly using this codebase, you must:
 
