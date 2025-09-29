@@ -47,13 +47,13 @@ First you’ll need to clone this repository down to your computer to work with 
 Open up your terminal and cd to your code folder. Clone the project into your folder. This will copy the project onto your computer.
 
 ```sh
-gh repo clone https://github.com/thecityny/2025-meet-your-mayor
+gh repo clone https://github.com/sahanjournal/meet-your-mayor-twin-cities
 ```
 
 Once the repository has finished downloading, cd into it and install the Node.js dependencies.
 
 ```sh
-cd 2025-meet-your-mayor
+cd meet-your-mayor-twin-cities
 npm install
 ```
 
@@ -112,7 +112,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-### Using this code as a template
+### Using this code as a template 
+
+***This section refers to using the original project code, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)***
 
 This code is free and open source and you are permitted to use for your own projects under the [Apache 2.0 License](LICENSE) included in this repository. However, before deploying anything publicly using this codebase, you must:
 
