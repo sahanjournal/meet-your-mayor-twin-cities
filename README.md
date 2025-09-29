@@ -1,6 +1,6 @@
 # Meet Your Mayor 2025: Twin Cities
 
-**A multi-page Gatsby-powered news application by [Sahan Journal](https://sahanjournal.com), based on a project by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform New Yorkers about the 2025 NYC mayoral candidates.**
+**A multi-page Gatsby-powered news application by [Sahan Journal](https://sahanjournal.com), based on a project by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform residents of Minneapolis and St. Paul about their 2025 NYC mayoral candidates.**
 
 ***This README is copied from the original project documentation, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)***
 
