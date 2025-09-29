@@ -3,11 +3,8 @@ import { Link as AnchorLink } from "react-scroll";
 import { Link } from "gatsby";
 import { useCity } from "../utils";
 
-const DEFAULT_GOTHAMIST_UTM_PARAMS =
-  "?utm_medium=partnersite&utm_source=the-city&utm_campaign=meet-your-mayor";
-
-const DEFAULT_THE_CITY_UTM_PARAMS =
-  "?utm_source=button&utm_medium=website&utm_campaign=meet%20your%20mayor%202025";
+const DEFAULT_SAHAN_UTM_PARAMS =
+  "?utm_source=link&utm_medium=website&utm_campaign=meet%20your%20mayor%202025%20";
 
 // Reuse Gatsby’s LinkProps
 type InternalLinkProps = {
@@ -43,22 +40,13 @@ export const OutboundLink: React.FC<{
   className?: string;
   style?: React.CSSProperties;
 }> = ({ to, children, className, style }) => {
-  const isGothamistLink =
-    to.includes("gothamist.com") || to.includes("wnyc.org");
-  const isTheCityLink =
-    to.includes("www.thecity.nyc") || to.includes("donorbox.org");
+  const city = useCity();
+  const isSahanLink = to.includes("sahanjournal.com");
   return (
     <a
       className={className}
       style={style}
-      href={
-        to +
-        (isGothamistLink
-          ? DEFAULT_GOTHAMIST_UTM_PARAMS
-          : isTheCityLink
-          ? DEFAULT_THE_CITY_UTM_PARAMS
-          : "")
-      }
+      href={to + (isSahanLink ? DEFAULT_SAHAN_UTM_PARAMS + city : "")}
       target="_blank"
       rel="noopener noreferrer"
     >
