@@ -7,7 +7,7 @@ import { SocialButton } from "./SocialShareButtons";
 import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useCity } from "../utils";
-import { Link } from "gatsby";
+import { Link, Script } from "gatsby";
 
 // DISABLE AMPLITUDE TRACKING FOR NOW:
 // import { init } from "@amplitude/analytics-browser";
@@ -146,7 +146,44 @@ const Footer = () => {
   );
 };
 
-const Analytics = () => <>{/* Google Analytics & Google Tag Manager: */}</>;
+const Analytics = () => (
+  <>
+    {/* Google Analytics & Google Tag Manager: */}
+    <Script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WNJ80Q5BTH"
+    />
+    <Script>
+      {`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-WNJ80Q5BTH');
+        dataLayer.push({
+          'Author': 'Alyssa Katz:Mia Hollie:Sam Rabiyah:Richard Kim',
+          'Primary_Group': 'Campaign 2023',
+          'Type': 'Interactive'
+        });`}
+    </Script>
+
+    {/* Parse.ly Analytics: */}
+    <Script
+      id="parsely-cfg"
+      src="//cdn.parsely.com/keys/sahanjournal.com/p.js"
+    />
+
+    {/* Marfeel Analytics: */}
+    <Script>
+      {`!function(){"use strict";function e(e){var t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1],c=document.createElement("script");
+      c.src=e,t?c.type="module":(c.async=!0,c.type="text/javascript",c.setAttribute("nomodule",""));
+      var n=document.getElementsByTagName("script")[0];
+      n.parentNode.insertBefore(c,n)}!function(t,c){!function(t,c,n){var a,o,r;
+      n.accountId=c,null!==(a=t.marfeel)&&void 0!==a||(t.marfeel={}),null!==(o=(r=t.marfeel).cmd)&&void 0!==o||(r.cmd=[]),t.marfeel.config=n;
+      var i="https://sdk.mrf.io/statics";
+      e("".concat(i,"/marfeel-sdk.js?id=").concat(c),!0),e("".concat(i,"/marfeel-sdk.es5.js?id=").concat(c),!1)}(t,c,arguments.length>2&&void 0!==arguments[2]?arguments[2]:{})}(window,"6282",{} /* Config */)}();`}
+    </Script>
+  </>
+);
 
 type MetadataProps = {
   slug?: string;
