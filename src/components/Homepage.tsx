@@ -42,6 +42,17 @@ const Homepage = () => {
           city === "st-paul"
             ? "meet-your-mayor-st-paul.jpg"
             : "meet-your-mayor-minneapolis.jpg",
+        siteName: `Meet Your ${getFullCityName(city)} Mayor 2025`,
+        seoHeadline: `Meet Your ${getFullCityName(city)} Mayor: Take this quiz`,
+        socialHeadline: `Take the Quiz: Meet Your ${getFullCityName(
+          city
+        )} Mayor`,
+        socialDescription: `Candidates for ${getFullCityName(
+          city
+        )} mayor told us where they stand on issues. Which is the top match for you? Find out before heading to the polls.`,
+        seoDescription: `Candidates for ${getFullCityName(
+          city
+        )} mayor told us where they stand on big issues. Which is the top match for you? Take our quiz to find out before you head to the polls.`,
       }}
     >
       <div className="hero is-fullheight-with-navbar has-color-background">
