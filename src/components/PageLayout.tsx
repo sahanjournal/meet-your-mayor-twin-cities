@@ -114,7 +114,7 @@ const Footer = () => {
 
         <div className="eyebrow mt-5 has-text-centered">
           View source code on{" "}
-          <OutboundLink to="https://github.com/thecityny/2025-meet-your-mayor">
+          <OutboundLink to="https://github.com/sahanjournal/meet-your-mayor-twin-cities">
             Github
           </OutboundLink>
           .
