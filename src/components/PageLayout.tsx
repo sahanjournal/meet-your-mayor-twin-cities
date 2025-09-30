@@ -150,11 +150,6 @@ const Analytics = () => (
         gtag('js', new Date());
 
         gtag('config', 'G-WNJ80Q5BTH');
-        // dataLayer.push({
-        //   'Author': 'TK',
-        //   'Primary_Group': 'TK',
-        //   'Type': 'TK'
-        // });
         `}
     </Script>
 
@@ -270,8 +265,8 @@ export const PageLayout: React.FC<{
           "description": "${seoDescription}",
           "publisher": {
               "@type": "Organization",
-              "name": "THE CITY",
-              "url": "https://www.thecity.nyc/"
+              "name": "Sahan Journal",
+              "url": "https://www.sahanjournal.com",
           },
           "author": ${author}
         }`}</script>
