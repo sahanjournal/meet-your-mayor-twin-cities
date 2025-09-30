@@ -1,8 +1,7 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { OutboundLink } from "./Links";
 import classnames from "classnames";
-
-const SAHAN_NEWSLETTER_LIST_ID = "group-3a7bd0557a-6810d0b0bd";
+import { City, useCity } from "../utils";
 
 const SAHAN_FALLBACK_NEWSLETTER_LINK = "https://sahanjournal.com/newsletter/";
 
@@ -11,26 +10,28 @@ export type RequestStatus = "idle" | "loading" | "success" | "error";
 export const NewsletterSignupBanner: React.FC<{
   isOnLandingPage?: boolean;
 }> = ({ isOnLandingPage }) => {
+  const city = useCity();
   const [email, setEmail] = useState<string>("");
   const [statusSahan, setStatusSahan] = useState<RequestStatus>("idle");
 
   /**
    * Sign up for Sahan Journal's newsletter via direct API request.
    */
-  const submitSahan = async (e: FormEvent<HTMLFormElement>) => {
+  const submitSahan = async (e: FormEvent<HTMLFormElement>, city: City) => {
     e.preventDefault();
     setStatusSahan("loading");
     try {
       const response = await fetch(
-        `https://sahanjournal.com/newsletter/?lists%5B%5D=${SAHAN_NEWSLETTER_LIST_ID}&npe=${encodeURIComponent(
-          email
-        )}`,
+        "https://sahan-mail.netlify.app/.netlify/functions/subscribe",
         {
           method: "POST",
           headers: {
-            accept: "application/json",
             "content-type": "application/json",
           },
+          body: JSON.stringify({
+            email,
+            city,
+          }),
         }
       );
 
@@ -45,13 +46,14 @@ export const NewsletterSignupBanner: React.FC<{
     }
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit =
+    (city: City) => async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    setStatusSahan("loading");
+      setStatusSahan("loading");
 
-    submitSahan(e);
-  };
+      submitSahan(e, city);
+    };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -66,7 +68,7 @@ export const NewsletterSignupBanner: React.FC<{
         className={classnames("container", "py-4", isOnLandingPage && "px-4")}
       >
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(city)}
           className={classnames(
             "is-flex",
             !isOnLandingPage && "is-justify-content-center"
