@@ -36,7 +36,14 @@ const Homepage = () => {
   );
 
   return (
-    <PageLayout>
+    <PageLayout
+      customMetadata={{
+        shareImageFilename:
+          city === "st-paul"
+            ? "meet-your-mayor-st-paul.jpg"
+            : "meet-your-mayor-minneapolis.jpg",
+      }}
+    >
       <div className="hero is-fullheight-with-navbar has-color-background">
         <IntroAnimation isMobile />
         <div className="hero-body pt-6">

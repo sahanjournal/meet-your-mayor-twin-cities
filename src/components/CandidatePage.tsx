@@ -84,7 +84,10 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
   return (
     <PageLayout
       customMetadata={{
-        shareImageFilename: `composites/${kebabCase(candidateName)}-social.jpg`,
+        shareImageFilename:
+          city === "st-paul"
+            ? "meet-your-mayor-st-paul.jpg"
+            : "meet-your-mayor-minneapolis.jpg",
         siteName: `${candidateName} | ${process.env.GATSBY_SITE_NAME}`,
         seoHeadline: `${candidateName}: Meet Your Mayor`,
         socialHeadline: `${candidateName}: Meet Your Mayor`,
