@@ -34,7 +34,7 @@ const Header: React.FC<{ hideCityToggle?: boolean }> = ({ hideCityToggle }) => {
         <div className="nav-logo">
           <OutboundLink
             to={SAHAN_SITE_LINKS.website}
-            aria-label="THE CITY"
+            aria-label="Sahan Journal"
             className="is-flex"
           >
             <SahanLogo />
