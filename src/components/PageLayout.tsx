@@ -96,20 +96,13 @@ const Footer = () => {
                 : ""}
             </span>
           ))}
-          . Design and development by{" "}
-          <OutboundLink to="https://www.samrabiyah.com">
-            Sam Rabiyah
-          </OutboundLink>
-          . Illustrations by{" "}
-          <OutboundLink to="https://patrick-leger.com/">
-            Patrick Léger
-          </OutboundLink>
-          . Photos by{" "}
-          <OutboundLink to="https://www.thecity.nyc/author/ben-fractenberg/">
-            Ben Fractenberg
-          </OutboundLink>{" "}
-          and courtesy of the Curtis Sliwa and Jim Walden campaigns. Design
-          support from Tember Hopkins. Development support from Sam Guzik.
+          . Illustrations by Andrés Guzmán. Photos provided by candidates’
+          campaigns. Meet Your Mayor concept from{" "}
+          <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>.{" "}
+          Original design from{" "}
+          <OutboundLink to="https://samrabiyah.com">Sam Rabiyah</OutboundLink>{" "}
+          and{" "}
+          <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>.
         </div>
 
         <div className="eyebrow mt-5 has-text-centered">
@@ -123,24 +116,22 @@ const Footer = () => {
         <ul className="footer-links">
           <li>
             <OutboundLink
-              to="https://www.thecity.nyc/contact/"
+              to="https://sahanjournal.com/contact/"
               className="button-link"
             >
-              Contact
+              Contact Us
             </OutboundLink>
           </li>
           <li>
             <OutboundLink
-              to="https://www.thecity.nyc/privacy-policy/"
+              to="https://sahanjournal.com/privacy-policy/"
               className="button-link"
             >
-              Privacy Notice
+              Privacy Policy
             </OutboundLink>
           </li>
         </ul>
-        <div className="copyright">
-          © {year}, THE CITY REPORT, INC. All Rights Reserved.{" "}
-        </div>
+        <div className="copyright">© {year}, Sahan Journal </div>
       </div>
     </footer>
   );
