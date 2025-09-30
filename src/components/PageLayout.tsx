@@ -34,7 +34,7 @@ const Header: React.FC<{ hideCityToggle?: boolean }> = ({ hideCityToggle }) => {
         <div className="nav-logo">
           <OutboundLink
             to={SAHAN_SITE_LINKS.website}
-            aria-label="THE CITY"
+            aria-label="Sahan Journal"
             className="is-flex"
           >
             <SahanLogo />
@@ -96,25 +96,18 @@ const Footer = () => {
                 : ""}
             </span>
           ))}
-          . Design and development by{" "}
-          <OutboundLink to="https://www.samrabiyah.com">
-            Sam Rabiyah
-          </OutboundLink>
-          . Illustrations by{" "}
-          <OutboundLink to="https://patrick-leger.com/">
-            Patrick Léger
-          </OutboundLink>
-          . Photos by{" "}
-          <OutboundLink to="https://www.thecity.nyc/author/ben-fractenberg/">
-            Ben Fractenberg
-          </OutboundLink>{" "}
-          and courtesy of the Curtis Sliwa and Jim Walden campaigns. Design
-          support from Tember Hopkins. Development support from Sam Guzik.
+          . Illustrations by Andrés Guzmán. Photos provided by candidates’
+          campaigns. Meet Your Mayor concept from{" "}
+          <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>.{" "}
+          Original design by{" "}
+          <OutboundLink to="https://samrabiyah.com">Sam Rabiyah</OutboundLink>{" "}
+          and{" "}
+          <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>.
         </div>
 
         <div className="eyebrow mt-5 has-text-centered">
           View source code on{" "}
-          <OutboundLink to="https://github.com/thecityny/2025-meet-your-mayor">
+          <OutboundLink to="https://github.com/sahanjournal/meet-your-mayor-twin-cities">
             Github
           </OutboundLink>
           .
@@ -123,24 +116,22 @@ const Footer = () => {
         <ul className="footer-links">
           <li>
             <OutboundLink
-              to="https://www.thecity.nyc/contact/"
+              to="https://sahanjournal.com/contact/"
               className="button-link"
             >
-              Contact
+              Contact Us
             </OutboundLink>
           </li>
           <li>
             <OutboundLink
-              to="https://www.thecity.nyc/privacy-policy/"
+              to="https://sahanjournal.com/privacy-policy/"
               className="button-link"
             >
-              Privacy Notice
+              Privacy Policy
             </OutboundLink>
           </li>
         </ul>
-        <div className="copyright">
-          © {year}, THE CITY REPORT, INC. All Rights Reserved.{" "}
-        </div>
+        <div className="copyright">© {year}, Sahan Journal </div>
       </div>
     </footer>
   );
@@ -159,11 +150,6 @@ const Analytics = () => (
         gtag('js', new Date());
 
         gtag('config', 'G-WNJ80Q5BTH');
-        // dataLayer.push({
-        //   'Author': 'TK',
-        //   'Primary_Group': 'TK',
-        //   'Type': 'TK'
-        // });
         `}
     </Script>
 
@@ -279,8 +265,8 @@ export const PageLayout: React.FC<{
           "description": "${seoDescription}",
           "publisher": {
               "@type": "Organization",
-              "name": "THE CITY",
-              "url": "https://www.thecity.nyc/"
+              "name": "Sahan Journal",
+              "url": "https://www.sahanjournal.com",
           },
           "author": ${author}
         }`}</script>

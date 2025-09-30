@@ -28,8 +28,10 @@ export const Methodology = () => {
         aggregate results.
       </p>
       <p className="mt-3">
-        As in 2021, we are pleased to make our code available on{" "}
-        <OutboundLink to="https://github.com/thecityny/2025-meet-your-mayor">
+        As in 2021, we are pleased to make our code, which originally came from
+        <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>,
+        available on{" "}
+        <OutboundLink to="https://github.com/sahanjournal/meet-your-mayor-twin-cities">
           Github
         </OutboundLink>{" "}
         for use by other organizations. So far our project has been adapted for
@@ -42,7 +44,7 @@ export const Methodology = () => {
           Philadelphia
         </OutboundLink>
         . Could your city be next?{" "}
-        <OutboundLink to="mailto:meetyourmayor@thecity.nyc">
+        <OutboundLink to="mailto:contact@sahanjournal.com">
           Drop us a line
         </OutboundLink>
         .

@@ -19,7 +19,7 @@ export const SocialButton: React.FC<{ url: string; ariaLabel?: string }> = ({
     target="_blank"
     rel="noopener noreferrer"
     aria-label={ariaLabel || "Share this link"}
-    bgColor="#111111" // THE CITY Black
+    bgColor="#0d0e10" // Sahan Black
     style={{
       width: "25px",
       height: "25px",

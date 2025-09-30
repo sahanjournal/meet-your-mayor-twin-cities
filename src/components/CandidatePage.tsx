@@ -2,7 +2,13 @@ import React from "react";
 import { PageLayout } from "./PageLayout";
 import { InternalLink, OutboundLink } from "./Links";
 import { formatCandidateContent } from "./QuizContent";
-import { CityProvider, formatContent, kebabCase, useCity } from "../utils";
+import {
+  CityProvider,
+  formatContent,
+  getFullCityName,
+  kebabCase,
+  useCity,
+} from "../utils";
 import { CandidateSelectorMenu } from "./CandidateSelectorMenu";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { RecentCoverage } from "./RecentCoverage";
@@ -10,9 +16,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { NewsletterSignupBanner } from "./NewsletterSignup";
 import { useAppStore } from "../useAppStore";
 import { getQuestionsLeftToAnswer } from "./Results";
-
-const CANDIDATE_PAGE_DESCRIPTION =
-  "Who should you rank on your ballot to be the next mayor of New York City? Take our quiz to find your closest match.";
 
 const MINNEAPOLIS_OPEN_ENDED_QUESTIONS = [
   "Why are you running for mayor?",
@@ -88,11 +91,23 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
           city === "st-paul"
             ? "meet-your-mayor-st-paul.jpg"
             : "meet-your-mayor-minneapolis.jpg",
-        siteName: `${candidateName} | ${process.env.GATSBY_SITE_NAME}`,
-        seoHeadline: `${candidateName}: Meet Your Mayor`,
-        socialHeadline: `${candidateName}: Meet Your Mayor`,
-        socialDescription: CANDIDATE_PAGE_DESCRIPTION,
-        seoDescription: CANDIDATE_PAGE_DESCRIPTION,
+        siteName: `${candidateName} | ${
+          city === "st-paul"
+            ? "Meet Your St. Paul Mayor 2025"
+            : "Meet Your Minneapolis Mayor 2025"
+        }`,
+        seoHeadline: `${candidateName}: Meet Your Mayor ${getFullCityName(
+          city
+        )}`,
+        socialHeadline: `${candidateName}: Meet Your Mayor ${getFullCityName(
+          city
+        )}`,
+        socialDescription: `Candidates for ${getFullCityName(
+          city
+        )} mayor told us where they stand on issues. Which is the top match for you? Find out before heading to the polls.`,
+        seoDescription: `Candidates for ${getFullCityName(
+          city
+        )} mayor told us where they stand on big issues. Which is the top match for you? Take our quiz to find out before you head to the polls.`,
       }}
     >
       <div className="container pt-6" style={{ maxWidth: "1100px" }}>
