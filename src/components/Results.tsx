@@ -8,7 +8,7 @@ import { CircleIcon } from "./Quiz";
 import { Bobblehead } from "./Illustration";
 import { useAppStore } from "../useAppStore";
 import { track } from "@amplitude/analytics-browser";
-import { EmailMeMyResults } from "./EmailMeMyResults";
+// import { EmailMeMyResults } from "./EmailMeMyResults";
 
 export const getQuestionsLeftToAnswer = () => {
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
@@ -324,12 +324,18 @@ const Results: React.FC = () => {
                   />
                 </div>
 
+                {/* 
+                
+                DEACTIVATE EMAIL ME MY RESULTS FLOW FOR NOW
+
                 <EmailMeMyResults
                   topMatches={score.slice(
                     0,
                     MINIMUM_MATCHES_TO_SHOW + candidatesTiedWithLastPlace
                   )}
-                />
+                /> 
+                
+                */}
                 <div
                   className="is-hidden-tablet mt-4 mb-5"
                   onClick={() => {
