@@ -2,7 +2,7 @@
 
 **A multi-page Gatsby-powered news application by [Sahan Journal](https://sahanjournal.com), based on a project by [THE CITY](https://www.thecity.nyc) and [Gothamist](https://gothamist.com/), designed to inform residents of Minneapolis and St. Paul about their 2025 NYC mayoral candidates.**
 
-***This README is copied from the original project documentation, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)***
+**_This README is copied from the original project documentation, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)_**
 
 [![See original Live](https://img.shields.io/badge/See%20original%20Live-blue?style=for-the-badge)](https://projects.thecity.nyc/meet-your-mayor-2025-election-quiz-candidates/)
 
@@ -112,9 +112,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-### Using this code as a template 
+### Using this code as a template
 
-***This section refers to using the original project code, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)***
+**_This section refers to using the original project code, found at [github.com/thecityny/2025-meet-your-mayor](https://github.com/thecityny/2025-meet-your-mayor)_**
 
 This code is free and open source and you are permitted to use for your own projects under the [Apache 2.0 License](LICENSE) included in this repository. However, before deploying anything publicly using this codebase, you must:
 
@@ -159,10 +159,10 @@ You can set up a [CloudFront distribution](https://docs.aws.amazon.com/AmazonClo
 
 Once you create your distributions, copy the distribution IDs and store them as GitHub "secrets" accessible to the Actions that deploy the site.
 
-| Name                                  | Value                                         |
-| :------------------------------------ | :-------------------------------------------- |
-| `AWS_STAGING_CLOUDFRONT_DISTRIBUTION` | The distribution ID for the staging bucket    |
-| `AWS_CLOUDFRONT_DISTRIBUTION`         | The distribution ID for the production bucket |
+| Name                                     | Value                                         |
+| :--------------------------------------- | :-------------------------------------------- |
+| `AWS_STAGING_CLOUDFRONT_DISTRIBUTION`    | The distribution ID for the staging bucket    |
+| `AWS_PRODUCTION_CLOUDFRONT_DISTRIBUTION` | The distribution ID for the production bucket |
 
 ### Staging your work
 
