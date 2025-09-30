@@ -99,7 +99,7 @@ const Footer = () => {
           . Illustrations by Andrés Guzmán. Photos provided by candidates’
           campaigns. Meet Your Mayor concept from{" "}
           <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>.{" "}
-          Original design from{" "}
+          Original design by{" "}
           <OutboundLink to="https://samrabiyah.com">Sam Rabiyah</OutboundLink>{" "}
           and{" "}
           <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>.
