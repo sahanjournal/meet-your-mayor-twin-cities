@@ -215,15 +215,17 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
         </div>
 
         {city === "st-paul"
-          ? [quote1, quote2, quote3, quote4, quote5].map((quote, i) => (
-              <div className="copy" key={i}>
-                <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
-                  {ST_PAUL_OPEN_ENDED_QUESTIONS[i]}
-                </h3>
-                {formatContent(quote, true)}
-              </div>
-            ))
-          : [quote1, quote2, quote3, quote4].map((quote, i) => (
+          ? [quote1, quote2, quote3, quote4, quote5, quote6, quote7].map(
+              (quote, i) => (
+                <div className="copy" key={i}>
+                  <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
+                    {ST_PAUL_OPEN_ENDED_QUESTIONS[i]}
+                  </h3>
+                  {formatContent(quote, true)}
+                </div>
+              )
+            )
+          : [quote1, quote2, quote3, quote4, quote5, quote6].map((quote, i) => (
               <div className="copy my-2 py-2" key={i}>
                 <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
                   {MINNEAPOLIS_OPEN_ENDED_QUESTIONS[i]}
