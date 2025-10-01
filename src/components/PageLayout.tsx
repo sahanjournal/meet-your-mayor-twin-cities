@@ -202,6 +202,7 @@ export const PageLayout: React.FC<{
 
   const slug = customMetadata?.slug || process.env.GATSBY_SLUG;
   const url = `${process.env.GATSBY_DOMAIN}${slug}/`;
+  const favicon = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}/favicon.ico`;
 
   const siteName = customMetadata?.siteName || process.env.GATSBY_SITE_NAME;
   const shareImage = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}/${
@@ -234,6 +235,7 @@ export const PageLayout: React.FC<{
         <meta name="description" content={seoDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href={url} />
+        <link rel="icon" href={favicon} />
         <meta property="og:title" content={socialHeadline} />
         <meta property="og:description" content={socialDescription} />
         <meta property="og:url" content={url} />
