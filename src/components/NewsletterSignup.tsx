@@ -12,14 +12,14 @@ export const NewsletterSignupBanner: React.FC<{
 }> = ({ isOnLandingPage }) => {
   const city = useCity();
   const [email, setEmail] = useState<string>("");
-  const [statusSahan, setStatusSahan] = useState<RequestStatus>("idle");
+  const [status, setStatus] = useState<RequestStatus>("idle");
 
   /**
    * Sign up for Sahan Journal's newsletter via direct API request.
    */
   const submitSahan = async (e: FormEvent<HTMLFormElement>, city: City) => {
     e.preventDefault();
-    setStatusSahan("loading");
+    setStatus("loading");
     try {
       const response = await fetch(
         "https://sahan-mail.netlify.app/.netlify/functions/subscribe",
@@ -36,13 +36,13 @@ export const NewsletterSignupBanner: React.FC<{
       );
 
       if (response.ok) {
-        setStatusSahan("success");
+        setStatus("success");
         setEmail("");
       } else {
-        setStatusSahan("error");
+        setStatus("error");
       }
     } catch (error) {
-      setStatusSahan("error");
+      setStatus("error");
     }
   };
 
@@ -50,7 +50,7 @@ export const NewsletterSignupBanner: React.FC<{
     (city: City) => async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      setStatusSahan("loading");
+      setStatus("loading");
 
       submitSahan(e, city);
     };
@@ -105,9 +105,9 @@ export const NewsletterSignupBanner: React.FC<{
                 <button
                   className="button is-small is-white mt-1"
                   type="submit"
-                  disabled={statusSahan === "loading"}
+                  disabled={status === "loading"}
                 >
-                  {statusSahan === "loading" ? (
+                  {status === "loading" ? (
                     <>
                       Submitting
                       <span className="dot">.</span>
@@ -122,7 +122,7 @@ export const NewsletterSignupBanner: React.FC<{
             </div>
           </div>
         </form>
-        {statusSahan === "success" ? (
+        {status === "success" ? (
           <p
             className={classnames(
               "label mt-2",
@@ -131,7 +131,7 @@ export const NewsletterSignupBanner: React.FC<{
           >
             You're signed up!
           </p>
-        ) : statusSahan === "error" ? (
+        ) : status === "error" ? (
           <p
             className={classnames(
               "label mt-2",
