@@ -1,7 +1,7 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { RequestStatus } from "./NewsletterSignup";
 import { ScoreCard } from "./QuizContent";
-import { City, useCity } from "../utils";
+import { City, getFullCityName, useCity } from "../utils";
 
 export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
   topMatches,
@@ -13,11 +13,15 @@ export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
   const topMatchesFormatted = topMatches
     .map(
       (match, i) =>
-        `${i + 1}. ${match.candidateName} (${Math.round(
+        `${
+          i === 0
+            ? "For the " + getFullCityName(city) + " mayoral race, your"
+            : "Your"
+        } #${i + 1} candidate was ${match.candidateName}, with a ${Math.round(
           (match.totalScore / match.totalPossibleScore) * 100
-        )}% match)`
+        )}% match.`
     )
-    .join("\n");
+    .join(" ");
 
   /**
    * Sign up for Sahan Journal's newsletter via direct API request.
