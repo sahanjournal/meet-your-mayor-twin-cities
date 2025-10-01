@@ -142,14 +142,14 @@ const Analytics = () => (
     {/* Google Analytics & Google Tag Manager: */}
     <Script
       async
-      src="https://www.googletagmanager.com/gtag/js?id=G-WNJ80Q5BTH"
+      src="https://www.googletagmanager.com/gtag/js?id=G-VJ1RYPB6GP"
     />
     <Script>
       {`window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-WNJ80Q5BTH');
+        gtag('config', 'G-VJ1RYPB6GP');
         `}
     </Script>
 
