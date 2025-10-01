@@ -249,29 +249,31 @@ export const PageLayout: React.FC<{
         <meta property="twitter:image" content={shareImage} />
         <meta property="twitter:card" content="summary_large_image" />
 
-        <script type="application/ld+json">{`{
-          "@type": "NewsArticle",
-          "@context": "http://schema.org",
-          "headline": "${seoHeadline}",
-          "image": {
-              "@type": "ImageObject",
-              "contentUrl": "${shareImage}",
-              "url": "${shareImage}",
-              "representativeOfPage": ${true}
-          },
-          "dateCreated": "${process.env.GATSBY_PUB_DATE}",
-          "datePublished": "${process.env.GATSBY_PUB_DATE}",
-          "dateModified": "${process.env.GATSBY_UPDATE_DATE}",
-          "articleSection": "News Apps",
-          "mainEntityOfPage": "${url}",
-          "description": "${seoDescription}",
-          "publisher": {
-              "@type": "Organization",
-              "name": "Sahan Journal",
-              "url": "https://www.sahanjournal.com",
-          },
-          "author": ${author}
-        }`}</script>
+        <script type="application/ld+json">
+          {`{
+            "@type": "NewsArticle",
+            "@context": "http://schema.org",
+            "headline": "${seoHeadline}",
+            "image": {
+                "@type": "ImageObject",
+                "contentUrl": "${shareImage}",
+                "url": "${shareImage}",
+                "representativeOfPage": ${true}
+            },
+            "dateCreated": "${process.env.GATSBY_PUB_DATE}",
+            "datePublished": "${process.env.GATSBY_PUB_DATE}",
+            "dateModified": "${process.env.GATSBY_UPDATE_DATE}",
+            "articleSection": "News Apps",
+            "mainEntityOfPage": "${url}",
+            "description": "${seoDescription}",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Sahan Journal",
+                "url": "https://www.sahanjournal.com"
+            },
+            "author": ${author}
+          }`}
+        </script>
       </Helmet>
       <Analytics />
       {children}
