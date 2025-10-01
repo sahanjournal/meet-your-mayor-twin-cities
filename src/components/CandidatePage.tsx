@@ -30,7 +30,7 @@ const ST_PAUL_OPEN_ENDED_QUESTIONS = [
   "Why are you running for mayor?",
   "As mayor, how will you advocate for immigrants and communities of color?",
   "How can the city revive downtown, which is home to several vacant offices?",
-  "How can the city best prevent another cyberattack",
+  "How can the city best prevent another cyberattack?",
   "The corridor in Midway starting at Snelling Ave and University Ave has lost or is losing several businesses. What should the mayor do to revive this corridor, which is home to many communities of color?",
   "Do you support the city’s sanctuary policy, and should it be expanded?",
   "How can the city make up for lost federal grants and revenue due to cuts from the Trump administration?",
