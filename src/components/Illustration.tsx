@@ -58,19 +58,6 @@ export const Bobblehead: React.FC<{
         visibleByDefault
         alt={candidateName}
       />
-      {candidateName === "Jessica Ramos" && (
-        <LazyLoadImage
-          src={`${imgPathPrefix}-head-back.png`}
-          className={classnames("illustration", candidatePath)}
-          wrapperClassName={classnames("image-wrapper", "top", "background")}
-          style={{
-            animationDelay: animationDelay,
-          }}
-          effect={loadWithBlurEffect ? "blur" : undefined}
-          visibleByDefault
-          alt={candidateName}
-        />
-      )}
     </figure>
   );
 };
