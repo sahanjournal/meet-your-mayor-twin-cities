@@ -92,7 +92,7 @@ jobs:
       - name: Invalidate CloudFront (clear cache)
         uses: chetan/invalidate-cloudfront-action@v2
         env:
-          DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
+          DISTRIBUTION: ${{ secrets.AWS_PRODUCTION_CLOUDFRONT_DISTRIBUTION }}
           PATHS: ${{ format('/{0}/*', steps.get-slug.outputs.result) }}
 
       - id: npm-deploy

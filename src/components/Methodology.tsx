@@ -28,7 +28,7 @@ export const Methodology = () => {
         aggregate results.
       </p>
       <p className="mt-3">
-        As in 2021, we are pleased to make our code, which originally came from
+        As in 2021, we are pleased to make our code, which originally came from{" "}
         <OutboundLink to="https://www.thecity.nyc/">THE CITY</OutboundLink>,
         available on{" "}
         <OutboundLink to="https://github.com/sahanjournal/meet-your-mayor-twin-cities">

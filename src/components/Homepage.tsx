@@ -134,7 +134,7 @@ const Homepage = () => {
               <div className="eyebrow">
                 <a href="#quiz">
                   <div
-                    className="mr-1"
+                    className="mr-1 is-hidden-mobile"
                     style={{
                       display: "inline-block",
                       transform: "translateY(-2px) rotate(-90deg)",

@@ -1,14 +1,14 @@
-$font-base-url: "https://github.com/sahanjournal/libre-franklin-font/raw/refs/heads/main/fonts/webfonts/";
+$font-base-url: "https://s3.us-east-2.amazonaws.com/static.sahanjournal.com/fonts/webfonts/";
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
-  src: url($font-base-url + "LibreFranklin-Bold.woff") format("woff2");
+  src: url($font-base-url + "LibreFranklin-Bold.woff2") format("woff2");
   font-weight: 900;
 }
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
   src: url($font-base-url + "LibreFranklin-BoldItalic.woff2") format("woff2");
   font-weight: 900;
@@ -16,14 +16,14 @@ $font-base-url: "https://github.com/sahanjournal/libre-franklin-font/raw/refs/he
 }
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
   src: url($font-base-url + "LibreFranklin-Medium.woff2") format("woff2");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
   src: url($font-base-url + "LibreFranklin-MediumItalic.woff2") format("woff2");
   font-weight: 700;
@@ -31,29 +31,29 @@ $font-base-url: "https://github.com/sahanjournal/libre-franklin-font/raw/refs/he
 }
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
   src: url($font-base-url + "LibreFranklin-Regular.woff2") format("woff2");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
-  src: url($font-base-url + "LibreFranklin-RegularItalic.woff2") format("woff2");
+  src: url($font-base-url + "LibreFranklin-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
   src: url($font-base-url + "LibreFranklin-Light.woff2") format("woff2");
   font-weight: 200;
 }
 
 @font-face {
-  font-family: "Sharp Grotesk";
+  font-family: "Libre Franklin";
   font-display: auto;
   src: url($font-base-url + "LibreFranklin-LightItalic.woff2") format("woff2");
   font-weight: 200;
