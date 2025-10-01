@@ -136,7 +136,7 @@ export const formatContent = (content: string, inQuotes?: boolean) => {
         <Paragraph
           key={i}
           text={
-            (inQuotes ? "“" : "") +
+            (inQuotes && paragraph[0] !== "-" ? "“" : "") +
             paragraph +
             (inQuotes && i === paragraphs.length - 1 ? "”" : "")
           }
