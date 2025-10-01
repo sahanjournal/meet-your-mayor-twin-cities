@@ -15,6 +15,8 @@ export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
 
   const candidateNamesShuffled = shuffleArray(candidateNames);
 
+  console.log(candidateNamesShuffled);
+
   return (
     <div
       className={classnames(
