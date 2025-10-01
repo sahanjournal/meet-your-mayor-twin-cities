@@ -161,10 +161,10 @@ export const candidateStpContent = {
     quizResponse1:
       "3 | “We live by the rule of law. Saint Paul is not a sanctuary city.”",
     quizResponse2:
-      "4 | “Saint Paul has lost over 500 businesses since 2020 due to taxes, crime and homelessness. Saint Paul’s business policies are moving citizens and businesses out of Saint Paul.”",
+      "3 | “Saint Paul has lost over 500 businesses since 2020 due to taxes, crime and homelessness. Saint Paul’s business policies are moving citizens and businesses out of Saint Paul.”",
     quizResponse3: "2",
     quizResponse4: "1",
-    quizResponse5: "4",
+    quizResponse5: "",
     quizResponse6: "4",
     quizResponse7: "3",
     quizResponse8: "2",
