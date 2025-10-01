@@ -3,7 +3,6 @@ import { generateListOfCandidates } from "./QuizContent";
 import classnames from "classnames";
 import { Bobblehead } from "./Illustration";
 import { useCity, useIsCandidatePage } from "../utils";
-import { track } from "@amplitude/analytics-browser";
 import { InternalLink } from "./Links";
 
 /**
@@ -27,15 +26,6 @@ export const CandidateSelectorMenu: React.FC = () => {
         <InternalLink
           key={i}
           to={`/${candidate.slug}`}
-          onClick={() =>
-            track(
-              `Visit ${candidate.name}'s page from ${
-                isCandidatePage
-                  ? "another candidate page"
-                  : "bottom of main page"
-              }`
-            )
-          }
           className="column is-one-quarter"
           activeClassName="is-active"
         >

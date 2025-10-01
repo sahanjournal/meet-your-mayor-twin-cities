@@ -12,7 +12,6 @@ import { SmoothScroll } from "./Links";
 import { abbreviateName, MatchingCandidates } from "./MatchingCandidates";
 import { useAppStore } from "../useAppStore";
 import { Methodology } from "./Methodology";
-import { track } from "@amplitude/analytics-browser";
 import { Bobblehead } from "./Illustration";
 import { Link } from "gatsby";
 
@@ -350,16 +349,6 @@ const Quiz = () => {
                                           )}
                                           onClick={() => {
                                             recordAnswer(number, optionNumber);
-                                            track(
-                                              `Question ${number}: ${
-                                                !!answerSelected
-                                                  ? "changed"
-                                                  : "recorded"
-                                              } answer`,
-                                              {
-                                                answer: optionNumber,
-                                              }
-                                            );
                                             const id =
                                               document.getElementById(
                                                 optionSlug

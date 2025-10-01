@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SahanLogo from "../assets/logo.svg";
 import { Helmet } from "react-helmet";
 import { OutboundLink } from "./Links";
@@ -8,11 +8,6 @@ import "../styles/app.scss";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useCity } from "../utils";
 import { Link, Script } from "gatsby";
-
-// DISABLE AMPLITUDE TRACKING FOR NOW:
-// import { init } from "@amplitude/analytics-browser";
-
-// const AMPLITUDE_PUBLIC_KEY = "FILL IN YOUR KEY HERE";
 
 const SAHAN_SITE_LINKS = {
   website: "https://sahanjournal.com/",
@@ -217,11 +212,6 @@ export const PageLayout: React.FC<{
   const socialDescription =
     customMetadata?.socialDescription || process.env.GATSBY_SOCIAL_DESCRIPTION;
   const author = customMetadata?.author || process.env.GATSBY_AUTHOR;
-
-  // Initialize Amplitude Tracking:
-  useEffect(() => {
-    // init(AMPLITUDE_PUBLIC_KEY);
-  });
 
   return (
     <article

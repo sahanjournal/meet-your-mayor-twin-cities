@@ -1,6 +1,5 @@
 import React from "react";
 import { OutboundLink } from "./Links";
-import { track } from "@amplitude/analytics-browser";
 
 const LINKS_JSON_URL_PREFIX =
   "https://sahanjournal.com/wp-json/wp/v2/posts?categories=15";
@@ -87,9 +86,6 @@ export const RecentCoverage: React.FC = () => {
         <div
           className="button is-white is-small mt-3"
           aria-label="Donate to Sahan Journal"
-          onClick={() => {
-            track("Clicked Sahan Journal Donate button");
-          }}
         >
           Donate
         </div>

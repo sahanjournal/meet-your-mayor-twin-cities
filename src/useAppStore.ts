@@ -3,7 +3,6 @@ import { persist } from "zustand/middleware";
 import { QuizInput, ScoreCard } from "./components/QuizContent";
 import { questionMplsContent } from "./question-mpls-content";
 import { questionStpContent } from "./question-stp-content";
-import { track } from "@amplitude/analytics-browser";
 import { City, useCity } from "./utils";
 
 /**
@@ -72,7 +71,6 @@ function createAppStore(cityKey: City) {
         setHighestVisibleQuestion: (highestVisibleQuestion) =>
           set({ highestVisibleQuestion }),
         resetAnswers: () => {
-          track("Reset answers");
           set({
             answers: blankAnswersList,
             favoriteTopics: [],
