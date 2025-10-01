@@ -82,7 +82,7 @@ export const NewsletterSignupBanner: React.FC<{
                 !isOnLandingPage && "has-text-centered"
               )}
             >
-              Keep up with the election and other news from Sahan Journal:
+              Keep me briefed about the election — and more:
             </div>
             <div
               className={classnames(
