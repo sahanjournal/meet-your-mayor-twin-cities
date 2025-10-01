@@ -47,7 +47,7 @@ export const Bobblehead: React.FC<{
         }}
         wrapperClassName={classnames("image-wrapper", "top")}
         effect={loadWithBlurEffect ? "blur" : undefined}
-        visibleByDefault
+        visibleByDefault={!loadWithBlurEffect}
         alt={candidateName}
       />
       <LazyLoadImage
@@ -55,7 +55,7 @@ export const Bobblehead: React.FC<{
         className={classnames("illustration", candidatePath)}
         wrapperClassName={classnames("image-wrapper", "bottom")}
         effect={loadWithBlurEffect ? "blur" : undefined}
-        visibleByDefault
+        visibleByDefault={!loadWithBlurEffect}
         alt={candidateName}
       />
     </figure>
