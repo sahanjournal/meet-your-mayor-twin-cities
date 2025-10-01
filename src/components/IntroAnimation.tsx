@@ -23,9 +23,9 @@ export const IntroAnimation: FC<{ isMobile?: boolean }> = ({ isMobile }) => {
       )}
     >
       <div className="slider">
-        {candidateNamesShuffled.map((name, i) => (
+        {candidateNamesShuffled.map((name) => (
           <Bobblehead
-            key={i}
+            key={name}
             candidateName={name}
             customClassNames="slide"
             size="is-1by2"
