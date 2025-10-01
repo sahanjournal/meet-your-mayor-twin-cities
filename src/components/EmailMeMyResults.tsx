@@ -1,7 +1,7 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { RequestStatus } from "./NewsletterSignup";
 import { ScoreCard } from "./QuizContent";
-import { City, useCity } from "../utils";
+import { City, getFullCityName, useCity } from "../utils";
 
 export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
   topMatches,
@@ -17,7 +17,7 @@ export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
           (match.totalScore / match.totalPossibleScore) * 100
         )}% match)`
     )
-    .join("\n");
+    .join(", ");
 
   /**
    * Sign up for Sahan Journal's newsletter via direct API request.
@@ -36,7 +36,9 @@ export const EmailMeMyResults: React.FC<{ topMatches: ScoreCard }> = ({
           body: JSON.stringify({
             email,
             city,
-            quizResults: topMatchesFormatted,
+            quizResults: `Here are your rankings for the ${getFullCityName(
+              city
+            )} mayoral race: ${topMatchesFormatted}`,
           }),
         }
       );
