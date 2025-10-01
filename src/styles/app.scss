@@ -684,6 +684,12 @@ $bust-only-cropping-factor: -15%;
   }
 }
 
+// Fallback to make sure illustrations become visible while loading:
+.lazy-load-image-background img {
+  filter: blur(0);
+  transition: filter 0.5s;
+}
+
 .is-static,
 .is-disabled {
   .image .top img.illustration {
