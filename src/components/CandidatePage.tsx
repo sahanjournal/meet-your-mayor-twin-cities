@@ -22,6 +22,8 @@ const MINNEAPOLIS_OPEN_ENDED_QUESTIONS = [
   "As mayor, how will you advocate for immigrants and communities of color?",
   "Should homeless encampments be allowed to exist in Minneapolis? When should the city clear homeless encampments?",
   "Do you agree with how the city handled its presence at the federal drug investigation on Lake Street in June, and how can Minneapolis improve its response in future incidents?",
+  "Do you support the policing reforms in the recently abandoned federal consent decree against Minneapolis police? If yes, how should the city ensure these reforms are enacted?",
+  "How can the city make up for lost federal grants and revenue due to cuts from the Trump administration?",
 ];
 
 const ST_PAUL_OPEN_ENDED_QUESTIONS = [
@@ -30,6 +32,8 @@ const ST_PAUL_OPEN_ENDED_QUESTIONS = [
   "How can the city revive downtown, which is home to several vacant offices?",
   "How can the city best prevent another cyberattack",
   "The corridor in Midway starting at Snelling Ave and University Ave has lost or is losing several businesses. What should the mayor do to revive this corridor, which is home to many communities of color?",
+  "Do you support the city’s sanctuary policy, and should it be expanded?",
+  "How can the city make up for lost federal grants and revenue due to cuts from the Trump administration?",
 ];
 
 const CandidatePage: React.FC<{ pageContext: any }> = ({ pageContext }) => {
@@ -82,6 +86,8 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
     quote3,
     quote4,
     quote5,
+    quote6,
+    quote7,
   } = candidateInfo;
 
   return (
@@ -209,20 +215,22 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
         </div>
 
         {city === "st-paul"
-          ? [quote1, quote2, quote3, quote4, quote5].map((quote, i) => (
-              <div className="copy" key={i}>
-                <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
-                  {ST_PAUL_OPEN_ENDED_QUESTIONS[i]}
-                </h3>
-                {formatContent(quote)}
-              </div>
-            ))
-          : [quote1, quote2, quote3, quote4].map((quote, i) => (
+          ? [quote1, quote2, quote3, quote4, quote5, quote6, quote7].map(
+              (quote, i) => (
+                <div className="copy" key={i}>
+                  <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
+                    {ST_PAUL_OPEN_ENDED_QUESTIONS[i]}
+                  </h3>
+                  {formatContent(quote, true)}
+                </div>
+              )
+            )
+          : [quote1, quote2, quote3, quote4, quote5, quote6].map((quote, i) => (
               <div className="copy my-2 py-2" key={i}>
                 <h3 className="deck has-text-left mb-4 has-text-weight-semibold">
                   {MINNEAPOLIS_OPEN_ENDED_QUESTIONS[i]}
                 </h3>
-                {formatContent(quote)}
+                {formatContent(quote, true)}
               </div>
             ))}
       </div>

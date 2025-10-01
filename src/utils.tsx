@@ -128,13 +128,23 @@ export const Paragraph: React.FC<{ text: string }> = ({ text }) => (
 export const splitParagraphs = (content: string) =>
   content.split("{newParagraph}");
 
-export const formatContent = (content: string) => (
-  <>
-    {splitParagraphs(content).map((paragraph, i) => (
-      <Paragraph key={i} text={paragraph} />
-    ))}
-  </>
-);
+export const formatContent = (content: string, inQuotes?: boolean) => {
+  const paragraphs = splitParagraphs(content);
+  return (
+    <>
+      {paragraphs.map((paragraph, i) => (
+        <Paragraph
+          key={i}
+          text={
+            (inQuotes && paragraph[0] !== "-" ? "“" : "") +
+            paragraph +
+            (inQuotes && i === paragraphs.length - 1 ? "”" : "")
+          }
+        />
+      ))}
+    </>
+  );
+};
 
 export const arrayToNiceList = (list: string[]) => {
   if (list.length === 1) {
