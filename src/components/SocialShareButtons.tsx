@@ -1,5 +1,6 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
+import { useCity } from "../utils";
 
 type ScoreShareDetails = {
   topCandidate: string;
@@ -49,7 +50,8 @@ export const SocialShareButtons: React.FC<{
    */
   results?: ScoreShareDetails;
 }> = ({ results }) => {
-  const shareUrl = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}`;
+  const city = useCity();
+  const shareUrl = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}/${city}`;
   return (
     <>
       <SocialButton
