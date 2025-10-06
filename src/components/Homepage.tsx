@@ -157,8 +157,11 @@ const Homepage = () => {
               >
                 We asked the candidates additional questions that didn't make it
                 into the quiz. Click on the candidates' pictures below to read
-                more about why they're running for office, and their views on
-                homeless encampments, police reform and more.
+                more about why they're running for office, and their views on{" "}
+                {city === "st-paul"
+                  ? "revitalizing downtown, business loss on University Avenue"
+                  : "homeless encampments, police reform"}{" "}
+                and more.
               </p>
               <CandidateSelectorMenu />
             </div>
