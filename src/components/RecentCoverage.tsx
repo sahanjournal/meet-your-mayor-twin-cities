@@ -55,14 +55,23 @@ export const RecentCoverage: React.FC = () => {
         return response.json();
       })
       .then((json) => {
-        const formattedLinks = json.slice(0, 3).map((item: any) => ({
+        const formattedLinks = json.map((item: any) => ({
           text: item.title.rendered,
           href: item.link,
         }));
-        testValidSetOfLinks(formattedLinks);
-        return formattedLinks;
+
+        // Filter out links that are "Meet Your Mayor" related:
+        const filteredLinks = formattedLinks
+          .filter(
+            (link: any) =>
+              link.href && !link.href.includes(process.env.GATSBY_SLUG)
+          )
+          .slice(0, 3);
+
+        testValidSetOfLinks(filteredLinks);
+        return filteredLinks;
       })
-      .then((formattedLinks) => setLinks(formattedLinks))
+      .then((filteredLinks) => setLinks(filteredLinks))
       .catch((error) => console.error("Error loading Links JSON:", error));
   }, []);
 
