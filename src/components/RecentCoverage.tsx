@@ -100,7 +100,7 @@ export const RecentCoverage: React.FC = () => {
             track("Clicked Sahan Journal Donate button");
           }}
         >
-          Donate
+          Support this work
         </div>
       </OutboundLink>
     </>
