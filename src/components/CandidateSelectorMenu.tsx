@@ -39,7 +39,10 @@ export const CandidateSelectorMenu: React.FC = () => {
           className="column is-one-quarter"
           activeClassName="is-active"
         >
-          <div className="is-flex is-flex-direction-column is-align-items-center">
+          <div
+            className="is-flex is-flex-direction-column is-align-items-center"
+            style={{ maxWidth: "120px" }}
+          >
             <Bobblehead
               candidateName={candidate.name}
               size={isCandidatePage ? "is-64x64" : "is-96x96"}
