@@ -147,10 +147,22 @@ const Homepage = () => {
               </div>
               <h1
                 className="headline has-text-left mt-2"
-                style={{ maxWidth: "500px" }}
+                style={{ maxWidth: "650px" }}
               >
                 About the Candidates
               </h1>
+              <p
+                className="copy has-text-left ml-0 mb-6"
+                style={{ maxWidth: "650px" }}
+              >
+                We asked the candidates additional questions that didn't make it
+                into the quiz. Click on the candidates' pictures below to read
+                more about why they're running for office, and their views on{" "}
+                {city === "st-paul"
+                  ? "revitalizing downtown, business loss on University Avenue"
+                  : "homeless encampments, police reform"}{" "}
+                and more.
+              </p>
               <CandidateSelectorMenu />
             </div>
             <div className="column">
