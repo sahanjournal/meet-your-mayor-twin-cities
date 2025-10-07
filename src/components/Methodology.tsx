@@ -1,6 +1,7 @@
 import React from "react";
 import { OutboundLink } from "./Links";
 import { useCity } from "../utils";
+import { Changelog } from "./Changelog";
 
 export const Methodology = () => {
   const city = useCity();
@@ -49,12 +50,8 @@ export const Methodology = () => {
         </OutboundLink>
         .
       </p>
-      {/* 
-    UNCOMMENT TO ENABLE CHANGELOG:
 
-    <p className="mt-3 has-text-weight-semibold">Updates</p>
-    <Changelog />
-    */}
+      <Changelog />
     </div>
   );
 };

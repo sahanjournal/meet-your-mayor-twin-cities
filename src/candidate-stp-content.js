@@ -26,7 +26,7 @@ export const candidateStpContent = {
     quizResponse2:
       "2 | “Bringing in more people and expanding our tax base is key to offsetting our losses from the federal government…As a State Legislator, I have strong ties to the state government and will work every lever I can to bring funding back to Saint Paul.”",
     quizResponse3: "3",
-    quizResponse4: "1",
+    quizResponse4: "3",
     quizResponse5: "2",
     quizResponse6: "3",
     quizResponse7: "1",
