@@ -20,6 +20,16 @@ const CHANGELOG_ENTRIES = [
       </>,
     ],
   },
+  {
+    date: "October 8, 2025",
+    city: "st-paul" as City,
+    changes: [
+      <>
+        CORRECTION: St. Paul voters approved rent control in 2021, which was
+        amended in 2023. St. Paul voters can rank up to six candidates.
+      </>,
+    ],
+  },
 ];
 
 export const Changelog = () => {
