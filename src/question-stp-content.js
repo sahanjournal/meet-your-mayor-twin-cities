@@ -71,7 +71,7 @@ export const questionStpContent = {
       "Do you support the St. Paul rent control policy as it now stands? Does it need more exemptions for certain types of residences?",
     subject: "Rent Control",
     tellMeMore:
-      "City voters approved a 3 percent cap on annual rent increases in 2023. The city has amended the policy many times since to exempt certain projects from the law, including new developments.",
+      "City voters approved a 3 percent cap on annual rent increases in 2021. The city has amended the policy many times since to exempt certain projects from the law, including new developments.",
     option1: "The city should keep rent control but add more exemptions.",
     option2: "The current rent control policy is adequate.",
     option3: "The city should repeal rent control altogether.",
