@@ -1,5 +1,11 @@
 import React, { useEffect, useMemo } from "react";
-import { arrayToNiceList, groupBy, kebabCase, shuffleArray } from "../utils";
+import {
+  arrayToNiceList,
+  groupBy,
+  kebabCase,
+  shuffleArray,
+  useCity,
+} from "../utils";
 import { formatQuestionContent, generateBlankScorecard } from "./QuizContent";
 import { SocialShareButtons } from "./SocialShareButtons";
 import { InternalLink, SmoothScroll } from "./Links";
@@ -34,12 +40,9 @@ export const getQuestionsLeftToAnswer = () => {
  */
 const MAX_FAVORITE_TOPICS = 3;
 
-/**
- * Minimum number of matching candidates we should show users in their quiz results.
- */
-const MINIMUM_MATCHES_TO_SHOW = 3;
-
 const Results: React.FC = () => {
+  const city = useCity();
+
   const favoriteTopics = useAppStore((state) => state.favoriteTopics);
   const setFavoriteTopics = useAppStore((state) => state.setFavoriteTopics);
 
@@ -180,20 +183,9 @@ const Results: React.FC = () => {
    */
   let candidatesTiedWithFirstPlace = 0;
 
-  /**
-   * Let's count how many candidates had the same score as the last candidate we're showing,
-   * just to make sure we don't exclude any candidate that tied that score:
-   */
-  let candidatesTiedWithLastPlace = 0;
   score.forEach((candidate, i) => {
     if (candidate.totalScore === score[0].totalScore) {
       i > 0 && candidatesTiedWithFirstPlace++;
-    }
-    if (
-      i >= MINIMUM_MATCHES_TO_SHOW &&
-      candidate.totalScore === score[MINIMUM_MATCHES_TO_SHOW - 1].totalScore
-    ) {
-      candidatesTiedWithLastPlace++;
     }
   });
 
@@ -324,12 +316,7 @@ const Results: React.FC = () => {
                   />
                 </div>
 
-                <EmailMeMyResults
-                  topMatches={score.slice(
-                    0,
-                    MINIMUM_MATCHES_TO_SHOW + candidatesTiedWithLastPlace
-                  )}
-                />
+                <EmailMeMyResults topMatches={score} />
 
                 <div
                   className="is-hidden-tablet mt-4 mb-5"
@@ -365,180 +352,175 @@ const Results: React.FC = () => {
                     .map((candidate) => candidate.candidateName)
                 )}
               </span>
-              . In the election you may choose up to three candidates, so
-              consider your runner-up matches:
+              . In the election you may choose up to{" "}
+              {city === "st-paul" ? "six" : "three"} candidates, so consider
+              your runner-up matches:
             </div>
 
-            {score
-              .slice(0, MINIMUM_MATCHES_TO_SHOW + candidatesTiedWithLastPlace)
-              .map((candidate, i) => {
-                const scoreBySubject = Object.entries(
-                  groupBy(candidate.scoreList, "subject")
-                );
+            {score.map((candidate, i) => {
+              const scoreBySubject = Object.entries(
+                groupBy(candidate.scoreList, "subject")
+              );
 
-                /**
-                 * Question groups where the candidate scored a point with the user
-                 * on every question in that group.
-                 */
-                const fullyMatchedSubjects = scoreBySubject.filter(
-                  (subject) =>
-                    subject[1].filter((question) => question.points > 0)
-                      .length === subject[1].length
-                );
+              /**
+               * Question groups where the candidate scored a point with the user
+               * on every question in that group.
+               */
+              const fullyMatchedSubjects = scoreBySubject.filter(
+                (subject) =>
+                  subject[1].filter((question) => question.points > 0)
+                    .length === subject[1].length
+              );
 
-                /**
-                 * Question groups where the candidate scored at least one point
-                 * on a question in that group.
-                 */
-                const partiallyMatchedSubjects = scoreBySubject.filter(
-                  (subject) =>
-                    subject[1].filter((question) => question.points > 0)
-                      .length > 0 &&
-                    subject[1].filter((question) => question.points > 0)
-                      .length < subject[1].length
-                );
+              /**
+               * Question groups where the candidate scored at least one point
+               * on a question in that group.
+               */
+              const partiallyMatchedSubjects = scoreBySubject.filter(
+                (subject) =>
+                  subject[1].filter((question) => question.points > 0).length >
+                    0 &&
+                  subject[1].filter((question) => question.points > 0).length <
+                    subject[1].length
+              );
 
-                /**
-                 * Question groups where the candidate didn't score any point
-                 * on a question in that group.
-                 */
-                const nonMatchedSubjects = scoreBySubject.filter(
-                  (subject) =>
-                    subject[1].filter((question) => question.points > 0)
-                      .length === 0
-                );
+              /**
+               * Question groups where the candidate didn't score any point
+               * on a question in that group.
+               */
+              const nonMatchedSubjects = scoreBySubject.filter(
+                (subject) =>
+                  subject[1].filter((question) => question.points > 0)
+                    .length === 0
+              );
 
-                const resultsSections = [
-                  {
-                    title: "You agreed with them fully about...",
-                    content: fullyMatchedSubjects,
-                  },
-                  {
-                    title: "You agreed with them partially about...",
-                    content: partiallyMatchedSubjects,
-                  },
-                  {
-                    title: "You disagreed with them about...",
-                    content: nonMatchedSubjects,
-                  },
-                ];
+              const resultsSections = [
+                {
+                  title: "You agreed with them fully about...",
+                  content: fullyMatchedSubjects,
+                },
+                {
+                  title: "You agreed with them partially about...",
+                  content: partiallyMatchedSubjects,
+                },
+                {
+                  title: "You disagreed with them about...",
+                  content: nonMatchedSubjects,
+                },
+              ];
 
-                return (
-                  <div className="copy has-text-black-bis" key={i}>
-                    <hr className="my-6" />
-                    <details>
-                      <summary
-                        className="is-inline-flex is-justify-content-space-between"
-                        style={{ width: "100%", cursor: "pointer" }}
+              return (
+                <div className="copy has-text-black-bis" key={i}>
+                  <hr className="my-6" />
+                  <details>
+                    <summary
+                      className="is-inline-flex is-justify-content-space-between"
+                      style={{ width: "100%", cursor: "pointer" }}
+                    >
+                      <div
+                        className="is-flex is-align-items-center"
+                        style={{ maxWidth: "100%" }}
                       >
-                        <div
-                          className="is-flex is-align-items-center"
-                          style={{ maxWidth: "100%" }}
-                        >
-                          <span
-                            className="headline"
-                            style={{ minWidth: "3rem" }}
-                          >
-                            <span className="open-text">+</span>
-                            <span className="close-text">-</span>
-                          </span>
-                          <Bobblehead
-                            candidateName={candidate.candidateName}
-                            size="is-128x128"
-                            customClassNames="py-4 mr-4"
-                          />
-                          <div className="headline has-text-left is-size-3-mobile pr-1">
-                            <span className="is-link">
-                              {candidate.candidateName}
-                            </span>{" "}
-                            <span className="is-hidden-tablet">
-                              <div className="mt-3">
-                                {Math.round(
-                                  (candidate.totalScore / totalPossiblePoints) *
-                                    100
-                                )}
-                                % Match
-                              </div>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="is-flex is-align-items-center">
-                          <h2 className="headline is-hidden-mobile">
-                            {Math.round(
-                              (candidate.totalScore / totalPossiblePoints) * 100
-                            )}
-                            % Match
-                          </h2>
-                        </div>
-                      </summary>
-                      <div className="details-content">
-                        {resultsSections
-                          .filter(
-                            (resultsSection) =>
-                              resultsSection.content.length > 0
-                          )
-                          .map((resultsSections, i) => (
-                            <div key={i}>
-                              <div className="copy mt-4 ml-4">
-                                {resultsSections.title}
-                              </div>
-                              <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap ml-4">
-                                {resultsSections.content.map(
-                                  (questionGroup, i) => (
-                                    <div key={i} className="mr-6">
-                                      <h3
-                                        className={classnames(
-                                          favoriteTopics.includes(
-                                            questionGroup[0]
-                                          ) && "has-text-weight-semibold"
-                                        )}
-                                      >
-                                        {favoriteTopics.includes(
-                                          questionGroup[0]
-                                        ) && "★"}{" "}
-                                        {questionGroup[0]}{" "}
-                                      </h3>
-                                      <div className="copy">
-                                        {questionGroup[1].map((question, i) => (
-                                          <span className="mr-2" key={i}>
-                                            <CircleIcon
-                                              filledIn={question.points > 0}
-                                            />
-                                          </span>
-                                        ))}
-                                        {
-                                          questionGroup[1].filter(
-                                            (q) => q.points > 0
-                                          ).length
-                                        }
-                                        /{questionGroup[1].length}
-                                      </div>
-                                    </div>
-                                  )
-                                )}
-                              </div>
+                        <span className="headline" style={{ minWidth: "3rem" }}>
+                          <span className="open-text">+</span>
+                          <span className="close-text">-</span>
+                        </span>
+                        <Bobblehead
+                          candidateName={candidate.candidateName}
+                          size="is-128x128"
+                          customClassNames="py-4 mr-4"
+                        />
+                        <div className="headline has-text-left is-size-3-mobile pr-1">
+                          <span className="is-link">
+                            {candidate.candidateName}
+                          </span>{" "}
+                          <span className="is-hidden-tablet">
+                            <div className="mt-3">
+                              {Math.round(
+                                (candidate.totalScore / totalPossiblePoints) *
+                                  100
+                              )}
+                              % Match
                             </div>
-                          ))}
-
-                        <div className="buttons mt-5 ml-4">
-                          <button className="button">
-                            <InternalLink
-                              to={kebabCase(candidate.candidateName)}
-                              onClick={() =>
-                                track(
-                                  `Visit ${candidate.candidateName}'s page from results`
-                                )
-                              }
-                            >
-                              Learn more about {candidate.candidateName}
-                            </InternalLink>{" "}
-                          </button>
+                          </span>
                         </div>
                       </div>
-                    </details>
-                  </div>
-                );
-              })}
+                      <div className="is-flex is-align-items-center">
+                        <h2 className="headline is-hidden-mobile">
+                          {Math.round(
+                            (candidate.totalScore / totalPossiblePoints) * 100
+                          )}
+                          % Match
+                        </h2>
+                      </div>
+                    </summary>
+                    <div className="details-content">
+                      {resultsSections
+                        .filter(
+                          (resultsSection) => resultsSection.content.length > 0
+                        )
+                        .map((resultsSections, i) => (
+                          <div key={i}>
+                            <div className="copy mt-4 ml-4">
+                              {resultsSections.title}
+                            </div>
+                            <div className="results-scorecard is-flex is-flex-direction-row is-flex-wrap-wrap ml-4">
+                              {resultsSections.content.map(
+                                (questionGroup, i) => (
+                                  <div key={i} className="mr-6">
+                                    <h3
+                                      className={classnames(
+                                        favoriteTopics.includes(
+                                          questionGroup[0]
+                                        ) && "has-text-weight-semibold"
+                                      )}
+                                    >
+                                      {favoriteTopics.includes(
+                                        questionGroup[0]
+                                      ) && "★"}{" "}
+                                      {questionGroup[0]}{" "}
+                                    </h3>
+                                    <div className="copy">
+                                      {questionGroup[1].map((question, i) => (
+                                        <span className="mr-2" key={i}>
+                                          <CircleIcon
+                                            filledIn={question.points > 0}
+                                          />
+                                        </span>
+                                      ))}
+                                      {
+                                        questionGroup[1].filter(
+                                          (q) => q.points > 0
+                                        ).length
+                                      }
+                                      /{questionGroup[1].length}
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        ))}
+
+                      <div className="buttons mt-5 ml-4">
+                        <button className="button">
+                          <InternalLink
+                            to={kebabCase(candidate.candidateName)}
+                            onClick={() =>
+                              track(
+                                `Visit ${candidate.candidateName}'s page from results`
+                              )
+                            }
+                          >
+                            Learn more about {candidate.candidateName}
+                          </InternalLink>{" "}
+                        </button>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
