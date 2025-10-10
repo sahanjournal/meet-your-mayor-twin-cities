@@ -1,7 +1,7 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import classnames from "classnames";
-import { kebabCase, useIsCandidatePage } from "../utils";
+import { kebabCase } from "../utils";
 
 export const Bobblehead: React.FC<{
   candidateName: string;
@@ -18,13 +18,9 @@ export const Bobblehead: React.FC<{
   loadWithBlurEffect,
   startAnimationRightAway,
 }) => {
-  const isCandidatePage = useIsCandidatePage();
-
   const candidatePath = kebabCase(candidateName);
 
-  const imgPathPrefix = `${
-    isCandidatePage ? "../.." : "./.."
-  }/illustrations/${candidatePath}`;
+  const imgPathPrefix = `${process.env.GATSBY_DOMAIN}${process.env.GATSBY_SLUG}/illustrations/${candidatePath}`;
 
   const animationDelay = startAnimationRightAway
     ? "0s"
