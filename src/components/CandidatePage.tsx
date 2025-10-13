@@ -93,6 +93,7 @@ const CandidatePageContent: React.FC<{ pageContext: any }> = ({
   return (
     <PageLayout
       customMetadata={{
+        slug: `${process.env.GATSBY_SLUG}/${city}`,
         shareImageFilename:
           city === "st-paul"
             ? "meet-your-mayor-st-paul.jpg"
